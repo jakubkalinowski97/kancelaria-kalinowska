@@ -7,87 +7,91 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <ServiceLayout 
-  title={title}
-  description={description}
+      title={title}
+      description={description}
   canonicalURL={canonicalURL}
 >
-  <!-- Service Hero -->
-  <section class="service-hero">
-    <div class="container">
-      <div class="service-hero-content">
-        <div class="service-icon-large">
-          <span class="material-icons">security</span>
-        </div>
-        <h1>Prawo Karne i Wykroczeń</h1>
-        <p class="service-hero-description">
+    <!-- Service Hero -->
+    <section class="service-hero">
+      <div class="container">
+        <div class="service-hero-content">
+          <div class="service-icon-large">
+            <span class="material-icons">security</span>
+          </div>
+          <h1>Prawo Karne i Wykroczeń</h1>
+          <p class="service-hero-description">
           Profesjonalna obrona w postępowaniach karnych i wykroczeniowych, reprezentacja pokrzywdzonych, doradztwo w sprawach karnych skarbowych. Doświadczenie w najpoważniejszych sprawach.
-        </p>
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Service Details -->
-  <section class="service-details section">
-    <div class="container">
-      <div class="service-content">
-        <div class="service-main">
-          <h2>Zakres usług</h2>
-          <div class="service-list">
-            <div class="service-item">
+    <!-- Service Details -->
+    <section class="service-details section">
+      <div class="container">
+        <div class="service-content">
+          <div class="service-main">
+            <h2>Zakres usług</h2>
+            <div class="service-list">
+              <div class="service-item">
               <h3>Obrona w sprawach karnych</h3>
               <p>Reprezentacja oskarżonych w postępowaniach karnych, doradztwo prawne, przygotowanie strategii obrony, reprezentacja na wszystkich etapach postępowania.</p>
-            </div>
-            <div class="service-item">
-              <h3>Reprezentacja pokrzywdzonych</h3>
+              </div>
+              <div class="service-item">
+                <h3>Reprezentacja pokrzywdzonych</h3>
               <p>Wsparcie prawne dla pokrzywdzonych, dochodzenie roszczeń odszkodowawczych, reprezentacja w postępowaniach karnych jako pełnomocnik pokrzywdzonego.</p>
-            </div>
-            <div class="service-item">
-              <h3>Prawo karne skarbowe</h3>
+              </div>
+              <div class="service-item">
+                <h3>Prawo karne skarbowe</h3>
               <p>Obrona w sprawach o przestępstwa i wykroczenia skarbowe, doradztwo w zakresie zobowiązań podatkowych, reprezentacja przed organami skarbowymi.</p>
             </div>
             <div class="service-item">
               <h3>Wykroczenia</h3>
               <p>Reprezentacja w sprawach o wykroczenia, doradztwo prawne, negocjacje z organami ścigania, obrona przed sądami grodzkimi.</p>
+              </div>
             </div>
+
+            <h2>Dlaczego warto wybrać nasze usługi?</h2>
+            <ul class="benefits-list">
+            <li>Doświadczenie w najpoważniejszych sprawach karnych</li>
+              <li>Znajomość najnowszego orzecznictwa</li>
+              <li>Skuteczne strategie obrony</li>
+            <li>Kompleksowe przygotowanie spraw</li>
+              <li>Dostępność 24/7 w pilnych sprawach</li>
+            </ul>
           </div>
 
-          <h2>Dlaczego warto wybrać nasze usługi?</h2>
-          <ul class="benefits-list">
-            <li>Doświadczenie w najpoważniejszych sprawach karnych</li>
-            <li>Znajomość najnowszego orzecznictwa</li>
-            <li>Skuteczne strategie obrony</li>
-            <li>Kompleksowe przygotowanie spraw</li>
-            <li>Dostępność 24/7 w pilnych sprawach</li>
-          </ul>
-        </div>
-
-        <div class="service-sidebar">
-          <div class="contact-card">
+          <div class="service-sidebar">
+            <div class="contact-card">
             <h3>Ochrona w sprawach karnych</h3>
             <p>Każda sprawa karna wymaga indywidualnego podejścia i gruntownej analizy prawnej.</p>
-            <div class="contact-info">
-              <div class="contact-item">
-                <span class="material-icons">phone</span>
-                <a href="tel:+48123456789">+48 123 456 789</a>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <span class="material-icons">phone</span>
+                  <a href="tel:+48123456789">+48 123 456 789</a>
+                </div>
+                <div class="contact-item">
+                  <span class="material-icons">email</span>
+                  <a href="mailto:kontakt@kancelaria.pl">kontakt@kancelaria.pl</a>
+                </div>
               </div>
-              <div class="contact-item">
-                <span class="material-icons">email</span>
-                <a href="mailto:kontakt@kancelaria.pl">kontakt@kancelaria.pl</a>
-              </div>
+              <a href="/#kontakt" class="cta-button">Umów konsultację</a>
             </div>
-            <a href="/#kontakt" class="cta-button">Umów konsultację</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 </ServiceLayout>
 
 <style>
   /* Service Hero */
   .service-hero {
-    @apply bg-gradient-to-br from-primary-50 to-white py-32 lg:py-20 text-center;
-    padding-top: 140px;
+    @apply bg-gradient-to-br from-primary-50 to-white text-center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
   }
 
   .service-hero-content {
@@ -207,7 +211,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* Mobile Responsive */
   @media (max-width: 768px) {
     .service-hero {
-      @apply py-24 lg:py-16;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
     }
 
     .service-hero h1 {

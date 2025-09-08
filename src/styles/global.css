@@ -434,14 +434,76 @@
   }
 }
 
+/* View Transitions */
+@layer base {
+  /* Custom view transition animations */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+  }
+
+  ::view-transition-old(root) {
+    animation-name: fade-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: fade-in;
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Smooth transitions for navigation */
+  ::view-transition-old(navigation),
+  ::view-transition-new(navigation) {
+    animation-duration: 0.2s;
+  }
+
+  /* Preserve scroll position during transitions */
+  html {
+    view-transition-name: root;
+  }
+
+  /* Navigation transitions */
+  nav {
+    view-transition-name: navigation;
+  }
+
+  /* Hero section transitions */
+  .hero {
+    view-transition-name: hero;
+  }
+
+  /* Footer transitions */
+  .footer {
+    view-transition-name: footer;
+  }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .nav-links {
+  nav {
     @apply hidden;
   }
 
         .hero {
           @apply min-h-auto;
+          padding-top: 0;
         }
 
   .hero-content {

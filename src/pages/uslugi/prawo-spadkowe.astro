@@ -48,7 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <div class="service-item">
                 <h3>Działy spadku</h3>
               <p>Postępowania o dział spadku, reprezentacja w sporach spadkowych, doradztwo w zakresie podziału majątku spadkowego.</p>
-            </div>
+              </div>
             </div>
 
             <h2>Dlaczego warto wybrać nasze usługi?</h2>
@@ -86,8 +86,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <style>
   /* Service Hero */
   .service-hero {
-    @apply bg-gradient-to-br from-primary-50 to-white py-32 lg:py-20 text-center;
-    padding-top: 140px;
+    @apply bg-gradient-to-br from-primary-50 to-white text-center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
   }
 
   .service-hero-content {
@@ -207,7 +211,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* Mobile Responsive */
   @media (max-width: 768px) {
     .service-hero {
-      @apply py-24 lg:py-16;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
     }
 
     .service-hero h1 {
