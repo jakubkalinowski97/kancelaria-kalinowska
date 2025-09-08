@@ -1,0 +1,235 @@
+---
+import ServiceLayout from '@/layouts/ServiceLayout.astro';
+
+const title = "Prawo Pracy - Kancelaria Prawna Diana Magdalena Kalinowska";
+const description = "Umowy o pracę, rozwiązywanie sporów pracowniczych, mobbing, wypowiedzenia. Reprezentacja zarówno pracowników jak i pracodawców.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<ServiceLayout 
+      title={title}
+      description={description}
+  canonicalURL={canonicalURL}
+>
+    <!-- Service Hero -->
+    <section class="service-hero">
+      <div class="container">
+        <div class="service-hero-content">
+          <div class="service-icon-large">
+            <span class="material-icons">work</span>
+          </div>
+          <h1>Prawo Pracy</h1>
+          <p class="service-hero-description">
+          Umowy o pracę, rozwiązywanie sporów pracowniczych, mobbing, wypowiedzenia. Reprezentacja zarówno pracowników jak i pracodawców.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="service-details section">
+      <div class="container">
+        <div class="service-content">
+          <div class="service-main">
+            <h2>Zakres usług</h2>
+            <div class="service-list">
+            <div class="service-item">
+              <h3>Umowy o pracę</h3>
+              <p>Przygotowanie umów o pracę, umów cywilnoprawnych, regulaminów pracy, doradztwo w zakresie prawa pracy.</p>
+            </div>
+              <div class="service-item">
+                <h3>Spory pracownicze</h3>
+              <p>Rozwiązywanie sporów pracowniczych, reprezentacja przed sądami pracy, negocjacje związkowe, mediacje.</p>
+              </div>
+              <div class="service-item">
+                <h3>Mobbing i dyskryminacja</h3>
+              <p>Reprezentacja w sprawach o mobbing, dyskryminację, molestowanie, dochodzenie odszkodowań za naruszenie praw pracowniczych.</p>
+              </div>
+              <div class="service-item">
+              <h3>Wypowiedzenia</h3>
+              <p>Doradztwo w zakresie wypowiedzeń, reprezentacja w sprawach o bezprawne wypowiedzenie, dochodzenie roszczeń pracowniczych.</p>
+            </div>
+            </div>
+
+            <h2>Dlaczego warto wybrać nasze usługi?</h2>
+            <ul class="benefits-list">
+            <li>Doświadczenie w sprawach pracowniczych</li>
+            <li>Reprezentacja obu stron</li>
+            <li>Znajomość przepisów prawa pracy</li>
+            <li>Skuteczne negocjacje</li>
+            <li>Mediacje pracownicze</li>
+            </ul>
+          </div>
+
+          <div class="service-sidebar">
+            <div class="contact-card">
+            <h3>Ochrona praw pracowniczych</h3>
+            <p>Sprawy pracownicze wymagają znajomości specyfiki prawa pracy.</p>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <span class="material-icons">phone</span>
+                  <a href="tel:+48123456789">+48 123 456 789</a>
+                </div>
+                <div class="contact-item">
+                  <span class="material-icons">email</span>
+                  <a href="mailto:kontakt@kancelaria.pl">kontakt@kancelaria.pl</a>
+                </div>
+              </div>
+              <a href="/#kontakt" class="cta-button">Umów konsultację</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</ServiceLayout>
+
+<style>
+  /* Service Hero */
+  .service-hero {
+    @apply bg-gradient-to-br from-primary-50 to-white py-32 lg:py-20 text-center;
+    padding-top: 140px;
+  }
+
+  .service-hero-content {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .service-icon-large {
+    @apply w-32 h-32 bg-primary-50 border-2 border-primary-100 rounded-3xl flex items-center justify-center mx-auto mb-8 text-primary-600;
+  }
+
+  .service-icon-large .material-icons {
+    @apply text-6xl;
+  }
+
+  .service-hero h1 {
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-gray-900 tracking-tight;
+  }
+
+  .service-hero-description {
+    @apply text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto;
+  }
+
+  /* Service Details */
+  .service-details {
+    @apply bg-white;
+  }
+
+  .service-content {
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-20 items-start;
+  }
+
+  .service-main {
+    @apply lg:col-span-2;
+  }
+
+  .service-main h2 {
+    @apply font-serif text-3xl font-semibold mb-8 text-gray-900;
+  }
+
+  .service-list {
+    @apply grid gap-8 mb-12;
+  }
+
+  .service-item {
+    @apply p-8 bg-gray-50 rounded-2xl border border-gray-100 transition-all duration-200;
+  }
+
+  .service-item:hover {
+    @apply -translate-y-1 shadow-lg border-primary-100;
+  }
+
+  .service-item h3 {
+    @apply font-serif text-xl font-semibold mb-3 text-primary-700;
+  }
+
+  .service-item p {
+    @apply text-gray-600 leading-relaxed;
+  }
+
+  .benefits-list {
+    @apply list-none p-0;
+  }
+
+  .benefits-list li {
+    @apply py-4 pl-10 relative text-lg text-gray-700;
+  }
+
+  .benefits-list li::before {
+    @apply content-['✓'] absolute left-0 top-4 text-primary-600 font-bold text-xl;
+  }
+
+  /* Sidebar */
+  .service-sidebar {
+    @apply lg:col-span-1;
+  }
+
+  .contact-card {
+    @apply bg-white p-10 rounded-2xl shadow-lg border border-gray-100 sticky top-32;
+  }
+
+  .contact-card h3 {
+    @apply font-serif text-2xl font-semibold mb-4 text-gray-900;
+  }
+
+  .contact-card p {
+    @apply text-gray-600 mb-6 leading-relaxed;
+  }
+
+  .contact-info {
+    @apply my-8;
+  }
+
+  .contact-item {
+    @apply flex items-center gap-3 mb-5 py-3;
+  }
+
+  .contact-item .material-icons {
+    @apply text-primary-600 text-xl;
+  }
+
+  .contact-item a {
+    @apply no-underline text-gray-700 font-medium transition-colors duration-200;
+  }
+
+  .contact-item a:hover {
+    @apply text-primary-600;
+  }
+
+  .cta-button {
+    @apply inline-block bg-primary-600 text-white px-8 py-4 rounded-xl no-underline font-semibold transition-all duration-200 w-full text-center shadow-md;
+  }
+
+  .cta-button:hover {
+    @apply bg-primary-700 -translate-y-0.5 shadow-lg;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .service-hero {
+      @apply py-24 lg:py-16;
+    }
+
+    .service-hero h1 {
+      @apply text-3xl;
+    }
+
+    .service-content {
+      @apply grid-cols-1 gap-12;
+    }
+
+    .contact-card {
+      @apply static;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-item {
+      @apply p-6;
+    }
+
+    .contact-card {
+      @apply p-8 lg:p-6;
+    }
+  }
+</style>

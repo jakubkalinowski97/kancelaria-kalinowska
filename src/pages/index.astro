@@ -1,16 +1,59 @@
 ---
+import Layout from '@/layouts/Layout.astro';
+import Navigation from '@/components/common/Navigation.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Services from '@/components/sections/Services.astro';
+import About from '@/components/sections/About.astro';
+import Contact from '@/components/sections/Contact.astro';
+import Footer from '@/components/common/Footer.astro';
+import { legalServiceSchema, generateStructuredData } from '@/utils/structuredData';
 
+const title = "Kancelaria Prawna - Radca Prawny Diana Magdalena Kalinowska";
+const description = "Profesjonalne usługi prawne w Warszawie. Prawo cywilne, karne, rodzinne i gospodarcze. Doświadczony radca prawny Diana Kalinowska - bezpłatna konsultacja.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+      title={title}
+      description={description}
+  canonicalURL={canonicalURL}
+>
+  <Navigation />
+  <Hero />
+    <main>
+    <Services />
+    <About />
+    <Contact />
+  </main>
+  <Footer />
+  
+  <script is:inline set:html={generateStructuredData(legalServiceSchema)}></script>
+  
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.addEventListener("DOMContentLoaded", () => {
+      const animatedElements = document.querySelectorAll(".animate-on-scroll");
+      animatedElements.forEach((el, index) => {
+        // Add staggered delay for service cards scroll animation only
+        if (el.classList.contains("service-card")) {
+          el.style.setProperty("--scroll-delay", `${index * 0.05}s`);
+        }
+        observer.observe(el);
+      });
+    });
+  </script>
+</Layout>

@@ -1,0 +1,84 @@
+---
+// Contact section component
+---
+
+<section id="kontakt" class="section contact">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <h2 class="section-title">Skontaktuj się ze mną</h2>
+      <p class="section-description">
+        Oferuję bezpłatną konsultację wstępną. Skontaktuj się ze mną, aby
+        omówić swoją sprawę i poznać możliwe rozwiązania.
+      </p>
+    </div>
+    <div class="contact-content">
+      <div class="contact-info animate-on-scroll animate-left">
+        <h3>Dane kontaktowe</h3>
+        <div class="contact-details">
+          <div class="contact-item">
+            <h4>Adres kancelarii</h4>
+            <p>[Ulica i numer]<br />[Kod pocztowy] [Miasto]</p>
+          </div>
+          <div class="contact-item">
+            <h4>Telefon</h4>
+            <p><a href="tel:+48123456789">+48 123 456 789</a></p>
+          </div>
+          <div class="contact-item">
+            <h4>Email</h4>
+            <p>
+              <a href="mailto:kontakt@kancelaria.pl"
+                >kontakt@kancelaria.pl</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <h4>Godziny pracy</h4>
+          <p>
+            Poniedziałek - Piątek: 9:00 - 17:00<br />Sobota: na umówienie<br
+            />Niedziela: zamknięte
+          </p>
+        </div>
+      </div>
+      <div class="contact-form animate-on-scroll animate-right">
+        <h3>Napisz do mnie</h3>
+        <p class="contact-form-subtitle">
+          Opisz swoją sprawę, a skontaktuję się z Tobą w ciągu 24 godzin.
+        </p>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Imię i nazwisko</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+            <div class="form-group">
+              <label for="subject">Temat sprawy</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Opis sprawy</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Opisz swoją sprawę prawną..."
+              required></textarea>
+          </div>
+          <button type="submit" class="form-submit"
+            >Wyślij wiadomość</button
+          >
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

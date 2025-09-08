@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://diana-kalinowska-prawnik.pl/sitemap-index.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /.well-known/
+
+# Allow important pages
+Allow: /
+Allow: /uslugi/
+Allow: /o-mnie/
+Allow: /kontakt/

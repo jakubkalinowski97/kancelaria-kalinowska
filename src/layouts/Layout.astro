@@ -1,0 +1,96 @@
+---
+import { SEO } from "astro-seo";
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalURL = new URL(Astro.url.pathname, Astro.site),
+  image = "/hero1.jpg",
+  noindex = false,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonicalURL.toString()}
+      noindex={noindex}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: image,
+          url: canonicalURL.toString(),
+        },
+        optional: {
+          description: description,
+          locale: "pl_PL",
+          siteName: "Kancelaria Prawna Diana Kalinowska",
+        },
+      }}
+      twitter={{
+        creator: "@diana_prawnik",
+        site: "@diana_prawnik",
+        card: "summary_large_image",
+      }}
+      extend={{
+        link: [
+          { rel: "preconnect", href: "https://fonts.googleapis.com" },
+          {
+            rel: "preconnect",
+            href: "https://fonts.gstatic.com",
+            crossorigin: true,
+          },
+          {
+            rel: "stylesheet",
+            href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;500;600;700&display=swap",
+          },
+          {
+            rel: "stylesheet",
+            href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+          },
+        ],
+        meta: [
+          {
+            name: "keywords",
+            content:
+              "radca prawny, prawnik Warszawa, kancelaria prawna, prawo cywilne, prawo karne, prawo rodzinne, prawo gospodarcze, Diana Kalinowska",
+          },
+          { name: "author", content: "Diana Magdalena Kalinowska" },
+          { name: "robots", content: noindex ? "noindex, nofollow" : "index, follow" },
+          { property: "og:locale", content: "pl_PL" },
+          { name: "theme-color", content: "#c4a574" },
+        ],
+      }}
+    />
+    
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <slot name="scripts" />
+    
+    <!-- Fallback styles if Tailwind doesn't load -->
+    <style>
+      body { font-family: system-ui, sans-serif; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    </style>
+  </body>
+</html>
