@@ -70,7 +70,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                   <a href="mailto:kontakt@kancelaria.pl">kontakt@kancelaria.pl</a>
                 </div>
               </div>
-              <a href="/#kontakt" class="cta-button">Umów konsultację</a>
+              <a href="tel:+48123456789" class="cta-button cta-call">Zadzwoń</a>
             </div>
           </div>
         </div>
@@ -221,6 +221,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   .cta-button:hover {
     @apply bg-primary-700 -translate-y-0.5 shadow-lg;
+  }
+
+  .cta-call {
+    @apply bg-primary-600;
+  }
+
+  .cta-call:hover {
+    @apply bg-primary-700;
   }
 
   /* Mobile Responsive */
