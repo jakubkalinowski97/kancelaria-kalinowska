@@ -1,8 +1,8 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
 
-const title = "Prawo Spadkowe - Kancelaria Prawna Diana Magdalena Kalinowska";
-const description = "Sporządzanie testamentów, postępowania spadkowe, działy spadku, zachowek. Profesjonalna pomoc w sprawach związanych z dziedziczeniem i sukcesją.";
+const title = "Błędy Weterynaryjne - Kancelaria Prawna Diana Magdalena Kalinowska";
+const description = "Ochrona prawna dla Twojego zwierzęcia. Reprezentujemy właścicieli zwierząt w sprawach dotyczących błędów weterynaryjnych - od zaniechania leczenia po niewłaściwe leczenie.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -16,11 +16,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <div class="container">
         <div class="service-hero-content">
           <div class="service-icon-large">
-            <span class="material-icons">description</span>
+            <span class="material-icons">medical_services</span>
           </div>
-          <h1>Prawo Spadkowe</h1>
+          <h1>Błędy Weterynaryjne</h1>
           <p class="service-hero-description">
-          Sporządzanie testamentów, postępowania spadkowe, działy spadku, zachowek. Profesjonalna pomoc w sprawach związanych z dziedziczeniem i sukcesją.
+          Ochrona prawna dla Twojego zwierzęcia. Twój zwierzak to pełnoprawny członek rodziny. Nasza kancelaria oferuje profesjonalne wsparcie w sprawach dotyczących błędów weterynaryjnych.
           </p>
         </div>
       </div>
@@ -31,40 +31,56 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <div class="container">
         <div class="service-content">
           <div class="service-main">
-            <h2>Zakres usług</h2>
+            <h2>Jak możemy Ci pomóc?</h2>
             <div class="service-list">
               <div class="service-item">
-              <h3>Testamenty</h3>
-              <p>Sporządzanie testamentów, testamenty notarialne, testamenty holograficzne, doradztwo w zakresie dziedziczenia testamentowego.</p>
+                <h3>Zaniechanie leczenia</h3>
+                <p>Lekarz weterynarii nie podjął leczenia, mimo że było ono konieczne.</p>
               </div>
               <div class="service-item">
-                <h3>Postępowania spadkowe</h3>
-              <p>Reprezentacja w postępowaniach spadkowych, stwierdzenie nabycia spadku, dział spadku, reprezentacja spadkobierców.</p>
+                <h3>Leczenie nieuzasadnione</h3>
+                <p>Zwierzę było poddane leczeniu, które nie było potrzebne.</p>
+              </div>
+              <div class="service-item">
+                <h3>Leczenie niewłaściwe</h3>
+                <p>Leczenie było nieodpowiednie, co pogorszyło stan zdrowia Twojego zwierzęcia.</p>
+              </div>
             </div>
-            <div class="service-item">
-              <h3>Zachowek</h3>
-              <p>Dochodzenie zachowku, obrona przed roszczeniami o zachowek, obliczanie wysokości zachowku, egzekucja zachowku.</p>
+
+            <h2>Nasze działania</h2>
+            <div class="service-list">
+              <div class="service-item">
+                <h3>Postępowanie cywilne</h3>
+                <p>Reprezentujemy Cię w sprawach o odszkodowanie za straty materialne i niematerialne.</p>
               </div>
               <div class="service-item">
-                <h3>Działy spadku</h3>
-              <p>Postępowania o dział spadku, reprezentacja w sporach spadkowych, doradztwo w zakresie podziału majątku spadkowego.</p>
+                <h3>Postępowanie karne</h3>
+                <p>Działamy na rzecz ukarania weterynarza, jeśli jego działanie lub zaniechanie było przestępstwem.</p>
               </div>
+              <div class="service-item">
+                <h3>Postępowanie dyscyplinarne</h3>
+                <p>Reprezentujemy Cię przed organami odpowiedzialności zawodowej lekarzy weterynarii, dążąc do wyciągnięcia konsekwencji dyscyplinarnych wobec sprawcy.</p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <p><strong>Nie pozwól, aby cierpienie Twojego pupila pozostało bez odpowiedzi.</strong> Zadbamy o to, abyś otrzymał sprawiedliwość, a osoba odpowiedzialna poniosła konsekwencje.</p>
             </div>
 
             <h2>Dlaczego warto wybrać nasze usługi?</h2>
             <ul class="benefits-list">
-            <li>Doświadczenie w sprawach spadkowych</li>
-            <li>Znajomość przepisów spadkowych</li>
-            <li>Skuteczne rozwiązywanie sporów</li>
-            <li>Kompleksowe doradztwo</li>
-            <li>Empatyczne podejście</li>
+              <li>Specjalizacja w sprawach weterynaryjnych</li>
+              <li>Doświadczenie w dochodzeniu roszczeń za błędy medyczne</li>
+              <li>Znajomość przepisów prawa weterynaryjnego</li>
+              <li>Empatyczne podejście do spraw zwierząt</li>
+              <li>Kompleksowe wsparcie prawne</li>
             </ul>
           </div>
 
           <div class="service-sidebar">
             <div class="contact-card">
-            <h3>Pomoc w sprawach spadkowych</h3>
-            <p>Sprawy spadkowe wymagają szczególnej wrażliwości i znajomości prawa.</p>
+              <h3>Ochrona praw zwierząt</h3>
+              <p>Sprawy dotyczące błędów weterynaryjnych wymagają szczególnej wrażliwości i znajomości prawa.</p>
               <div class="contact-info">
                 <div class="contact-item">
                   <span class="material-icons">phone</span>
@@ -92,7 +108,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    background-image: url("/prawo-spadkowe.jpg");
+    background-image: url("/prawo-karne.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -169,6 +185,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   .service-item p {
     @apply text-gray-600 leading-relaxed;
+  }
+
+  .highlight-box {
+    @apply bg-primary-50 border-l-4 border-primary-600 p-6 mb-12 rounded-r-xl;
+  }
+
+  .highlight-box p {
+    @apply text-gray-800 leading-relaxed m-0;
   }
 
   .benefits-list {
