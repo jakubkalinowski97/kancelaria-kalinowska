@@ -86,12 +86,32 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <style>
   /* Service Hero */
   .service-hero {
-    @apply bg-gradient-to-br from-primary-50 to-white text-center;
-    min-height: 100vh;
+    @apply text-center relative;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 1rem;
+    padding: 2rem 1rem;
+    background-image: url("/prawo-karne.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .service-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .service-hero-content {
+    position: relative;
+    z-index: 2;
   }
 
   .service-hero-content {
@@ -99,19 +119,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-icon-large {
-    @apply w-32 h-32 bg-primary-50 border-2 border-primary-100 rounded-3xl flex items-center justify-center mx-auto mb-8 text-primary-600;
+    @apply w-20 h-20 bg-transparent border-2 border-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-white;
   }
 
   .service-icon-large .material-icons {
-    @apply text-6xl;
+    @apply text-4xl;
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-gray-900 tracking-tight;
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight;
   }
 
   .service-hero-description {
-    @apply text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto;
+    @apply text-xl text-white leading-relaxed max-w-2xl mx-auto;
   }
 
   /* Service Details */
@@ -211,11 +231,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   /* Mobile Responsive */
   @media (max-width: 768px) {
     .service-hero {
-      min-height: 100vh;
+      min-height: 50vh;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      padding: 0 1rem;
+      padding: 2rem 1rem 1rem 1rem;
     }
 
     .service-hero h1 {
