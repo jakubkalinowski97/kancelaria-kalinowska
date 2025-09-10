@@ -32,4 +32,30 @@ const {
     <slot />
   </main>
   <Footer />
+  
+  <script>
+    // Navigation scroll effect with throttling for smooth performance
+    let ticking = false;
+    
+    function handleNavScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const nav = document.getElementById('main-nav');
+          const scrollY = window.scrollY;
+          
+          if (scrollY > 100) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    // Add scroll event listener with passive option for better performance
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+  </script>
 </Layout>

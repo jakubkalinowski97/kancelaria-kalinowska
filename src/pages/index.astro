@@ -30,6 +30,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <script is:inline set:html={generateStructuredData(legalServiceSchema)}></script>
 
     <script>
+      // Navigation scroll effect with throttling for smooth performance
+      let ticking = false;
+      
+      function handleNavScroll() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const nav = document.getElementById('main-nav');
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+              nav.classList.add('scrolled');
+            } else {
+              nav.classList.remove('scrolled');
+            }
+            
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      // Add scroll event listener with passive option for better performance
+      window.addEventListener('scroll', handleNavScroll, { passive: true });
+
       // Intersection Observer for scroll animations
       const observerOptions = {
         threshold: 0.1,
