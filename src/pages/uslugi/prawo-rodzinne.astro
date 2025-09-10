@@ -15,12 +15,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <section class="service-hero">
       <div class="container">
         <div class="service-hero-content">
-          <div class="service-icon-large">
-            <span class="material-icons">family_restroom</span>
-          </div>
           <h1>Prawo Rodzinne i Opiekuńcze</h1>
           <p class="service-hero-description">
-          Sprawy rodzinne to jedne z najbardziej osobistych i stresujących. Nasza kancelaria oferuje profesjonalne i dyskretne wsparcie prawne, aby pomóc Ci przejść przez trudne chwile. Prowadzimy zarówno postępowania ugodowe, jak i sądowe, dbając o dobro naszych klientów i ich rodzin.
+          Sprawy rodzinne to jedne z najbardziej osobistych i stresujących.
+          Oferujemy profesjonalne i dyskretne wsparcie prawne, aby pomóc Ci
+          przejść przez trudne chwile.
           </p>
         </div>
       </div>
@@ -123,7 +122,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight;
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight pt-8;
   }
 
   .service-hero-description {

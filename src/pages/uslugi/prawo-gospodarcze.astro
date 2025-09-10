@@ -15,12 +15,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <section class="service-hero">
       <div class="container">
         <div class="service-hero-content">
-          <div class="service-icon-large">
-            <span class="material-icons">business</span>
-          </div>
           <h1>Prawo Gospodarcze</h1>
           <p class="service-hero-description">
-          Obsługa prawna dla firm i przedsiębiorców. Nasza kancelaria oferuje kompleksową obsługę prawną dla jednoosobowych działalności gospodarczych oraz spółek prawa handlowego. Zapewniamy pełne doradztwo, które pozwoli Ci prowadzić firmę sprawnie i bezpiecznie.
+          Obsługa prawna dla firm i przedsiębiorców. Oferujemy kompleksową
+          obsługę prawną dla jednoosobowych działalności gospodarczych oraz
+          spółek prawa handlowego.
           </p>
         </div>
       </div>
@@ -143,7 +142,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight;
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight pt-8;
   }
 
   .service-hero-description {

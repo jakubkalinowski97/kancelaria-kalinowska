@@ -15,12 +15,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <section class="service-hero">
       <div class="container">
         <div class="service-hero-content">
-          <div class="service-icon-large">
-            <span class="material-icons">security</span>
-          </div>
           <h1>Prawo Karne i Wykroczeń</h1>
           <p class="service-hero-description">
-          Nasza kancelaria zapewnia profesjonalną pomoc w zakresie prawa karnego, niezależnie od Twojej roli w postępowaniu. Oferujemy pełne zaangażowanie i dyskrecję na każdym jego etapie.
+          Zapewniamy profesjonalną pomoc w zakresie prawa karnego,
+          niezależnie od Twojej roli w postępowaniu. Oferujemy pełne
+          zaangażowanie i dyskrecję na każdym jego etapie.
           </p>
         </div>
       </div>
@@ -139,7 +138,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight;
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight pt-8;
   }
 
   .service-hero-description {

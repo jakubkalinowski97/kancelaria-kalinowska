@@ -15,12 +15,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <section class="service-hero">
       <div class="container">
         <div class="service-hero-content">
-          <div class="service-icon-large">
-            <span class="material-icons">medical_services</span>
-          </div>
           <h1>Błędy Weterynaryjne</h1>
           <p class="service-hero-description">
-          Ochrona prawna dla Twojego zwierzęcia. Twój zwierzak to pełnoprawny członek rodziny. Nasza kancelaria oferuje profesjonalne wsparcie w sprawach dotyczących błędów weterynaryjnych.
+          Ochrona prawna dla Twojego zwierzęcia. Reprezentujemy właścicieli
+          zwierząt w sprawach dotyczących błędów weterynaryjnych - od
+          zaniechania leczenia po niewłaściwe leczenie.
           </p>
         </div>
       </div>
@@ -143,7 +142,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight;
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight pt-8;
   }
 
   .service-hero-description {

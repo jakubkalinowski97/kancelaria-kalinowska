@@ -15,12 +15,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <section class="service-hero">
       <div class="container">
         <div class="service-hero-content">
-          <div class="service-icon-large">
-            <span class="material-icons">pets</span>
-          </div>
           <h1>Ochrona Praw Zwierząt</h1>
           <p class="service-hero-description">
-          W ramach naszej pracy pro bono angażujemy się w działania na rzecz poprawy prawa ochrony zwierząt. Wspieramy inicjatywy, które mają na celu podnoszenie standardów życia, zdrowia i dobrostanu zwierząt. Jesteśmy głosem tych, którzy nie potrafią się bronić.
+          W ramach naszej pracy pro bono angażujemy się w działania na rzecz
+          poprawy prawa ochrony zwierząt. Wspieramy inicjatywy, które mają na
+          celu podnoszenie standardów życia, zdrowia i dobrostanu zwierząt.
           </p>
         </div>
       </div>
@@ -128,7 +127,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight;
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight pt-8;
   }
 
   .service-hero-description {

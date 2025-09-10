@@ -15,12 +15,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <section class="service-hero">
       <div class="container">
         <div class="service-hero-content">
-          <div class="service-icon-large">
-            <span class="material-icons">work</span>
-          </div>
           <h1>Prawo Pracy</h1>
           <p class="service-hero-description">
-          Nasza kancelaria świadczy usługi z zakresu prawa pracy, oferując profesjonalne wsparcie zarówno pracownikom, jak i pracodawcom. Niezależnie od tego, po której stronie sporu stoisz, pomożemy Ci zadbać o Twoje prawa i interesy.
+          Świadczymy usługi z zakresu prawa pracy, oferując profesjonalne
+          wsparcie zarówno pracownikom, jak i pracodawcom. Niezależnie od
+          tego, po której stronie sporu stoisz, pomożemy Ci zadbać o Twoje
+          prawa i interesy.
           </p>
         </div>
       </div>
@@ -45,7 +45,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </div>
               <div class="service-item">
                 <h3>Dla pracodawcy</h3>
-                <p>Nasza kancelaria oferuje kompleksową pomoc w:<br>
+                <p>Oferujemy kompleksową pomoc w:<br>
                 • Tworzeniu dokumentacji – przygotujemy regulaminy pracy i wynagradzania, umowy o pracę, kontrakty menedżerskie<br>
                 • Reprezentacji w sporach sądowych i negocjacjach ze związkami zawodowymi<br>
                 • Organizacji pracy – doradzamy w kwestiach pracy zdalnej, szkoleń oraz zwolnień grupowych</p>
@@ -128,7 +128,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight;
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight pt-8;
   }
 
   .service-hero-description {

@@ -15,12 +15,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <section class="service-hero">
       <div class="container">
         <div class="service-hero-content">
-          <div class="service-icon-large">
-            <span class="material-icons">account_balance_wallet</span>
-          </div>
           <h1>Windykacja Należności</h1>
           <p class="service-hero-description">
-          Nasza kancelaria świadczy usługi prawne dla obu stron w procesie dochodzenia roszczeń: zarówno dla wierzycieli, jak i dla dłużników. Zapewniamy profesjonalne wsparcie na każdym etapie sprawy, od działań polubownych, po postępowanie sądowe i egzekucyjne.
+          Świadczymy usługi prawne dla obu stron w procesie dochodzenia
+          roszczeń: zarówno dla wierzycieli, jak i dla dłużników. Zapewniamy
+          profesjonalne wsparcie na każdym etapie sprawy.
           </p>
         </div>
       </div>
@@ -126,7 +125,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight;
+    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight pt-8;
   }
 
   .service-hero-description {
