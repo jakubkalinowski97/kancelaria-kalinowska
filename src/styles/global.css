@@ -677,7 +677,7 @@
   }
 
   .hero-left {
-    @apply p-12 lg:p-8;
+    @apply p-8 lg:p-8;
   }
 }
 

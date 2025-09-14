@@ -159,11 +159,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-item {
-    @apply p-8 bg-gray-50 rounded-2xl border border-gray-100 transition-all duration-200;
-  }
-
-  .service-item:hover {
-    @apply -translate-y-1 shadow-lg border-primary-100;
+    @apply p-8 bg-gray-50 rounded-2xl border border-gray-100;
   }
 
   .service-item h3 {
@@ -188,11 +184,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   /* Sidebar */
   .service-sidebar {
-    @apply lg:col-span-1;
+    @apply lg:col-span-1 sticky top-24;
   }
 
   .contact-card {
-    @apply bg-white p-10 rounded-2xl shadow-lg border border-gray-100 sticky top-32;
+    @apply bg-white p-10 rounded-2xl shadow-lg border border-gray-100;
   }
 
   .contact-card h3 {
@@ -257,7 +253,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       @apply grid-cols-1 gap-12;
     }
 
-    .contact-card {
+    .service-sidebar {
       @apply static;
     }
   }
