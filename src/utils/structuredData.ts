@@ -3,7 +3,7 @@
 export const legalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "LegalService",
-  "name": "Kancelaria Prawna Diana Magdalena Kalinowska",
+  "name": "Kancelaria Radcy Prawnego Diana Magdalena Kalinowska",
   "description": "Profesjonalne usługi prawne w Warszawie. Prawo cywilne, karne, rodzinne i gospodarcze.",
   "url": "https://diana-kalinowska-prawnik.pl",
   "telephone": "+48123456789",
