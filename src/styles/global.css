@@ -289,7 +289,7 @@
   }
 
   .service-card-zwierzat .service-card-header {
-    @apply bg-gradient-to-br from-primary-100 to-primary-200;
+    background-image: url("/ochrona-praw-zwierzat.jpg");
   }
 
   /* About Section */

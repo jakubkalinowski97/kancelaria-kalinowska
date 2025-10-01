@@ -40,10 +40,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 <h3>Interwencje</h3>
                 <p>W sytuacjach kryzysowych zapewniamy błyskawiczną pomoc prawną, aby jak najszybciej odebrać zwierzę od nieodpowiedzialnego właściciela.</p>
               </div>
-              <div class="service-item">
-                <h3>Spory o zwierzęta</h3>
-                <p>Pomagamy w dochodzeniu odszkodowań od nieuczciwych hodowców.</p>
-              </div>
             </div>
 
 
@@ -74,12 +70,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <style>
   /* Service Hero */
   .service-hero {
-    @apply bg-gradient-to-br from-primary-100 to-primary-200 text-center relative;
+    @apply text-center relative;
     min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
+    background-image: url("/ochrona-praw-zwierzat.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: saturate(0.3);
   }
 
   .service-hero::before {
