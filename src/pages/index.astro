@@ -1,23 +1,105 @@
 ---
-const noop = 0;
+import Layout from '@/layouts/Layout.astro';
+import Navigation from '@/components/common/Navigation.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Services from '@/components/sections/Services.astro';
+import About from '@/components/sections/About.astro';
+import Contact from '@/components/sections/Contact.astro';
+import Footer from '@/components/common/Footer.astro';
+import { legalServiceSchema, generateStructuredData } from '@/utils/structuredData';
+
+const title = "Kancelaria Radcy Prawnego - Radca Prawny Diana Magdalena Kalinowska";
+const description = "Profesjonalne usługi prawne w Warszawie. Prawo cywilne, karne, rodzinne i gospodarcze. Doświadczeni radcy prawni - bezpłatna konsultacja.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<meta charset="utf-8" />
-<title>Strona w budowie</title>
+<Layout 
+      title={title}
+      description={description}
+  canonicalURL={canonicalURL}
+>
+  <Navigation />
+  <Hero />
+    <main>
+    <Services />
+    <About />
+    <Contact />
+    </main>
+  <Footer />
+  
+  <script is:inline set:html={generateStructuredData(legalServiceSchema)}></script>
 
-<main>
-  <div class="box">
-    <h1>Strona w budowie</h1>
-    <p>Zapraszamy wkrótce.</p>
-  </div>
-</main>
+    <script>
+      // Navigation scroll effect with throttling for smooth performance
+      let ticking = false;
+      
+      function handleNavScroll() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const nav = document.getElementById('main-nav');
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+              nav.classList.add('scrolled');
+            } else {
+              nav.classList.remove('scrolled');
+            }
+            
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
 
-<style>
-  :root { color-scheme: light dark; }
-  :global(html), :global(body) { height: 100%; margin: 0; }
-  :global(body) { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.5; }
-  main { min-height: 100svh; display: grid; place-items: center; }
-  .box { text-align: center; padding: 2rem; }
-  h1 { font-size: 2rem; margin: 0 0 0.5rem; }
-  p { margin: 0; opacity: 0.8; }
-</style>
+      // Add scroll event listener with passive option for better performance
+      window.addEventListener('scroll', handleNavScroll, { passive: true });
+
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+    // Initialize animations on page load
+    function initializeAnimations() {
+      const animatedElements = document.querySelectorAll(".animate-on-scroll");
+        animatedElements.forEach((el, index) => {
+          // Add staggered delay for service cards scroll animation only
+          if (el.classList.contains("service-card")) {
+            el.style.setProperty("--scroll-delay", `${index * 0.05}s`);
+          }
+          observer.observe(el);
+        });
+    }
+
+    // Initialize on DOM content loaded
+    document.addEventListener("DOMContentLoaded", initializeAnimations);
+
+    // Re-initialize after view transitions
+    document.addEventListener("astro:page-load", initializeAnimations);
+
+    // Smooth scroll for anchor links
+    document.addEventListener("astro:page-load", () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+        });
+      });
+    </script>
+</Layout>
