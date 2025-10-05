@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://diana-kalinowska-prawnik.pl',
+  site: 'https://kancelariakalinowska.pl',
   integrations: [
     sitemap(),
     tailwind({
