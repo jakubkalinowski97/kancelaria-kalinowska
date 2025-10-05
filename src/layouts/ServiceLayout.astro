@@ -6,7 +6,7 @@ import Footer from '@/components/common/Footer.astro';
 export interface Props {
   title: string;
   description: string;
-  canonicalURL?: string;
+  canonicalURL?: URL;
   image?: string;
   noindex?: boolean;
 }
@@ -23,7 +23,7 @@ const {
 <Layout 
   title={title}
   description={description}
-  canonicalURL={canonicalURL.toString()}
+  canonicalURL={canonicalURL}
   image={image}
   noindex={noindex}
 >

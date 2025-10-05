@@ -6,7 +6,7 @@ import '../styles/global.css';
 export interface Props {
   title: string;
   description: string;
-  canonicalURL?: string;
+  canonicalURL?: URL;
   image?: string;
   noindex?: boolean;
 }
@@ -57,7 +57,7 @@ const {
           {
             rel: "preconnect",
             href: "https://fonts.gstatic.com",
-            crossorigin: true,
+            crossorigin: "anonymous",
           },
           {
             rel: "stylesheet",
