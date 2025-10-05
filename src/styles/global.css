@@ -366,6 +366,15 @@
     background-image: url("/ochrona-praw-zwierzat.jpg");
   }
 
+  .service-card-weterynaryjne .service-card-header {
+    background-image: url("/bledy-weterynaryjne.jpg");
+  }
+
+  /* Lighter overlay for this specific card */
+  .service-card-weterynaryjne .service-card-header::before {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
   /* About Section */
   .about {
     @apply bg-gray-50;
