@@ -508,6 +508,137 @@
     @apply bg-primary-700 -translate-y-0.5 shadow-lg;
   }
 
+  .form-submit:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  /* Toast notifications */
+  .toast-container {
+    @apply fixed top-6 right-6 z-[9999] flex flex-col gap-3 pointer-events-none;
+    max-width: 420px;
+  }
+
+  .toast {
+    @apply bg-white rounded-xl shadow-2xl border pointer-events-auto overflow-hidden;
+    animation: toastSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    min-width: 320px;
+  }
+
+  .toast.toast-hiding {
+    animation: toastSlideOut 0.3s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+  }
+
+  .toast-success {
+    @apply border-green-200;
+  }
+
+  .toast-success .toast-icon {
+    @apply bg-green-100 text-green-700;
+  }
+
+  .toast-success .toast-progress {
+    @apply bg-green-500;
+  }
+
+  .toast-error {
+    @apply border-red-200;
+  }
+
+  .toast-error .toast-icon {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .toast-error .toast-progress {
+    @apply bg-red-500;
+  }
+
+  .toast-content {
+    @apply flex items-start gap-4 p-4;
+  }
+
+  .toast-icon {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-lg;
+  }
+
+  .toast-text {
+    @apply flex-1 pt-1;
+  }
+
+  .toast-title {
+    @apply font-semibold text-gray-900 text-base mb-1;
+  }
+
+  .toast-message {
+    @apply text-gray-600 text-sm leading-relaxed;
+  }
+
+  .toast-close {
+    @apply w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 transition-colors duration-200 cursor-pointer flex-shrink-0 hover:bg-gray-100 hover:text-gray-600;
+  }
+
+  .toast-progress-bar {
+    @apply h-1 w-full relative overflow-hidden;
+  }
+
+  .toast-progress {
+    @apply h-full absolute left-0 top-0;
+    animation: toastProgress 5s linear forwards;
+  }
+
+  @keyframes toastSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+
+  @keyframes toastSlideOut {
+    from {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%) scale(0.95);
+    }
+  }
+
+  @keyframes toastProgress {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+
+  /* Form privacy note */
+  .form-privacy-note {
+    @apply text-sm text-gray-600 leading-relaxed m-0;
+  }
+
+  .form-privacy-note a {
+    @apply text-blue-800 underline transition-colors duration-200;
+  }
+
+  .form-privacy-note a:hover {
+    @apply text-blue-900;
+  }
+
+  /* Button spinner */
+  .btn-spinner {
+    @apply inline-block;
+  }
+
+  /* Cloudflare Turnstile widget */
+  .cf-turnstile {
+    @apply my-2.5;
+  }
+
   /* Footer */
   .footer {
     @apply bg-gray-900 text-white pt-16 mt-20;
@@ -837,6 +968,16 @@
 
   .footer-legal {
     @apply gap-4;
+  }
+
+  /* Toast responsiveness */
+  .toast-container {
+    @apply top-4 right-4 left-4;
+    max-width: none;
+  }
+
+  .toast {
+    @apply min-w-0;
   }
 }
 

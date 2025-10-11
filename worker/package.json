@@ -1,0 +1,19 @@
+{
+  "name": "lawyer-contact-api",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for contact form with Resend",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "keywords": ["cloudflare", "worker", "resend", "contact-form"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241011.0",
+    "wrangler": "^3.80.0"
+  }
+}
+
