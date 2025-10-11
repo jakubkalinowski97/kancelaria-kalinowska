@@ -12,7 +12,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   canonicalURL={canonicalURL}
 >
     <!-- Service Hero -->
-    <section class="service-hero">
+    <section class="service-hero" aria-label="Tło przedstawiające błędy weterynaryjne - ochrona prawna dla zwierząt">
       <div class="container">
         <div class="service-hero-content">
           <h1>Błędy Weterynaryjne</h1>
@@ -74,11 +74,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <p>Sprawy dotyczące błędów weterynaryjnych wymagają szczególnej wrażliwości i znajomości prawa.</p>
               <div class="contact-info">
                 <div class="contact-item">
-                  <span class="material-icons">phone</span>
+                  <span class="material-icons" aria-hidden="true">phone</span>
                   <a href="tel:+48503606738">+48 503 606 738</a>
                 </div>
                 <div class="contact-item">
-                  <span class="material-icons">email</span>
+                  <span class="material-icons" aria-hidden="true">email</span>
                   <a href="mailto:kontakt@kancelariakalinowska.pl">kontakt@kancelariakalinowska.pl</a>
                 </div>
               </div>
