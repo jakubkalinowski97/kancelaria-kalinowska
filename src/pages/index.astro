@@ -26,8 +26,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <Contact />
     </main>
   <Footer />
-  
-  <script is:inline set:html={generateStructuredData(legalServiceSchema)}></script>
+
+  <Fragment set:html={generateStructuredData(legalServiceSchema)} />
 
     <script>
       // Navigation scroll effect with throttling for smooth performance

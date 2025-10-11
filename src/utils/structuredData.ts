@@ -44,5 +44,5 @@ export const legalServiceSchema = {
 };
 
 export function generateStructuredData(schema: any) {
-  return JSON.stringify(schema);
+  return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
 }

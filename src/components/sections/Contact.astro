@@ -122,14 +122,14 @@ const API_ENDPOINT = IS_DEV
               rows="6"></textarea>
           </div>
           
-          <!-- Cloudflare Turnstile (invisible) -->
-          <div class="form-group" style="height: 0; overflow: hidden;">
-            <div 
+          <!-- Cloudflare Turnstile -->
+          <div class="form-group">
+            <div
               id="turnstile-widget"
-              class="cf-turnstile" 
-              data-sitekey={TURNSTILE_SITE_KEY} 
+              class="cf-turnstile"
+              data-sitekey={TURNSTILE_SITE_KEY}
               data-theme="light"
-              data-size="invisible"
+              data-size="compact"
             ></div>
           </div>
           

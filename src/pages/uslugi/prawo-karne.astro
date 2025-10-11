@@ -126,7 +126,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   .service-hero h1 {
-    @apply font-serif text-4xl lg:text-5xl font-semibold mb-6 text-white tracking-tight pt-8;
+    @apply font-serif font-semibold mb-6 text-white tracking-tight pt-8;
+    font-size: 2.25rem; /* 36px - explicit for deprecation warning */
+  }
+
+  @media (min-width: 1024px) {
+    .service-hero h1 {
+      font-size: 3rem; /* 48px */
+    }
   }
 
   .service-hero-description {
@@ -242,7 +249,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
 
     .service-hero h1 {
-      @apply text-3xl;
+      font-size: 1.875rem; /* 30px - explicit for mobile */
     }
 
     .service-content {

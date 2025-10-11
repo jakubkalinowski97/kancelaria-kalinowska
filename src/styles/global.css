@@ -205,15 +205,24 @@
   }
 
   .hero-text h1 {
-    @apply font-serif text-4xl lg:text-5xl font-normal mb-20 tracking-wide leading-tight text-white drop-shadow-lg;
+    @apply font-serif font-normal mb-20 tracking-wide leading-tight text-white drop-shadow-lg;
+    font-size: 2.25rem; /* 36px - explicit for deprecation warning */
+  }
+
+  @media (min-width: 1024px) {
+    .hero-text h1 {
+      font-size: 3rem; /* 48px */
+    }
   }
 
   .hero-text h1 .title-profession {
-    @apply font-light text-3xl text-primary-100 block mb-2 tracking-widest uppercase;
+    @apply font-light text-primary-100 block mb-2 tracking-widest uppercase;
+    font-size: 1.875rem; /* 30px - explicit */
   }
 
   .hero-text h1 .title-name {
-    @apply font-semibold bg-gradient-to-br from-white to-primary-100 bg-clip-text text-transparent block text-5xl;
+    @apply font-semibold bg-gradient-to-br from-white to-primary-100 bg-clip-text text-transparent block;
+    font-size: 3rem; /* 48px - explicit */
   }
 
   .hero-text p {
@@ -304,9 +313,23 @@
   .service-card-header {
     @apply relative flex items-center justify-center text-center px-4 py-6;
     min-height: 200px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  /* Background image element */
+  .service-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  /* Desaturate gospodarce image */
+  .service-card-gospodarcze .service-card-bg {
+    filter: saturate(0.3);
   }
 
   .service-card-header::before {
@@ -332,45 +355,7 @@
     @apply text-gray-600 leading-relaxed;
   }
 
-  /* Specific background images for each service */
-  .service-card-windykacja .service-card-header {
-    background-image: url("/windykacje.webp");
-  }
-
-  .service-card-cywilne .service-card-header {
-    background-image: url("/prawo-cywilne.webp");
-  }
-
-  .service-card-karne .service-card-header {
-    background-image: url("/prawo-karne.webp");
-  }
-
-  .service-card-rodzinne .service-card-header {
-    background-image: url("/prawo-rodzinne.webp");
-  }
-
-  .service-card-spadkowe .service-card-header {
-    background-image: url("/prawo-spadkowe.webp");
-  }
-
-  .service-card-gospodarcze .service-card-header {
-    background-image: url("/prawo-gospodarcze.webp");
-    filter: saturate(0.3);
-  }
-
-  .service-card-pracy .service-card-header {
-    background-image: url("/prawo-pracy.webp");
-  }
-
-  .service-card-zwierzat .service-card-header {
-    background-image: url("/ochrona-praw-zwierzat.webp");
-  }
-
-  .service-card-weterynaryjne .service-card-header {
-    background-image: url("/bledy-weterynaryjne.webp");
-  }
-
-  /* Lighter overlay for this specific card */
+  /* Lighter overlay for weterynaryjne card */
   .service-card-weterynaryjne .service-card-header::before {
     background: rgba(0, 0, 0, 0.2);
   }
