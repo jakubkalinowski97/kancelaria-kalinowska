@@ -6,10 +6,16 @@
   <div class="container">
     <div class="about-content">
       <div class="about-image animate-on-scroll animate-left">
-        <img
-          src="/hero1.webp"
-          alt="Diana Magdalena Kalinowska - Radca Prawny"
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcset="/hero1-mobile.webp" width="600" height="401">
+          <img
+            src="/hero1.webp"
+            alt="Diana Magdalena Kalinowska - Radca Prawny"
+            loading="lazy"
+            width="1920"
+            height="1280"
+          />
+        </picture>
       </div>
       <div class="about-text animate-on-scroll animate-right">
         <h3>O Nas</h3>

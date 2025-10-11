@@ -160,20 +160,28 @@
   }
 
   .hero-left {
-    @apply bg-cover bg-center relative flex items-center justify-center p-12 lg:p-12;
-    background-image: url("/hero.webp");
+    @apply relative flex items-center justify-center p-12 lg:p-12;
   }
 
-  .hero-left::after {
-    content: '';
+  /* Hero background images as img tags for better LCP */
+  .hero-bg-image,
+  .hero-bg-image-alt {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("/hero1.webp");
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-bg,
+  .hero-bg-alt {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-bg-alt {
     opacity: 0;
     z-index: 1;
     transition: opacity 1.5s ease-in-out;
@@ -832,8 +840,8 @@
   .hero-right {
     @apply hidden;
   }
-  
-  .hero-left::after {
+
+  .hero-bg-alt {
     animation: heroImageFade 8s ease-in-out infinite;
   }
 }
