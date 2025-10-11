@@ -42,6 +42,25 @@ export default {
       return jsonResponse({ ok: false, error: 'Method not allowed' }, 405, env.ALLOWED_ORIGIN);
     }
 
+    // Weryfikacja Origin header (ochrona przed requestami spoza strony)
+    const origin = request.headers.get('Origin');
+    const referer = request.headers.get('Referer');
+    const skipOriginCheck = env.SKIP_TURNSTILE === 'true'; // Pomiń w dev
+    
+    if (!skipOriginCheck) {
+      const isValidOrigin = origin === env.ALLOWED_ORIGIN || 
+                           (referer && referer.startsWith(env.ALLOWED_ORIGIN));
+      
+      if (!isValidOrigin) {
+        console.log('❌ Invalid origin:', { origin, referer, allowed: env.ALLOWED_ORIGIN });
+        return jsonResponse(
+          { ok: false, error: 'Forbidden: Invalid origin' },
+          403,
+          env.ALLOWED_ORIGIN
+        );
+      }
+    }
+
     // Sprawdź rate limit
     const clientIP = request.headers.get('CF-Connecting-IP') || 'unknown';
     if (!checkRateLimit(clientIP)) {
@@ -72,10 +91,29 @@ export default {
         );
       }
 
-      // Weryfikacja Turnstile (jeśli włączone)
+      // Weryfikacja Turnstile (WYMAGANA w produkcji)
       const skipTurnstile = env.SKIP_TURNSTILE === 'true';
       
-      if (!skipTurnstile && env.TURNSTILE_SECRET_KEY && data['cf-turnstile-response']) {
+      if (!skipTurnstile) {
+        // W produkcji Turnstile jest WYMAGANY
+        if (!data['cf-turnstile-response']) {
+          console.log('❌ Missing Turnstile token');
+          return jsonResponse(
+            { ok: false, error: 'Security verification required' },
+            422,
+            env.ALLOWED_ORIGIN
+          );
+        }
+
+        if (!env.TURNSTILE_SECRET_KEY) {
+          console.error('❌ TURNSTILE_SECRET_KEY not configured');
+          return jsonResponse(
+            { ok: false, error: 'Server configuration error' },
+            500,
+            env.ALLOWED_ORIGIN
+          );
+        }
+        
         console.log('Verifying Turnstile...', {
           secretKeyLength: env.TURNSTILE_SECRET_KEY.length,
           responseLength: data['cf-turnstile-response'].length,
@@ -92,12 +130,12 @@ export default {
         
         if (!turnstileValid) {
           return jsonResponse(
-            { ok: false, error: 'Captcha verification failed. Please try again.' },
+            { ok: false, error: 'Security verification failed. Please refresh the page and try again.' },
             422,
             env.ALLOWED_ORIGIN
           );
         }
-      } else if (skipTurnstile) {
+      } else {
         console.log('⚠️  Turnstile verification SKIPPED (development mode)');
       }
 

@@ -161,7 +161,7 @@
 
   .hero-left {
     @apply bg-cover bg-center relative flex items-center justify-center p-12 lg:p-12;
-    background-image: url("/hero.jpg");
+    background-image: url("/hero.webp");
   }
 
   .hero-left::after {
@@ -171,7 +171,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("/hero1.jpg");
+    background-image: url("/hero1.webp");
     background-size: cover;
     background-position: center;
     opacity: 0;
@@ -222,7 +222,7 @@
 
   .hero-right {
     @apply bg-cover bg-center relative flex items-center justify-center grayscale;
-    background-image: url("/hero1.jpg");
+    background-image: url("/hero1.webp");
   }
 
   .hero-buttons {
@@ -334,40 +334,40 @@
 
   /* Specific background images for each service */
   .service-card-windykacja .service-card-header {
-    background-image: url("/windykacje.jpg");
+    background-image: url("/windykacje.webp");
   }
 
   .service-card-cywilne .service-card-header {
-    background-image: url("/prawo-cywilne.jpg");
+    background-image: url("/prawo-cywilne.webp");
   }
 
   .service-card-karne .service-card-header {
-    background-image: url("/prawo-karne.jpg");
+    background-image: url("/prawo-karne.webp");
   }
 
   .service-card-rodzinne .service-card-header {
-    background-image: url("/prawo-rodzinne.jpg");
+    background-image: url("/prawo-rodzinne.webp");
   }
 
   .service-card-spadkowe .service-card-header {
-    background-image: url("/prawo-spadkowe.jpg");
+    background-image: url("/prawo-spadkowe.webp");
   }
 
   .service-card-gospodarcze .service-card-header {
-    background-image: url("/prawo-gospodarcze.jpg");
+    background-image: url("/prawo-gospodarcze.webp");
     filter: saturate(0.3);
   }
 
   .service-card-pracy .service-card-header {
-    background-image: url("/prawo-pracy.jpg");
+    background-image: url("/prawo-pracy.webp");
   }
 
   .service-card-zwierzat .service-card-header {
-    background-image: url("/ochrona-praw-zwierzat.jpg");
+    background-image: url("/ochrona-praw-zwierzat.webp");
   }
 
   .service-card-weterynaryjne .service-card-header {
-    background-image: url("/bledy-weterynaryjne.jpg");
+    background-image: url("/bledy-weterynaryjne.webp");
   }
 
   /* Lighter overlay for this specific card */

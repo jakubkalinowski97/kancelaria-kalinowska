@@ -39,7 +39,7 @@ export const legalServiceSchema = {
     "@type": "Person",
     "name": "Diana Magdalena Kalinowska",
     "jobTitle": "Radca Prawny",
-    "image": "/hero1.jpg"
+    "image": "/hero1.webp"
   }
 };
 

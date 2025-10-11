@@ -1,5 +1,4 @@
 ---
-// Automatyczne przełączanie między dev i production
 const IS_DEV = import.meta.env.DEV;
 
 // Cloudflare Turnstile - testowy klucz dla localhost
@@ -123,13 +122,14 @@ const API_ENDPOINT = IS_DEV
               rows="6"></textarea>
           </div>
           
-          <!-- Cloudflare Turnstile -->
-          <div class="form-group">
+          <!-- Cloudflare Turnstile (invisible) -->
+          <div class="form-group" style="height: 0; overflow: hidden;">
             <div 
               id="turnstile-widget"
               class="cf-turnstile" 
               data-sitekey={TURNSTILE_SITE_KEY} 
               data-theme="light"
+              data-size="invisible"
             ></div>
           </div>
           
