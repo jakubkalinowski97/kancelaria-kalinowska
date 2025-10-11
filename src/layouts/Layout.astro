@@ -15,7 +15,7 @@ const {
   title,
   description,
   canonicalURL = new URL(Astro.url.pathname, Astro.site),
-  image = "/hero1.webp",
+  image = new URL("/hero1.webp", Astro.site).toString(),
   noindex = false,
 } = Astro.props;
 ---
@@ -53,6 +53,7 @@ const {
       }}
       extend={{
         link: [
+          { rel: "alternate", hreflang: "pl-PL", href: canonicalURL.toString() },
           { rel: "preconnect", href: "https://fonts.googleapis.com" },
           {
             rel: "preconnect",
@@ -86,12 +87,13 @@ const {
           {
             name: "keywords",
             content:
-              "radca prawny, prawnik Warszawa, kancelaria prawna, prawo cywilne, prawo karne, prawo rodzinne, prawo gospodarcze, Diana Kalinowska",
+              "radca prawny Białystok, prawnik Białystok, kancelaria prawna Białystok, prawo cywilne, prawo karne, prawo rodzinne, prawo gospodarcze, prawo pracy, windykacja, Diana Kalinowska",
           },
           { name: "author", content: "Diana Magdalena Kalinowska" },
-          { name: "robots", content: noindex ? "noindex, nofollow" : "index, follow" },
-          { property: "og:locale", content: "pl_PL" },
+          // robots handled by SEO component; avoid duplicate
+          // og:locale already set via SEO openGraph options
           { name: "theme-color", content: "#c4a574" },
+          { property: "og:image:alt", content: "Kancelaria Radcy Prawnego Diana Magdalena Kalinowska w Białymstoku" },
         ],
       }}
     />

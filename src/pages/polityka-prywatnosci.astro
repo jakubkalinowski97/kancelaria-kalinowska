@@ -1,0 +1,60 @@
+---
+import ServiceLayout from '@/layouts/ServiceLayout.astro';
+
+const title = "Polityka prywatności - Kancelaria Radcy Prawnego Diana Magdalena Kalinowska";
+const description = "Polityka prywatności i informacje o przetwarzaniu danych osobowych w Kancelarii Radcy Prawnego Diana Magdalena Kalinowska.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<ServiceLayout title={title} description={description} canonicalURL={canonicalURL}>
+  <section class="section">
+    <div class="container">
+      <h1>Polityka prywatności</h1>
+      <p>
+        Niniejszy dokument określa zasady przetwarzania danych osobowych oraz wykorzystania plików cookies w serwisie kancelariakalinowska.pl.
+      </p>
+      <h2>Administrator danych</h2>
+      <p>
+        Administratorem danych osobowych jest Kancelaria Radcy Prawnego Diana Magdalena Kalinowska, ul. Złota 2 lok. 19, 15-016 Białystok.
+      </p>
+      <h2>Kontakt</h2>
+      <p>E-mail: kontakt@kancelariakalinowska.pl, Telefon: +48 503 606 738</p>
+      <h2>Zakres i cele przetwarzania</h2>
+      <p>
+        Dane przetwarzamy w celu udzielenia odpowiedzi na zapytania, świadczenia usług prawnych oraz realizacji obowiązków prawnych.
+      </p>
+      <h2>Podstawy prawne</h2>
+      <p>
+        Art. 6 ust. 1 lit. a, b, c i f RODO.
+      </p>
+      <h2>Prawa osób, których dane dotyczą</h2>
+      <p>
+        Przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia oraz sprzeciwu.
+      </p>
+      <h2>Okres przechowywania</h2>
+      <p>Dane przechowujemy przez okres niezbędny do realizacji celów oraz wymogów prawnych.</p>
+      <h2>Odbiorcy danych</h2>
+      <p>
+        Dane mogą być przekazywane podmiotom wspierającym nas w obsłudze serwisu i świadczeniu usług (m.in. dostawcy hostingu, poczty, rozwiązań bezpieczeństwa).
+      </p>
+      <h2>Cookies</h2>
+      <p>
+        Serwis wykorzystuje pliki cookies w celu zapewnienia prawidłowego działania i poprawy jakości usług. Możesz zarządzać cookies w ustawieniach przeglądarki.
+      </p>
+    </div>
+  </section>
+</ServiceLayout>
+
+<style>
+  .section h1 {
+    @apply font-serif text-3xl font-semibold mb-6;
+  }
+  .section h2 {
+    @apply font-serif text-2xl font-semibold mt-10 mb-4;
+  }
+  .section p {
+    @apply text-gray-700 leading-relaxed;
+  }
+</style>
+
+
