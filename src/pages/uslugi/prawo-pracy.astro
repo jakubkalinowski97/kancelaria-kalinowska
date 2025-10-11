@@ -65,6 +65,24 @@ const serviceSchema = generateServiceSchema({
               </div>
             </div>
 
+            <div class="related-services-grid">
+              <h3>Zobacz także</h3>
+              <div class="related-grid">
+                <a href="/uslugi/prawo-cywilne" class="related-card">
+                  <h4>Prawo Cywilne</h4>
+                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                </a>
+                <a href="/uslugi/prawo-gospodarcze" class="related-card">
+                  <h4>Prawo Gospodarcze</h4>
+                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                </a>
+                <a href="/uslugi/prawo-karne" class="related-card">
+                  <h4>Prawo Karne</h4>
+                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+
           </div>
 
           <div class="service-sidebar">
@@ -243,6 +261,46 @@ const serviceSchema = generateServiceSchema({
 
   .cta-call:hover {
     @apply bg-primary-700;
+  }
+
+  /* Related Services Grid Section */
+  .related-services-grid {
+    @apply mt-16 mb-12;
+  }
+
+  .related-services-grid h3 {
+    @apply font-serif text-xl font-semibold mb-6 text-gray-900;
+  }
+
+  .related-grid {
+    @apply grid grid-cols-3 gap-4;
+  }
+
+  .related-card {
+    @apply flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 no-underline transition-all duration-200 hover:bg-white hover:border-primary-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .related-card h4 {
+    @apply font-serif text-base font-medium text-gray-900 m-0;
+  }
+
+  .related-card .material-icons {
+    @apply text-primary-600 text-lg flex-shrink-0;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .related-grid {
+      @apply grid-cols-1 gap-3;
+    }
+    
+    .related-card {
+      @apply p-3;
+    }
+    
+    .related-card h4 {
+      @apply text-sm;
+    }
   }
 
   /* Mobile Responsive */
