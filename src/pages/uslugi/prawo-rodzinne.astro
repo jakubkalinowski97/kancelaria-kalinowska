@@ -1,9 +1,23 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
 
-const title = "Prawo Rodzinne i Opiekuńcze - Kancelaria Radcy Prawnego Diana Magdalena Kalinowska";
-const description = "Rozwody, alimenty, władza rodzicielska, adopcje, sprawy opiekuńcze. Profesjonalna pomoc w trudnych sprawach rodzinnych z zachowaniem dyskrecji i empatii.";
+const title = "Prawo Rodzinne Białystok – Rozwody, Alimenty | Radca Prawny";
+const description = "Sprawy rodzinne w Białymstoku: rozwody, alimenty, władza rodzicielska, kontakty z dzieckiem. Dyskretne wsparcie prawne. Zadzwoń: +48 503 606 738.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const breadcrumbs = generateBreadcrumbSchema([
+  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
+  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
+  { name: "Prawo rodzinne", url: canonicalURL.toString() }
+]);
+
+const serviceSchema = generateServiceSchema({
+  serviceType: "Prawo rodzinne",
+  name: "Prawo Rodzinne Białystok",
+  description: "Rozwody, alimenty, władza rodzicielska, adopcje, sprawy opiekuńcze. Profesjonalna pomoc w trudnych sprawach rodzinnych z zachowaniem dyskrecji i empatii.",
+  url: canonicalURL.toString()
+});
 ---
 
 <ServiceLayout 
@@ -259,3 +273,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   }
 </style>
+
+<Fragment set:html={generateStructuredData(breadcrumbs)} />
+<Fragment set:html={generateStructuredData(serviceSchema)} />

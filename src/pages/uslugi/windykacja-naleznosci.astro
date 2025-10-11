@@ -1,9 +1,23 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
 
-const title = "Windykacja Należności - Kancelaria Radcy Prawnego Diana Magdalena Kalinowska";
-const description = "Skuteczne odzyskiwanie należności, postępowania egzekucyjne, negocjacje z dłużnikami. Kompleksowa obsługa windykacji dla firm i osób prywatnych.";
+const title = "Windykacja Należności Białystok – Skuteczne Odzyskiwanie | Radca Prawny";
+const description = "Windykacja należności w Białymstoku dla firm i osób prywatnych. Reprezentacja wierzycieli i dłużników. Egzekucja komornicza. Kontakt: +48 503 606 738.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const breadcrumbs = generateBreadcrumbSchema([
+  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
+  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
+  { name: "Windykacja należności", url: canonicalURL.toString() }
+]);
+
+const serviceSchema = generateServiceSchema({
+  serviceType: "Windykacja należności",
+  name: "Windykacja Należności Białystok",
+  description: "Skuteczne odzyskiwanie należności, postępowania egzekucyjne, negocjacje z dłużnikami. Kompleksowa obsługa windykacji dla firm i osób prywatnych.",
+  url: canonicalURL.toString()
+});
 ---
 
 <ServiceLayout 
@@ -264,3 +278,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   }
 </style>
+
+<Fragment set:html={generateStructuredData(breadcrumbs)} />
+<Fragment set:html={generateStructuredData(serviceSchema)} />

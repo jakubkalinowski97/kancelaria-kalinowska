@@ -1,9 +1,23 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
 
-const title = "Błędy Weterynaryjne - Kancelaria Radcy Prawnego Diana Magdalena Kalinowska";
-const description = "Ochrona prawna dla Twojego zwierzęcia. Reprezentujemy właścicieli zwierząt w sprawach błędów weterynaryjnych dotyczących zaniechania leczenia, niewłaściwego lub nieuzasadnionego leczenienia.";
+const title = "Błędy Weterynaryjne Białystok – Ochrona Prawna Zwierząt | Radca Prawny";
+const description = "Reprezentacja właścicieli zwierząt w sprawach błędów weterynaryjnych w Białymstoku. Zaniechanie, błędne leczenie, szkody. Tel: +48 503 606 738.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const breadcrumbs = generateBreadcrumbSchema([
+  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
+  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
+  { name: "Błędy weterynaryjne", url: canonicalURL.toString() }
+]);
+
+const serviceSchema = generateServiceSchema({
+  serviceType: "Błędy weterynaryjne",
+  name: "Błędy Weterynaryjne Białystok",
+  description: "Ochrona prawna dla Twojego zwierzęcia. Reprezentujemy właścicieli zwierząt w sprawach błędów weterynaryjnych dotyczących zaniechania leczenia, niewłaściwego lub nieuzasadnionego leczenienia.",
+  url: canonicalURL.toString()
+});
 ---
 
 <ServiceLayout 
@@ -287,3 +301,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   }
 </style>
+
+<Fragment set:html={generateStructuredData(breadcrumbs)} />
+<Fragment set:html={generateStructuredData(serviceSchema)} />

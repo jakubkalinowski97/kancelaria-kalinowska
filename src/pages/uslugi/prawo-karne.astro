@@ -1,9 +1,23 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
 
-const title = "Prawo Karne i Wykroczeń - Kancelaria Prawna Diana Magdalena Kalinowska";
-const description = "Profesjonalna obrona w postępowaniach karnych i wykroczeniowych, reprezentacja pokrzywdzonych, doradztwo w sprawach karnych skarbowych. Doświadczenie w najpoważniejszych sprawach.";
+const title = "Prawo Karne Białystok – Obrona w Sądzie | Radca Prawny Diana Kalinowska";
+const description = "Profesjonalna obrona w sprawach karnych i o wykroczenia w Białymstoku. Reprezentacja oskarżonych i pokrzywdzonych. Pełna dyskrecja. Tel: +48 503 606 738.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const breadcrumbs = generateBreadcrumbSchema([
+  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
+  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
+  { name: "Prawo karne", url: canonicalURL.toString() }
+]);
+
+const serviceSchema = generateServiceSchema({
+  serviceType: "Prawo karne",
+  name: "Prawo Karne Białystok",
+  description: "Obrona w postępowaniach karnych i wykroczeniowych, reprezentacja pokrzywdzonych, sprawy karne skarbowe. Doświadczenie w najpoważniejszych sprawach.",
+  url: canonicalURL.toString()
+});
 ---
 
 <ServiceLayout 
@@ -271,3 +285,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   }
 </style>
+
+<Fragment set:html={generateStructuredData(breadcrumbs)} />
+<Fragment set:html={generateStructuredData(serviceSchema)} />

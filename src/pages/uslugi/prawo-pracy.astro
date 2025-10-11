@@ -1,9 +1,23 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
 
-const title = "Prawo Pracy - Kancelaria Radcy Prawnego Diana Magdalena Kalinowska";
-const description = "Umowy o pracę, rozwiązywanie sporów pracowniczych, mobbing, wypowiedzenia. Reprezentacja zarówno pracowników jak i pracodawców.";
+const title = "Prawo Pracy Białystok – Reprezentacja Pracowników i Pracodawców";
+const description = "Prawo pracy w Białymstoku: umowy o pracę, spory pracownicze, mobbing, wypowiedzenia. Reprezentacja pracowników i pracodawców. Tel: +48 503 606 738.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const breadcrumbs = generateBreadcrumbSchema([
+  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
+  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
+  { name: "Prawo pracy", url: canonicalURL.toString() }
+]);
+
+const serviceSchema = generateServiceSchema({
+  serviceType: "Prawo pracy",
+  name: "Prawo Pracy Białystok",
+  description: "Umowy o pracę, rozwiązywanie sporów pracowniczych, mobbing, wypowiedzenia. Reprezentacja zarówno pracowników jak i pracodawców.",
+  url: canonicalURL.toString()
+});
 ---
 
 <ServiceLayout 
@@ -264,3 +278,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   }
 </style>
+
+<Fragment set:html={generateStructuredData(breadcrumbs)} />
+<Fragment set:html={generateStructuredData(serviceSchema)} />

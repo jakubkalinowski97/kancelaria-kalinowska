@@ -1,9 +1,23 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
 
-const title = "Prawo Cywilne - Kancelaria Prawna Diana Magdalena Kalinowska";
-const description = "Reprezentacja w sporach cywilnych, umowy, odszkodowania, prawo nieruchomości. Kompleksowa obsługa prawna w zakresie prawa cywilnego z naciskiem na skuteczne rozwiązywanie sporów.";
+const title = "Prawo Cywilne Białystok – Spory, Umowy, Odszkodowania | Radca Prawny";
+const description = "Reprezentacja w sporach cywilnych w Białymstoku. Umowy, odszkodowania, prawo nieruchomości, prawo spadkowe. Doświadczony radca prawny – zadzwoń: +48 503 606 738.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const breadcrumbs = generateBreadcrumbSchema([
+  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
+  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
+  { name: "Prawo cywilne", url: canonicalURL.toString() }
+]);
+
+const serviceSchema = generateServiceSchema({
+  serviceType: "Prawo cywilne",
+  name: "Prawo Cywilne Białystok",
+  description: "Kompleksowa obsługa prawna w zakresie prawa cywilnego: spory sądowe, umowy, odszkodowania, prawo nieruchomości, sprawy spadkowe.",
+  url: canonicalURL.toString()
+});
 ---
 
 <ServiceLayout 
@@ -267,3 +281,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   }
 </style>
+
+<Fragment set:html={generateStructuredData(breadcrumbs)} />
+<Fragment set:html={generateStructuredData(serviceSchema)} />

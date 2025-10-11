@@ -46,3 +46,66 @@ export const legalServiceSchema = {
 export function generateStructuredData(schema: any) {
   return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
 }
+
+// Breadcrumb schema generator
+export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url
+    }))
+  };
+}
+
+// Service schema generator for individual service pages
+export function generateServiceSchema(config: {
+  serviceType: string;
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": config.serviceType,
+    "name": config.name,
+    "description": config.description,
+    "url": config.url,
+    "provider": {
+      "@type": "LegalService",
+      "name": "Kancelaria Radcy Prawnego Diana Magdalena Kalinowska",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ul. Złota 2 lok. 19",
+        "addressLocality": "Białystok",
+        "postalCode": "15-016",
+        "addressCountry": "PL"
+      },
+      "telephone": "+48503606738",
+      "email": "kontakt@kancelariakalinowska.pl",
+      "url": "https://kancelariakalinowska.pl"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Białystok"
+      },
+      {
+        "@type": "State",
+        "name": "Podlaskie"
+      },
+      {
+        "@type": "Country",
+        "name": "Polska"
+      }
+    ],
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+}
