@@ -4,6 +4,7 @@ import Navigation from '@/components/common/Navigation.astro';
 import Hero from '@/components/sections/Hero.astro';
 import Services from '@/components/sections/Services.astro';
 import About from '@/components/sections/About.astro';
+import BlogPreview from '@/components/sections/BlogPreview.astro';
 import Contact from '@/components/sections/Contact.astro';
 import Footer from '@/components/common/Footer.astro';
 import { legalServiceSchema, generateStructuredData } from '@/utils/structuredData';
@@ -23,6 +24,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <main>
     <Services />
     <About />
+    <BlogPreview />
     <Contact />
     </main>
   <Footer />

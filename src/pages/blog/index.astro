@@ -1,0 +1,285 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navigation from '@/components/common/Navigation.astro';
+import Footer from '@/components/common/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const title = "Artykuły - Kancelaria Kalinowska";
+const description = "Artykuły prawne, porady i aktualizacje dotyczące prawa cywilnego, karnego, rodzinnego, gospodarczego i innych dziedzin prawnych.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Get all blog posts and sort by publish date
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = new Date(a.data.publishDate).getTime();
+  const dateB = new Date(b.data.publishDate).getTime();
+  return dateB - dateA;
+});
+
+// Format date helper
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('pl-PL', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
+>
+  <Navigation />
+
+  <main>
+    <!-- Blog Header -->
+    <section class="section pt-40 pb-20">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h1 class="section-title">Artykuły</h1>
+          <p class="section-description">
+            Porady prawne, analizy przypadków i aktualności z zakresu prawa.
+            Dzielimy się wiedzą, aby pomóc Ci lepiej zrozumieć swoje prawa i obowiązki.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="pb-32">
+      <div class="container">
+        <div class="blog-grid">
+          {sortedPosts.map((post) => (
+            <div class="blog-card-wrapper animate-on-scroll">
+              <a href={`/blog/${post.slug}`} class="blog-card">
+                <div class="blog-card-image">
+                  <img
+                    src={post.data.image}
+                    alt={post.data.imageAlt}
+                    loading="lazy"
+                    width="1920"
+                    height="1080"
+                  />
+                  <div class="blog-card-category">{post.data.category}</div>
+                </div>
+                <div class="blog-card-content">
+                  <div class="blog-card-meta">
+                    <span class="blog-card-date">
+                      {formatDate(new Date(post.data.publishDate))}
+                    </span>
+                    <span class="blog-card-author">
+                      {post.data.author}
+                    </span>
+                  </div>
+                  <h2 class="blog-card-title">{post.data.title}</h2>
+                  <p class="blog-card-description">{post.data.description}</p>
+                  <div class="blog-card-tags">
+                    {post.data.tags?.slice(0, 3).map((tag: string) => (
+                      <span class="blog-tag">{tag}</span>
+                    ))}
+                  </div>
+                  <span class="blog-card-readmore">Czytaj więcej →</span>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, observerOptions);
+
+    function initializeAnimations() {
+      const animatedElements = document.querySelectorAll(".animate-on-scroll");
+      animatedElements.forEach((el) => {
+        observer.observe(el);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", initializeAnimations);
+    document.addEventListener("astro:page-load", initializeAnimations);
+
+    // Navigation scroll effect
+    let ticking = false;
+
+    function handleNavScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const nav = document.getElementById('main-nav');
+          const scrollY = window.scrollY;
+
+          if (scrollY > 100) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+  </script>
+</Layout>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .blog-card-wrapper {
+    transition: all 0.25s ease;
+    height: 100%;
+  }
+
+  .blog-card-wrapper:hover {
+    transform: translateY(-8px);
+  }
+
+  .blog-card-wrapper:hover .blog-card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(196, 165, 116, 0.3);
+  }
+
+  .blog-card {
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+
+  .blog-card-image {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
+  .blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .blog-card-wrapper:hover .blog-card-image img {
+    transform: scale(1.05);
+  }
+
+  .blog-card-category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: #C4A574;
+    padding: 0.375rem 0.875rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(196, 165, 116, 0.2);
+  }
+
+  .blog-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+  }
+
+  .blog-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  .blog-card-date {
+    font-weight: 500;
+  }
+
+  .blog-card-author {
+    font-weight: 400;
+  }
+
+  .blog-card-title {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #111827;
+    margin: 0;
+  }
+
+  .blog-card-description {
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .blog-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .blog-tag {
+    background: #f3f4f6;
+    color: #4b5563;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .blog-card-readmore {
+    color: #C4A574;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+  }
+
+  .blog-card-wrapper:hover .blog-card-readmore {
+    transform: translateX(4px);
+  }
+</style>

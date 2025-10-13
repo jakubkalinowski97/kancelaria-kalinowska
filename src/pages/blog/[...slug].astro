@@ -1,0 +1,583 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navigation from '@/components/common/Navigation.astro';
+import Footer from '@/components/common/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const title = `${post.data.title} - Blog Kancelaria Kalinowska`;
+const description = post.data.description;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Format date helper
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('pl-PL', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+// Get related posts (same category first, then others, exclude current)
+const allPosts = await getCollection('blog');
+const sameCategoryPosts = allPosts
+  .filter(p => p.data.category === post.data.category && p.slug !== post.slug)
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+
+const otherPosts = allPosts
+  .filter(p => p.data.category !== post.data.category && p.slug !== post.slug)
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+
+const relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
+>
+  <Navigation />
+
+  <main>
+    <!-- Article Header -->
+    <article class="article-container">
+      <header class="article-header">
+        <div class="container max-w-4xl">
+          <div class="article-breadcrumb">
+            <a href="/">Strona główna</a>
+            <span>/</span>
+            <a href="/blog">Blog</a>
+            <span>/</span>
+            <span>{post.data.category}</span>
+          </div>
+
+          <span class="article-category">{post.data.category}</span>
+          <h1 class="article-title">{post.data.title}</h1>
+
+          <div class="article-meta">
+            <div class="article-meta-item">
+              <svg class="article-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>{formatDate(new Date(post.data.publishDate))}</span>
+            </div>
+            <div class="article-meta-item">
+              <svg class="article-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>{post.data.author}</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Image -->
+      <div class="article-image">
+        <img
+          src={post.data.image}
+          alt={post.data.imageAlt}
+          width="1920"
+          height="1080"
+        />
+      </div>
+
+      <!-- Article Content -->
+      <div class="article-content">
+        <div class="container max-w-4xl">
+          <div class="prose">
+            <Content />
+          </div>
+
+          <!-- Tags -->
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="article-tags">
+              <h3>Tagi:</h3>
+              <div class="tags-list">
+                {post.data.tags.map((tag: string) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Posts -->
+    {relatedPosts.length > 0 && (
+      <section class="related-posts">
+        <div class="container">
+          <h2 class="related-posts-title">Powiązane artykuły</h2>
+          <div class="blog-preview-grid">
+            {relatedPosts.map((relatedPost) => (
+              <div class="blog-preview-card-wrapper">
+                <a href={`/blog/${relatedPost.slug}`} class="blog-preview-card">
+                  <div class="blog-preview-image">
+                    <img
+                      src={relatedPost.data.image}
+                      alt={relatedPost.data.imageAlt}
+                      loading="lazy"
+                      width="800"
+                      height="600"
+                    />
+                    <div class="blog-preview-overlay">
+                      <span class="blog-preview-category">{relatedPost.data.category}</span>
+                    </div>
+                  </div>
+                  <div class="blog-preview-content">
+                    <div class="blog-preview-meta">
+                      <span class="blog-preview-date">
+                        {formatDate(new Date(relatedPost.data.publishDate))}
+                      </span>
+                    </div>
+                    <h3 class="blog-preview-title">{relatedPost.data.title}</h3>
+                    <p class="blog-preview-description">{relatedPost.data.description}</p>
+                    <span class="blog-preview-readmore">
+                      Czytaj więcej
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor">
+                        <path d="M6 3l5 5-5 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+
+  <script>
+    // Navigation scroll effect
+    let ticking = false;
+
+    function handleNavScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const nav = document.getElementById('main-nav');
+          const scrollY = window.scrollY;
+
+          if (scrollY > 100) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+  </script>
+</Layout>
+
+<style>
+  .article-container {
+    padding-top: 8rem;
+  }
+
+  @media (max-width: 768px) {
+    .article-container {
+      padding-top: 0;
+    }
+  }
+
+  .article-header {
+    padding: 3rem 0;
+  }
+
+  .article-breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-breadcrumb a {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-breadcrumb a:hover {
+    color: #C4A574;
+  }
+
+  .article-breadcrumb span:last-child {
+    color: #111827;
+    font-weight: 500;
+  }
+
+  .article-category {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #C4A574;
+    padding: 0.375rem 0.875rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(196, 165, 116, 0.2);
+  }
+
+  .article-title {
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #111827;
+    margin: 0 0 1.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 2rem;
+    }
+  }
+
+  .article-meta {
+    display: flex;
+    gap: 2rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+
+  .article-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .article-meta-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .article-image {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-height: 700px;
+  }
+
+  @media (max-width: 1200px) {
+    .article-image {
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+
+  .article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .article-content {
+    padding-bottom: 4rem;
+  }
+
+  /* Prose styles for markdown content */
+  .prose {
+    color: #374151;
+    max-width: 100%;
+  }
+
+  .prose :global(h1),
+  .prose :global(h2),
+  .prose :global(h3),
+  .prose :global(h4),
+  .prose :global(h5),
+  .prose :global(h6) {
+    font-family: Georgia, serif;
+    font-weight: 600;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .prose :global(h1) {
+    font-size: 2.25rem;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.875rem;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.5rem;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.125rem;
+  }
+
+  .prose :global(a) {
+    color: #C4A574;
+    text-decoration: underline;
+    transition: color 0.2s;
+  }
+
+  .prose :global(a:hover) {
+    color: #A68A5A;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 4px solid #C4A574;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #6b7280;
+  }
+
+  .prose :global(code) {
+    background: #f3f4f6;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-family: monospace;
+  }
+
+  .prose :global(pre) {
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .prose :global(pre code) {
+    background: transparent;
+    padding: 0;
+  }
+
+  .article-tags {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .article-tags h3 {
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tag {
+    background: #f3f4f6;
+    color: #4b5563;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .related-posts {
+    background: #f9fafb;
+    padding: 4rem 0;
+  }
+
+  .related-posts-title {
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .blog-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-preview-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .blog-preview-card-wrapper {
+    transition: all 0.25s ease;
+    height: 100%;
+  }
+
+  .blog-preview-card-wrapper:hover {
+    transform: translateY(-8px);
+  }
+
+  .blog-preview-card-wrapper:hover .blog-preview-card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(196, 165, 116, 0.3);
+  }
+
+  .blog-preview-card {
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .blog-preview-image {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
+  .blog-preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .blog-preview-card-wrapper:hover .blog-preview-image img {
+    transform: scale(1.08);
+  }
+
+  .blog-preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1.5rem;
+  }
+
+  .blog-preview-category {
+    background: rgba(255, 255, 255, 0.95);
+    color: #C4A574;
+    padding: 0.375rem 0.875rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(196, 165, 116, 0.2);
+  }
+
+  .blog-preview-content {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+  }
+
+  .blog-preview-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .blog-preview-date {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .blog-preview-title {
+    font-family: Georgia, serif;
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #111827;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  .blog-preview-card-wrapper:hover .blog-preview-title {
+    color: #C4A574;
+  }
+
+  .blog-preview-description {
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+
+  .blog-preview-readmore {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #C4A574;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+  }
+
+  .blog-preview-card-wrapper:hover .blog-preview-readmore {
+    gap: 0.75rem;
+  }
+
+  .blog-preview-readmore svg {
+    transition: transform 0.3s ease;
+  }
+
+  .blog-preview-card-wrapper:hover .blog-preview-readmore svg {
+    transform: translateX(4px);
+  }
+</style>

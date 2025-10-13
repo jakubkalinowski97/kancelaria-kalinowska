@@ -415,7 +415,7 @@
 
   /* Contact Section */
   .contact {
-    @apply bg-white;
+    @apply bg-gray-50;
   }
 
   .contact-content {
@@ -634,7 +634,7 @@
 
   /* Footer */
   .footer {
-    @apply bg-gray-900 text-white pt-16 mt-20;
+    @apply bg-gray-900 text-white pt-16;
   }
 
   .footer-content {
@@ -948,7 +948,7 @@
 
 @media (max-width: 768px) {
         .footer {
-          @apply pt-10 mt-16;
+          @apply pt-10;
         }
 
   .footer-content {
