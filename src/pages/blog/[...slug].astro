@@ -28,17 +28,12 @@ function formatDate(date: Date): string {
   }).format(date);
 }
 
-// Get related posts (same category first, then others, exclude current)
+// Get 3 latest posts (excluding current)
 const allPosts = await getCollection('blog');
-const sameCategoryPosts = allPosts
-  .filter(p => p.data.category === post.data.category && p.slug !== post.slug)
-  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
-
-const otherPosts = allPosts
-  .filter(p => p.data.category !== post.data.category && p.slug !== post.slug)
-  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
-
-const relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
+const relatedPosts = allPosts
+  .filter(p => p.slug !== post.slug)
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 3);
 ---
 
 <Layout
@@ -117,7 +112,7 @@ const relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
     {relatedPosts.length > 0 && (
       <section class="related-posts">
         <div class="container">
-          <h2 class="related-posts-title">Powiązane artykuły</h2>
+          <h2 class="related-posts-title">Najnowsze artykuły</h2>
           <div class="blog-preview-grid">
             {relatedPosts.map((relatedPost) => (
               <div class="blog-preview-card-wrapper">
@@ -455,7 +450,7 @@ const relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
   }
 
   .blog-preview-card-wrapper:hover .blog-preview-card {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border-color: rgba(196, 165, 116, 0.3);
   }
 
@@ -486,11 +481,6 @@ const relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .blog-preview-card-wrapper:hover .blog-preview-image img {
-    transform: scale(1.08);
   }
 
   .blog-preview-overlay {
@@ -578,6 +568,6 @@ const relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
   }
 
   .blog-preview-card-wrapper:hover .blog-preview-readmore svg {
-    transform: translateX(4px);
+    transform: translateX(0.25rem);
   }
 </style>
