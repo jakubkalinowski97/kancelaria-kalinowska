@@ -9,6 +9,7 @@ import FAQ from '@/components/sections/FAQ.astro';
 import Contact from '@/components/sections/Contact.astro';
 import Footer from '@/components/common/Footer.astro';
 import { legalServiceSchema, generateStructuredData } from '@/utils/structuredData';
+import { generateLocalBusinessSchema, generatePersonSchema, toJsonLd } from '@/utils/schemaGenerator';
 
 const title = "Kancelaria Radcy Prawnego Białystok - Diana Magdalena Kalinowska";
 const description = "Radca prawny w Białymstoku. Prawo cywilne, karne, rodzinne, gospodarcze, prawo pracy i windykacja. Skontaktuj się: +48 503 606 738.";
@@ -32,6 +33,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <Footer />
 
   <Fragment set:html={generateStructuredData(legalServiceSchema)} />
+  <Fragment set:html={toJsonLd(generateLocalBusinessSchema())} />
+  <Fragment set:html={toJsonLd(generatePersonSchema())} />
 
     <script>
       // Navigation scroll effect with throttling for smooth performance

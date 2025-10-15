@@ -1,0 +1,24 @@
+---
+import { generateBreadcrumbSchema, toJsonLd } from '@/utils/schemaGenerator';
+import { SITE_URL } from '@/utils/siteConfig';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+// Always include home as first item
+const breadcrumbItems = [
+  { name: 'Strona główna', url: SITE_URL },
+  ...items
+];
+---
+
+<!-- Schema markup only - invisible to users, visible to search engines -->
+<Fragment set:html={toJsonLd(generateBreadcrumbSchema(breadcrumbItems))} />

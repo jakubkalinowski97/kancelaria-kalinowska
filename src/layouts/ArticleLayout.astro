@@ -2,6 +2,11 @@
 import Layout from '@/layouts/Layout.astro';
 import Navigation from '@/components/common/Navigation.astro';
 import Footer from '@/components/common/Footer.astro';
+import Breadcrumbs from '@/components/common/Breadcrumbs.astro';
+import RelatedServices from '@/components/sections/RelatedServices.astro';
+import { generateArticleSchema, toJsonLd } from '@/utils/schemaGenerator';
+import { getRelatedServices } from '@/utils/relatedContent';
+import { getAbsoluteUrl } from '@/utils/siteConfig';
 
 interface Props {
   title: string;
@@ -9,6 +14,7 @@ interface Props {
   canonicalURL: URL;
   category: string;
   publishDate: Date;
+  modifiedDate?: Date;
   author: string;
   image: string;
   imageAlt: string;
@@ -22,6 +28,7 @@ const {
   canonicalURL,
   category,
   publishDate,
+  modifiedDate,
   author,
   image,
   imageAlt,
@@ -51,13 +58,10 @@ function formatDate(date: Date): string {
     <article class="article-container">
       <header class="article-header">
         <div class="container max-w-4xl">
-          <div class="article-breadcrumb">
-            <a href="/">Strona główna</a>
-            <span>/</span>
-            <a href="/blog">Blog</a>
-            <span>/</span>
-            <span>{category}</span>
-          </div>
+          <Breadcrumbs items={[
+            { name: 'Blog', url: getAbsoluteUrl('blog') },
+            { name: title, url: canonicalURL.toString() }
+          ]} />
 
           <span class="article-category">{category}</span>
           <h1 class="article-title">
@@ -109,9 +113,24 @@ function formatDate(date: Date): string {
               </div>
             </div>
           )}
+
+          <!-- CTA -->
+          <div class="article-cta">
+            <h3>Potrzebujesz pomocy prawnej?</h3>
+            <p>Skontaktuj się z nami, aby omówić Twoją sprawę. Udzielimy bezpłatnej konsultacji wstępnej.</p>
+            <a href="/#kontakt" class="btn-primary">
+              Skontaktuj się
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                <path d="M7.5 5l5 5-5 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </article>
+
+    <!-- Related Services -->
+    <RelatedServices services={getRelatedServices(category)} />
 
     <!-- Related Posts -->
     {relatedPosts.length > 0 && (
@@ -160,6 +179,16 @@ function formatDate(date: Date): string {
 
   <Footer />
 
+  <Fragment set:html={toJsonLd(generateArticleSchema({
+    title,
+    description,
+    publishDate,
+    modifiedDate,
+    author,
+    image,
+    url: canonicalURL.toString()
+  }))} />
+
   <script>
     // Navigation scroll effect
     let ticking = false;
@@ -198,31 +227,7 @@ function formatDate(date: Date): string {
   }
 
   .article-header {
-    padding: 0  0 3rem 0;
-  }
-
-  .article-breadcrumb {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-bottom: 1.5rem;
-  }
-
-  .article-breadcrumb a {
-    color: #6b7280;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .article-breadcrumb a:hover {
-    color: #C4A574;
-  }
-
-  .article-breadcrumb span:last-child {
-    color: #111827;
-    font-weight: 500;
+    padding: 0 0 3rem 0;
   }
 
   .article-category {
@@ -416,6 +421,44 @@ function formatDate(date: Date): string {
     border-radius: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
+  }
+
+  .article-cta {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    border-radius: 1.5rem;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+  }
+
+  .article-cta h3 {
+    font-family: Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 1rem 0;
+  }
+
+  .article-cta p {
+    color: #6b7280;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .article-cta {
+      padding: 2rem 1.5rem;
+    }
+
+    .article-cta h3 {
+      font-size: 1.5rem;
+    }
+
+    .article-cta p {
+      font-size: 1rem;
+    }
   }
 
   .related-posts {

@@ -2,7 +2,10 @@
 import Layout from '@/layouts/Layout.astro';
 import Navigation from '@/components/common/Navigation.astro';
 import Footer from '@/components/common/Footer.astro';
+import Breadcrumbs from '@/components/common/Breadcrumbs.astro';
 import Accordion from '@/components/ui/Accordion.astro';
+import { generateFAQSchema, toJsonLd } from '@/utils/schemaGenerator';
+import { getAbsoluteUrl } from '@/utils/siteConfig';
 
 const title = 'Częste Pytania - Kancelaria Radcy Prawnego Diana Magdalena Kalinowska';
 const description =
@@ -59,6 +62,10 @@ const faqItems = [
   <main>
     <section class="section">
       <div class="container">
+        <Breadcrumbs items={[
+          { name: 'Częste Pytania', url: getAbsoluteUrl('czeste-pytania') }
+        ]} />
+
         <div class="section-header animate-on-scroll">
           <h1 class="section-title">Częste Pytania</h1>
           <p class="section-description">
@@ -113,6 +120,8 @@ const faqItems = [
   </main>
 
   <Footer />
+
+  <Fragment set:html={toJsonLd(generateFAQSchema(faqItems))} />
 
   <script>
     // Intersection Observer for scroll animations

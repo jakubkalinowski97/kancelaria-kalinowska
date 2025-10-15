@@ -31,6 +31,7 @@ const relatedPosts = allPosts
   canonicalURL={canonicalURL}
   category={post.data.category}
   publishDate={new Date(post.data.publishDate)}
+  modifiedDate={post.data.modifiedDate ? new Date(post.data.modifiedDate) : undefined}
   author={post.data.author}
   image={post.data.image}
   imageAlt={post.data.imageAlt}

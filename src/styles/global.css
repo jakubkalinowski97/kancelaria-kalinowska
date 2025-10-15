@@ -59,7 +59,7 @@
   }
 
   .nav-links a {
-    @apply text-gray-600 no-underline font-medium text-sm transition-colors duration-200 relative;
+    @apply text-gray-600 no-underline font-medium text-base transition-colors duration-200 relative;
   }
 
   .nav-links a:hover {
@@ -75,7 +75,7 @@
   }
 
   .phone-number {
-    @apply flex items-center gap-2 text-primary-600 no-underline font-semibold text-sm transition-all duration-200 px-3 py-2 rounded-lg;
+    @apply flex items-center gap-2 text-primary-600 no-underline font-semibold text-base transition-all duration-200 px-3 py-2 rounded-lg;
   }
 
   .phone-number:hover {
