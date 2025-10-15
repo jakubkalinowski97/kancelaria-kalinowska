@@ -1,0 +1,63 @@
+---
+import Accordion from '@/components/ui/Accordion.astro';
+
+// Show only 4 selected questions on homepage (questions 2, 4, 6, 7)
+const faqItems = [
+  {
+    question: 'Czy mogę zlecić tylko sporządzenie pozwu lub umowy, bez pełnego prowadzenia sprawy?',
+    answer: '<p><strong>Oczywiście.</strong> Kancelaria oferuje możliwość zlecenia jednorazowych czynności, takich jak sporządzenie pozwu, odpowiedzi na pozew, innych pism procesowych, a także przygotowanie lub opiniowanie umów. Można to zrobić bez konieczności angażowania kancelarii do reprezentowania Państwa w całym postępowaniu sądowym.</p>'
+  },
+  {
+    question: 'Moja sprawa dotyczy regionu poza Białymstokiem. Czy mogę Państwu zlecić jej prowadzenie?',
+    answer: '<p><strong>Tak.</strong> Siedziba Kancelarii nie ogranicza naszego zasięgu działania. Prowadzimy sprawy dla klientów z <strong>całej Polski</strong>. Dzięki nowoczesnym narzędziom i możliwościom komunikacji, większość bieżących czynności i pomoc prawną jesteśmy w stanie świadczyć zdalnie (online).</p>'
+  },
+  {
+    question: 'Czy można umówić się na spotkanie poza standardowymi godzinami pracy (wieczór/weekend)?',
+    answer: '<p><strong>Tak, traktujemy każdego Klienta indywidualnie.</strong> Istnieje możliwość wyznaczenia terminu spotkania poza standardowymi godzinami pracy. Należy jednak pamiętać, że <strong>spotkanie w godzinach wieczornych, wczesnoporannych lub w weekendy jest dodatkowo płatne</strong> i podlega wcześniejszemu uzgodnieniu.</p>'
+  },
+  {
+    question: 'Czy oferują Państwo konsultacje online?',
+    answer: '<p><strong>Tak.</strong> Udzielamy konsultacji zdalnie, za pośrednictwem <strong>wideokonferencji</strong> lub <strong>telefonu</strong>. Proszę o kontakt w celu ustalenia dogodnego terminu konsultacji online.</p>'
+  }
+];
+---
+
+<section id="faq" class="section faq-section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <h2 class="section-title">Częste Pytania</h2>
+      <p class="section-description">
+        Odpowiedzi na najczęściej zadawane pytania dotyczące naszych usług prawnych
+      </p>
+    </div>
+
+    <div class="faq-content animate-on-scroll">
+      <Accordion items={faqItems} />
+    </div>
+
+    <div class="faq-cta animate-on-scroll">
+      <a href="/czeste-pytania" class="btn-outline">
+        Zobacz wszystkie pytania
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+          <path d="M7.5 5l5 5-5 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background: #f9fafb;
+  }
+
+  .faq-content {
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+  }
+
+  .faq-cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

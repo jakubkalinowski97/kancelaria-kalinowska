@@ -32,8 +32,8 @@ function formatDate(date: Date): string {
     </div>
 
     <div class="blog-preview-grid">
-      {latestPosts.map((post) => (
-        <div class="blog-preview-card-wrapper animate-on-scroll">
+      {latestPosts.map((post, index) => (
+        <div class="blog-preview-card-wrapper animate-on-scroll animate-left" style={`transition-delay: ${index * 0.1}s`}>
           <a href={`/blog/${post.slug}`} class="blog-preview-card">
             <div class="blog-preview-image">
               <img
@@ -68,10 +68,10 @@ function formatDate(date: Date): string {
     </div>
 
     <div class="blog-preview-cta animate-on-scroll">
-      <a href="/blog" class="btn-primary">
+      <a href="/blog" class="btn-outline">
         Zobacz wszystkie artykuły
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+          <path d="M7.5 5l5 5-5 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </div>
@@ -232,34 +232,5 @@ function formatDate(date: Date): string {
   .blog-preview-cta {
     text-align: center;
     margin-top: 2rem;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #C4A574;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 0.75rem;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(196, 165, 116, 0.2);
-  }
-
-  .btn-primary:hover {
-    background: #A68A5A;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 12px rgba(196, 165, 116, 0.3);
-  }
-
-  .btn-primary svg {
-    transition: transform 0.3s ease;
-  }
-
-  .btn-primary:hover svg {
-    transform: translateX(4px);
   }
 </style>

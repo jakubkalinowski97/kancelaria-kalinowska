@@ -1,0 +1,214 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navigation from '@/components/common/Navigation.astro';
+import Footer from '@/components/common/Footer.astro';
+import Accordion from '@/components/ui/Accordion.astro';
+
+const title = 'Częste Pytania - Kancelaria Radcy Prawnego Diana Magdalena Kalinowska';
+const description =
+  'Odpowiedzi na najczęściej zadawane pytania dotyczące naszych usług prawnych. Dowiedz się więcej o reprezentacji w sądzie, kosztach, zakresie usług i sposobach współpracy.';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const faqItems = [
+  {
+    question: 'Czy Radca Prawny może mnie reprezentować w sądzie?',
+    answer: '<p><strong>Tak.</strong> Radca prawny posiada pełne uprawnienia do reprezentowania klientów przed sądami wszystkich instancji, urzędami oraz instytucjami w postępowaniach sądowych i administracyjnych.</p>'
+  },
+  {
+    question: 'Czy mogę zlecić tylko sporządzenie pozwu lub umowy, bez pełnego prowadzenia sprawy?',
+    answer: '<p><strong>Oczywiście.</strong> Kancelaria oferuje możliwość zlecenia jednorazowych czynności, takich jak sporządzenie pozwu, odpowiedzi na pozew, innych pism procesowych, a także przygotowanie lub opiniowanie umów. Można to zrobić bez konieczności angażowania kancelarii do reprezentowania Państwa w całym postępowaniu sądowym.</p>'
+  },
+  {
+    question: 'Czy dane i dokumenty, które Państwu przekażę, są bezpieczne?',
+    answer: '<p><strong>Oczywiście.</strong> Radca prawny jest zawodem zaufania publicznego i jest objęty <strong>bezwarunkową i bezterminową tajemnicą zawodową</strong>. Obejmuje ona wszelkie informacje i dokumenty, o których powziął wiedzę w związku z udzielaniem pomocy prawnej. Bezpieczeństwo informacji uzyskanych od Państwa jest naszym priorytetem.</p>'
+  },
+  {
+    question: 'Moja sprawa dotyczy regionu poza Białymstokiem. Czy mogę Państwu zlecić jej prowadzenie?',
+    answer: '<p><strong>Tak.</strong> Siedziba Kancelarii nie ogranicza naszego zasięgu działania. Prowadzimy sprawy dla klientów z <strong>całej Polski</strong>. Dzięki nowoczesnym narzędziom i możliwościom komunikacji, większość bieżących czynności i pomoc prawną jesteśmy w stanie świadczyć zdalnie (online).</p>'
+  },
+  {
+    question: 'Jak najlepiej przygotować się na pierwsze spotkanie w Kancelarii?',
+    answer: '<p>Aby usprawnić rozpoczęcie prac nad Państwa sprawą, prosimy o przygotowanie:</p><ul><li><strong>Kompletnej dokumentacji</strong> (w oryginałach lub kopiach). W razie wątpliwości czy dokument jest istotny – proszę wziąć go ze sobą.</li><li><strong>Krótkiego opisu stanu faktycznego lub chronologii wydarzeń.</strong> Umożliwi to szybkie przejście do meritum problemu.</li><li><strong>Listy pytań.</strong> Jeśli mają Państwo wiele pytań, warto je spisać i, jeśli to możliwe, przesłać do Kancelarii wcześniej, co pozwoli nam na odpowiednie przygotowanie się i udzielenie wyczerpujących odpowiedzi.</li></ul>'
+  },
+  {
+    question: 'Czy można umówić się na spotkanie poza standardowymi godzinami pracy (wieczór/weekend)?',
+    answer: '<p><strong>Tak, traktujemy każdego Klienta indywidualnie.</strong> Istnieje możliwość wyznaczenia terminu spotkania poza standardowymi godzinami pracy. Należy jednak pamiętać, że <strong>spotkanie w godzinach wieczornych, wczesnoporannych lub w weekendy jest dodatkowo płatne</strong> i podlega wcześniejszemu uzgodnieniu.</p>'
+  },
+  {
+    question: 'Czy oferują Państwo konsultacje online?',
+    answer: '<p><strong>Tak.</strong> Udzielamy konsultacji zdalnie, za pośrednictwem <strong>wideokonferencji</strong> lub <strong>telefonu</strong>. Proszę o kontakt w celu ustalenia dogodnego terminu konsultacji online.</p>'
+  },
+  {
+    question: 'Jakie są koszty wizyty, przygotowania umowy lub prowadzenia sprawy sądowej?',
+    answer: '<p><strong>Koszty są zawsze ustalane indywidualnie.</strong> Ze względu na <strong>specyfikę doradztwa prawnego</strong> i niuanse prawne, które mogą wymagać mniej lub więcej pracy, nie stosujemy sztywnych cenników. <strong>Koszt prowadzenia sprawy sądowej</strong> i bardziej złożonych usług jesteśmy w stanie precyzyjnie określić i przedstawić Klientowi <strong>dopiero po pierwszym spotkaniu (poradzie prawnej)</strong>, po zapoznaniu się z dokumentami i stanem faktycznym.</p>'
+  },
+  {
+    question: 'Ile trwa prowadzenie sprawy sądowej?',
+    answer: '<p><strong>Czas trwania sprawy sądowej jest zmienny</strong> i zależy od wielu czynników (m.in. stopień skomplikowania, aktywność strony przeciwnej, obciążenie sądu). Sprawy mogą trwać <strong>od kilku miesięcy do kilku lat</strong>. Niemniej jednak, od momentu skontaktowania się z Kancelarią do złożenia pierwszych pism procesowych w sądzie, upływa zazwyczaj <strong>średnio 1-2 tygodnie</strong>, w zależności od szybkości dostarczenia przez Klienta niezbędnych informacji i dokumentów.</p>'
+  },
+  {
+    question: 'Czy w razie powierzenia Państwu sprawy, mam pewność, że pełnomocnik będzie obecny na każdej rozprawie?',
+    answer: '<p><strong>Tak.</strong> Osobisty udział pełnomocnika w każdej rozprawie jest regułą. W wyjątkowych sytuacjach (np. kolizja rozpraw, choroba) może zostać wyznaczony <strong>substytut</strong> (inny radca prawny, adwokat lub aplikant). Zostaną Państwo o tym uprzedzeni, a substytut będzie w pełni zapoznany z Państwa sprawą, gwarantując właściwą ochronę Państwa interesów.</p>'
+  }
+];
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <Navigation />
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h1 class="section-title">Częste Pytania</h1>
+          <p class="section-description">
+            Odpowiedzi na najczęściej zadawane pytania dotyczące naszych usług
+            prawnych
+          </p>
+        </div>
+
+        <div class="faq-content animate-on-scroll">
+          <Accordion items={faqItems} />
+        </div>
+
+        <div class="faq-cta animate-on-scroll">
+          <p class="faq-cta-text">Nie znalazłeś odpowiedzi na swoje pytanie?</p>
+          <div class="cta-buttons">
+            <a href="/#kontakt" class="btn-primary">
+              Skontaktuj się z nami
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M7.5 5l5 5-5 5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <a href="/#uslugi" class="btn-outline">
+              Zobacz nasze usługi
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M7.5 5l5 5-5 5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px',
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    function initializeAnimations() {
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      animatedElements.forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initializeAnimations);
+    document.addEventListener('astro:page-load', initializeAnimations);
+
+    // Navigation scroll effect
+    let ticking = false;
+
+    function handleNavScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const nav = document.getElementById('main-nav');
+          const scrollY = window.scrollY;
+
+          if (scrollY > 100) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+  </script>
+</Layout>
+
+<style>
+  .faq-content {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+  }
+
+  .faq-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .faq-cta-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding-top: 8rem;
+    }
+
+    .faq-cta-text {
+      font-size: 1.125rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-buttons a {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+  }
+</style>

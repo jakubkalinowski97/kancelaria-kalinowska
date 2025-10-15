@@ -4,8 +4,9 @@ import Navigation from '@/components/common/Navigation.astro';
 import Footer from '@/components/common/Footer.astro';
 import { getCollection } from 'astro:content';
 
-const title = "Artykuły - Kancelaria Kalinowska";
-const description = "Artykuły prawne, porady i aktualizacje dotyczące prawa cywilnego, karnego, rodzinnego, gospodarczego i innych dziedzin prawnych.";
+const title = 'Artykuły - Kancelaria Kalinowska';
+const description =
+  'Artykuły prawne, porady i aktualizacje dotyczące prawa cywilnego, karnego, rodzinnego, gospodarczego i innych dziedzin prawnych.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // Get all blog posts and sort by publish date
@@ -21,78 +22,84 @@ function formatDate(date: Date): string {
   return new Intl.DateTimeFormat('pl-PL', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   }).format(date);
 }
 ---
 
-<Layout
-  title={title}
-  description={description}
-  canonicalURL={canonicalURL}
->
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <Navigation />
 
   <main>
     <!-- Blog Header -->
-    <section class="section pt-40 pb-10">
+    <section class="section">
       <div class="container">
         <div class="section-header animate-on-scroll">
           <h1 class="section-title">Artykuły</h1>
           <p class="section-description">
             Porady prawne, analizy przypadków i aktualności z zakresu prawa.
-            Dzielimy się wiedzą, aby pomóc Ci lepiej zrozumieć swoje prawa i obowiązki.
+            Dzielimy się wiedzą, aby pomóc Ci lepiej zrozumieć swoje prawa i
+            obowiązki.
           </p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="blog-grid">
+          {
+            sortedPosts.map(post => (
+              <div class="blog-card-wrapper animate-on-scroll">
+                <a href={`/blog/${post.slug}`} class="blog-card">
+                  <div class="blog-card-image">
+                    <img
+                      src={post.data.image}
+                      alt={post.data.imageAlt}
+                      loading="lazy"
+                      width="1920"
+                      height="1080"
+                    />
+                    <div class="blog-card-category">{post.data.category}</div>
+                  </div>
+                  <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                      <span class="blog-card-date">
+                        {formatDate(new Date(post.data.publishDate))}
+                      </span>
+                      <span class="blog-card-author">{post.data.author}</span>
+                    </div>
+                    <h2 class="blog-card-title">{post.data.title}</h2>
+                    <p class="blog-card-description">{post.data.description}</p>
+                    <div class="blog-card-tags">
+                      {post.data.tags?.slice(0, 3).map((tag: string) => (
+                        <span class="blog-tag">{tag}</span>
+                      ))}
+                    </div>
+                    <span class="blog-card-readmore">
+                      Czytaj więcej
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          d="M6 3l5 5-5 5"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
 
     <!-- Blog Posts Grid -->
-    <section class="pb-32">
-      <div class="container">
-        <div class="blog-grid">
-          {sortedPosts.map((post) => (
-            <div class="blog-card-wrapper animate-on-scroll">
-              <a href={`/blog/${post.slug}`} class="blog-card">
-                <div class="blog-card-image">
-                  <img
-                    src={post.data.image}
-                    alt={post.data.imageAlt}
-                    loading="lazy"
-                    width="1920"
-                    height="1080"
-                  />
-                  <div class="blog-card-category">{post.data.category}</div>
-                </div>
-                <div class="blog-card-content">
-                  <div class="blog-card-meta">
-                    <span class="blog-card-date">
-                      {formatDate(new Date(post.data.publishDate))}
-                    </span>
-                    <span class="blog-card-author">
-                      {post.data.author}
-                    </span>
-                  </div>
-                  <h2 class="blog-card-title">{post.data.title}</h2>
-                  <p class="blog-card-description">{post.data.description}</p>
-                  <div class="blog-card-tags">
-                    {post.data.tags?.slice(0, 3).map((tag: string) => (
-                      <span class="blog-tag">{tag}</span>
-                    ))}
-                  </div>
-                  <span class="blog-card-readmore">
-                    Czytaj więcej
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor">
-                      <path d="M6 3l5 5-5 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   </main>
 
   <Footer />
@@ -101,26 +108,26 @@ function formatDate(date: Date): string {
     // Intersection Observer for scroll animations
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
+      rootMargin: '0px 0px -50px 0px',
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+          entry.target.classList.add('visible');
         }
       });
     }, observerOptions);
 
     function initializeAnimations() {
-      const animatedElements = document.querySelectorAll(".animate-on-scroll");
-      animatedElements.forEach((el) => {
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      animatedElements.forEach(el => {
         observer.observe(el);
       });
     }
 
-    document.addEventListener("DOMContentLoaded", initializeAnimations);
-    document.addEventListener("astro:page-load", initializeAnimations);
+    document.addEventListener('DOMContentLoaded', initializeAnimations);
+    document.addEventListener('astro:page-load', initializeAnimations);
 
     // Navigation scroll effect
     let ticking = false;
@@ -192,7 +199,6 @@ function formatDate(date: Date): string {
     position: relative;
   }
 
-
   .blog-card-image {
     position: relative;
     width: 100%;
@@ -212,7 +218,7 @@ function formatDate(date: Date): string {
     top: 1rem;
     left: 1rem;
     background: rgba(255, 255, 255, 0.95);
-    color: #C4A574;
+    color: #c4a574;
     padding: 0.375rem 0.875rem;
     border-radius: 0.375rem;
     font-size: 0.75rem;
@@ -256,7 +262,7 @@ function formatDate(date: Date): string {
   }
 
   .blog-card-wrapper:hover .blog-card-title {
-    color: #C4A574;
+    color: #c4a574;
   }
 
   .blog-card-description {
@@ -285,7 +291,7 @@ function formatDate(date: Date): string {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #C4A574;
+    color: #c4a574;
     font-weight: 600;
     font-size: 0.875rem;
     transition: all 0.3s ease;

@@ -1,0 +1,223 @@
+---
+interface AccordionItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: AccordionItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="accordion">
+  {items.map((item, index) => (
+    <div class="accordion-item">
+      <button
+        class="accordion-trigger"
+        aria-expanded="false"
+        data-accordion-trigger={index}
+      >
+        <span class="accordion-question">{item.question}</span>
+        <svg
+          class="accordion-icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path class="accordion-icon-horizontal" d="M5 12h14" stroke-width="2" stroke-linecap="round"/>
+          <path class="accordion-icon-vertical" d="M12 5v14" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="accordion-content" data-accordion-content={index}>
+        <div class="accordion-inner" set:html={item.answer} />
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  function setupAccordions() {
+    const triggers = document.querySelectorAll('[data-accordion-trigger]');
+
+    triggers.forEach(trigger => {
+      // Clone to remove old listeners
+      const newTrigger = trigger.cloneNode(true) as HTMLElement;
+      trigger.parentNode?.replaceChild(newTrigger, trigger);
+
+      newTrigger.addEventListener('click', () => {
+        const index = newTrigger.getAttribute('data-accordion-trigger');
+        const content = document.querySelector(`[data-accordion-content="${index}"]`) as HTMLElement;
+        const isExpanded = newTrigger.getAttribute('aria-expanded') === 'true';
+
+        // Close all other accordions
+        document.querySelectorAll('[data-accordion-trigger]').forEach(otherTrigger => {
+          if (otherTrigger !== newTrigger) {
+            const otherIndex = otherTrigger.getAttribute('data-accordion-trigger');
+            const otherContent = document.querySelector(`[data-accordion-content="${otherIndex}"]`) as HTMLElement;
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            otherTrigger.classList.remove('active');
+            if (otherContent) {
+              otherContent.style.maxHeight = '0';
+            }
+          }
+        });
+
+        // Toggle current accordion
+        if (isExpanded) {
+          newTrigger.setAttribute('aria-expanded', 'false');
+          newTrigger.classList.remove('active');
+          content.style.maxHeight = '0';
+        } else {
+          newTrigger.setAttribute('aria-expanded', 'true');
+          newTrigger.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupAccordions);
+  } else {
+    setupAccordions();
+  }
+
+  document.addEventListener('astro:page-load', setupAccordions);
+</script>
+
+<style>
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .accordion-item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .accordion-item:hover {
+    border-color: rgba(196, 165, 116, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+  }
+
+  .accordion-trigger:hover {
+    background: rgba(196, 165, 116, 0.05);
+  }
+
+  .accordion-trigger.active {
+    background: rgba(196, 165, 116, 0.08);
+  }
+
+  .accordion-question {
+    font-family: Georgia, serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1.5;
+  }
+
+  .accordion-icon {
+    flex-shrink: 0;
+    color: #C4A574;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-icon-vertical {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .accordion-trigger.active .accordion-icon-vertical {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .accordion-inner {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    color: #374151;
+    line-height: 1.8;
+  }
+
+  .accordion-inner :global(p) {
+    margin-bottom: 1rem;
+  }
+
+  .accordion-inner :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .accordion-inner :global(strong) {
+    color: #111827;
+    font-weight: 600;
+  }
+
+  .accordion-inner :global(ul) {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+  }
+
+  .accordion-inner :global(ul li) {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .accordion-inner :global(ul li::before) {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #C4A574;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .accordion-trigger {
+      padding: 1.25rem;
+      gap: 1rem;
+    }
+
+    .accordion-question {
+      font-size: 1rem;
+    }
+
+    .accordion-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .accordion-inner {
+      padding: 1rem 1.25rem 1.25rem 1.25rem;
+      font-size: 0.9375rem;
+    }
+  }
+</style>
