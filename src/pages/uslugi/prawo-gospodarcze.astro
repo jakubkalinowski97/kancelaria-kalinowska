@@ -44,41 +44,43 @@ const serviceSchema = generateServiceSchema({
       <div class="container">
         <div class="service-content">
           <div class="service-main">
-            <h2>Wsparcie w sprawach bieżących</h2>
+            <h2>Bezpieczeństwo i skuteczność prawna twojego biznesu</h2>
+            <div class="intro-text">
+              <p>W dynamicznym środowisku biznesowym prawo gospodarcze jest kluczem do stabilnego rozwoju i minimalizowania ryzyka. Prowadzenie działalności gospodarczej wymaga stałego nadzoru prawnego – od negocjacji kontraktów, przez bieżącą obsługę korporacyjną, po reprezentację w sporach sądowych. Nasza Kancelaria oferuje kompleksową obsługę prawną firm, stając się zaufanym partnerem w budowaniu przewagi konkurencyjnej Państwa przedsiębiorstwa.</p>
+            </div>
+
+            <h2>Doradztwo i wsparcie kontraktowe</h2>
+            <p class="section-intro">Nasza rola polega na aktywnym wspieraniu Państwa w podejmowaniu strategicznych decyzji, zanim dojdzie do sporu. Działamy tak, aby zabezpieczyć Państwa interesy na wczesnym etapie:</p>
             <div class="service-list">
               <div class="service-item">
-                <h3>Doradztwo</h3>
-                <p>Uczestniczymy w spotkaniach, opiniujemy dokumenty i przygotowujemy projekty umów, pism oraz regulaminów.</p>
+                <h3>Doradztwo bieżące</h3>
+                <p>Uczestniczymy w spotkaniach biznesowych, opiniujemy wewnętrzne i zewnętrzne dokumenty oraz przygotowujemy precyzyjne projekty umów, pism oraz regulaminów, dostosowanych do specyfiki Państwa branży.</p>
               </div>
               <div class="service-item">
-                <h3>Negocjacje</h3>
-                <p>Reprezentujemy Cię w negocjacjach, chroniąc Twoje interesy i dbając o korzystne warunki współpracy.</p>
+                <h3>Negocjacje kontraktów</h3>
+                <p>Reprezentujemy Państwa interesy w trudnych negocjacjach handlowych, dbając o korzystne warunki współpracy i eliminując niekorzystne klauzule.</p>
               </div>
               <div class="service-item">
                 <h3>Opinie prawne</h3>
-                <p>Dostarczamy rzetelne porady i opinie prawne, które pomogą Ci podejmować świadome decyzje.</p>
+                <p>Dostarczamy rzetelne i zrozumiałe opinie prawne, które stanowią solidną podstawę do podejmowania świadomych decyzji biznesowych.</p>
               </div>
             </div>
 
-            <h2>Reprezentacja w sądzie i urzędach</h2>
+            <h2>Reprezentacja w sporach i kontakt z instytucjami</h2>
+            <p class="section-intro">Gdy konflikty są nieuniknione, zapewniamy skuteczną i zdecydowaną reprezentację, chroniąc Państwa kapitał i reputację:</p>
             <div class="service-list">
               <div class="service-item">
                 <h3>Postępowania sądowe</h3>
-                <p>Reprezentujemy przedsiębiorców przed sądami wszystkich instancji.</p>
+                <p>Reprezentujemy przedsiębiorców przed sądami wszystkich instancji w sprawach cywilnych i gospodarczych, skutecznie dochodząc roszczeń lub broniąc się przed bezpodstawnymi żądaniami.</p>
               </div>
               <div class="service-item">
                 <h3>Kontakt z urzędami</h3>
-                <p>Zapewniamy reprezentację przed organami administracji publicznej i innymi instytucjami.</p>
+                <p>Zapewniamy pełną reprezentację przed organami administracji publicznej, urzędami skarbowymi, inspekcjami oraz innymi instytucjami, dbając o formalną poprawność i terminowość wszelkich procedur.</p>
               </div>
             </div>
 
-            <h2>Stała obsługa prawna</h2>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Elastyczne rozwiązanie</h3>
-                <p>Jeśli potrzebujesz regularnego wsparcia, oferujemy stałą obsługę prawną. To elastyczne rozwiązanie, które pozwala korzystać z naszych usług na ustalonych warunkach i w wymiarze dopasowanym do potrzeb Twojej firmy.</p>
-              </div>
-            </div>
+            <h2>Stała obsługa prawna: elastyczność i ciągłość wsparcia</h2>
+            <p class="section-intro">Dla przedsiębiorców potrzebujących regularnego wsparcia, oferujemy usługę stałej obsługi prawnej.</p>
 
             <div class="related-services-grid">
               <h3>Zobacz także</h3>
@@ -196,6 +198,18 @@ const serviceSchema = generateServiceSchema({
 
   .service-main h2 {
     @apply font-serif text-3xl font-semibold mb-8 text-gray-900;
+  }
+
+  .intro-text {
+    @apply mb-12;
+  }
+
+  .intro-text p {
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  .section-intro {
+    @apply text-lg text-gray-700 leading-relaxed mb-6;
   }
 
   .service-list {

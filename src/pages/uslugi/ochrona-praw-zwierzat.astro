@@ -44,16 +44,42 @@ const serviceSchema = generateServiceSchema({
       <div class="container">
         <div class="service-content">
           <div class="service-main">
-            <h2>Nasze działania pro bono</h2>
+            <h2>Aktywna obrona życia i godności zwierząt</h2>
+            <div class="intro-text">
+              <p>W naszej Kancelarii głęboko wierzymy, że zwierzęta jako istoty zdolne do odczuwania cierpienia, zasługują na pełną ochronę prawną. Prawo ochrony zwierząt to dziedzina, która wymaga od prawnika nie tylko wiedzy, ale i zaangażowania. Oferujemy specjalistyczne wsparcie prawne osobom fizycznym i organizacjom, które stają w obronie życia, zdrowia i dobrostanu zwierząt.</p>
+            </div>
+
+            <h2>Nasza misja: skuteczne prowadzenie spraw o znęcanie się nad zwierzętami</h2>
+            <p class="section-intro">Działamy stanowczo przeciwko wszelkim przejawom naruszania praw zwierząt, zapewniając pełną reprezentację w najbardziej skomplikowanych postępowaniach. Nasze usługi w zakresie prawa ochrony zwierząt kierujemy do każdego, komu los zwierząt nie jest obojętny.</p>
+
+            <h2>Wsparcie prawne na każdym etapie</h2>
+            <p class="section-intro">Udzielamy kompleksowego wsparcia procesowego osobom fizycznym oraz organizacjom, których statutowym celem działania jest ochrona zwierząt. Reprezentujemy Państwa w sytuacjach, gdy zagrożone jest życie, zdrowie lub dobrostan zwierzęcia:</p>
             <div class="service-list">
               <div class="service-item">
-                <h3>Wsparcie prawne</h3>
-                <p>Udzielamy porad i reprezentujemy osoby fizyczne oraz organizacje których statutowym celem działania jest ochrona zwierząt w postępowaniach karnych, cywilnych i administracyjnych, gdy zagrożone jest życie, zdrowie lub dobrostan zwierzęcia.</p>
+                <h3>Postępowania karne</h3>
+                <p>Reprezentujemy Państwa w sprawach dotyczących znęcania się nad zwierzętami, a także w postępowaniach o nieumyślne spowodowanie śmierci lub uszczerbku na zdrowiu zwierzęcia.</p>
               </div>
               <div class="service-item">
-                <h3>Interwencje</h3>
-                <p>W sytuacjach kryzysowych zapewniamy błyskawiczną pomoc prawną, aby jak najszybciej odebrać zwierzę od nieodpowiedzialnego właściciela.</p>
+                <h3>Postępowania administracyjne</h3>
+                <p>Wspieramy w sprawach dotyczących odebrania zwierząt, wydawania decyzji administracyjnych oraz sporów z organami Inspekcji Weterynaryjnej.</p>
               </div>
+            </div>
+
+            <h2>Błyskawiczne interwencje – odebranie zwierzęcia</h2>
+            <p class="section-intro">W sytuacjach kryzysowych liczy się każda godzina. Zapewniamy błyskawiczną pomoc prawną w celu jak najszybszego odebrania zwierzęcia od nieodpowiedzialnego lub znęcającego się nad zwierzęciem właściciela.</p>
+            <div class="service-list">
+              <div class="service-item">
+                <h3>Wsparcie interwencyjne</h3>
+                <p>Doradzamy i współdziałamy z organizacjami prozwierzęcymi i organami administracji w zakresie prawidłowego przeprowadzenia interwencji.</p>
+              </div>
+              <div class="service-item">
+                <h3>Procedury formalne</h3>
+                <p>Zapewniamy profesjonalne przygotowanie i prowadzenie procedur prawnych związanych z czasowym lub ostatecznym odebraniem zwierzęcia, gwarantując, że działania są zgodne z obowiązującymi przepisami.</p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <p><strong>Nie pozwól, by bezprawie w stosunku do zwierząt pozostało bezkarne.</strong> Skorzystaj z doświadczenia Kancelarii w zakresie ochrony praw zwierząt i zapewnij ochronę tym, którzy sami o nią poprosić nie mogą. Jeżeli potrzebujesz wsparcia w sprawie znęcania się nad zwierzętami lub organizacji interwencji, zapraszamy do kontaktu.</p>
             </div>
 
             <div class="related-services-grid">
@@ -174,8 +200,28 @@ const serviceSchema = generateServiceSchema({
     @apply font-serif text-3xl font-semibold mb-8 text-gray-900;
   }
 
+  .intro-text {
+    @apply mb-12;
+  }
+
+  .intro-text p {
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  .section-intro {
+    @apply text-lg text-gray-700 leading-relaxed mb-6;
+  }
+
   .service-list {
     @apply grid gap-8 mb-12;
+  }
+
+  .highlight-box {
+    @apply bg-primary-50 border-l-4 border-primary-600 p-6 mb-12 rounded-r-xl;
+  }
+
+  .highlight-box p {
+    @apply text-gray-800 leading-relaxed m-0;
   }
 
   .service-item {

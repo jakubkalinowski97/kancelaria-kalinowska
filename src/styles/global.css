@@ -318,6 +318,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
   }
 
   .hero-bg-alt {
@@ -523,15 +524,18 @@
   }
 
   .about-content {
-    @apply grid grid-cols-1 lg:grid-cols-5 gap-20 items-center;
+    @apply grid grid-cols-1 lg:grid-cols-5 gap-20 items-start;
   }
 
   .about-image {
     @apply relative rounded-3xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-lg text-gray-500 font-medium lg:col-span-2;
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
   }
 
   .about-image img {
-    @apply w-full h-full object-cover pt-[96px] lg:pt-[112px];
+    @apply w-full h-full object-cover object-top pt-[96px] lg:pt-[112px];
   }
 
   .about-text {
@@ -544,6 +548,13 @@
 
   .about-text p {
     @apply text-lg text-gray-600 mb-6 leading-relaxed;
+  }
+
+  @media (max-width: 1023px) {
+    .about-image {
+      position: relative;
+      top: auto;
+    }
   }
 
   .about-readmore {
@@ -1117,6 +1128,21 @@
   .services-grid {
     @apply grid-cols-1 gap-5;
     grid-template-rows: repeat(auto-fit, 1fr);
+  }
+}
+
+@media (max-width: 376px) {
+  .hero-text h1 {
+    font-size: 1.75rem; /* 28px */
+    margin-bottom: 3rem; /* 48px, zmniejszone z 5rem (80px) */
+  }
+
+  .hero-text h1 .title-profession {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .hero-text h1 .title-name {
+    font-size: 2.25rem; /* 36px */
   }
 }
 
