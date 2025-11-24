@@ -1,5 +1,0 @@
-name = "kancelaria-kalinowska"
-compatibility_date = "2025-11-24"
-
-# Cloudflare Pages configuration
-pages_build_output_dir = "./dist"
