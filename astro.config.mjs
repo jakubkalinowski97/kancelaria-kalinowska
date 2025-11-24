@@ -5,9 +5,12 @@ import tailwind from '@astrojs/tailwind';
 import robotsTxt from 'astro-robots-txt';
 import mdx from '@astrojs/mdx';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kancelariakalinowska.pl',
+
   integrations: [
     mdx(),
     sitemap(),
@@ -18,8 +21,12 @@ export default defineConfig({
       applyBaseStyles: false,
     })
   ],
+
   output: 'static',
+
   build: {
     assets: 'assets'
-  }
+  },
+
+  adapter: cloudflare()
 });

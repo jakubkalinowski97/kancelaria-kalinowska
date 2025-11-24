@@ -1,0 +1,7 @@
+name = "kancelaria-kalinowska"
+compatibility_date = "2025-11-24"
+
+# Deploy static assets from dist directory for Cloudflare Pages
+assets = {
+  directory = "./dist"
+}
