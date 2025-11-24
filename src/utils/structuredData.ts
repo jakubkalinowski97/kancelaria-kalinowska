@@ -19,7 +19,7 @@ export const legalServiceSchema = {
     "latitude": "53.1251",
     "longitude": "23.1667"
   },
-  "openingHours": "Mo-Fr 08:00-17:00",
+  "openingHours": "Mo-Fr 09:00-17:00",
   "priceRange": "$",
   "areaServed": {
     "@type": "Country",

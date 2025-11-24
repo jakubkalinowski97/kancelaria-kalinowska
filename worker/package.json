@@ -8,12 +8,16 @@
     "deploy": "wrangler deploy",
     "tail": "wrangler tail"
   },
-  "keywords": ["cloudflare", "worker", "resend", "contact-form"],
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "resend",
+    "contact-form"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241011.0",
-    "wrangler": "^3.80.0"
+    "wrangler": "^4.50.0"
   }
 }
-

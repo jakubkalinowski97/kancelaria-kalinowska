@@ -29,7 +29,7 @@ export const SITE_CONFIG = {
     email: 'kontakt@kancelariakalinowska.pl'
   },
   hours: {
-    weekdays: { opens: '08:00', closes: '17:00' },
+    weekdays: { opens: '09:00', closes: '17:00' },
     saturday: 'na umówienie',
     sunday: 'zamknięte'
   }
