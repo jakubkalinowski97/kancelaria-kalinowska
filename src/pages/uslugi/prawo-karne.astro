@@ -1,118 +1,240 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
-import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
+import {
+  generateStructuredData,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from '@/utils/structuredData';
 
-const title = "Prawo Karne Białystok – Obrona w Sądzie | Radca Prawny Diana Kalinowska";
-const description = "Profesjonalna obrona w sprawach karnych i o wykroczenia w Białymstoku. Reprezentacja oskarżonych i pokrzywdzonych. Pełna dyskrecja. Tel: +48 503 606 738.";
+const title =
+  'Prawo Karne Białystok – Obrona w Sądzie | Radca Prawny Diana Kalinowska';
+const description =
+  'Profesjonalna obrona w sprawach karnych i o wykroczenia w Białymstoku. Reprezentacja oskarżonych i pokrzywdzonych. Pełna dyskrecja. Tel: +48 503 606 738.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const breadcrumbs = generateBreadcrumbSchema([
-  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
-  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
-  { name: "Prawo karne", url: canonicalURL.toString() }
+  { name: 'Strona główna', url: 'https://kancelariakalinowska.pl/' },
+  { name: 'Usługi', url: 'https://kancelariakalinowska.pl/#uslugi' },
+  { name: 'Prawo karne', url: canonicalURL.toString() },
 ]);
 
 const serviceSchema = generateServiceSchema({
-  serviceType: "Prawo karne",
-  name: "Prawo Karne Białystok",
-  description: "Obrona w postępowaniach karnych i wykroczeniowych, reprezentacja pokrzywdzonych, sprawy karne skarbowe. Doświadczenie w najpoważniejszych sprawach.",
-  url: canonicalURL.toString()
+  serviceType: 'Prawo karne',
+  name: 'Prawo Karne Białystok',
+  description:
+    'Obrona w postępowaniach karnych i wykroczeniowych, reprezentacja pokrzywdzonych, sprawy karne skarbowe. Doświadczenie w najpoważniejszych sprawach.',
+  url: canonicalURL.toString(),
 });
 ---
 
-<ServiceLayout 
-      title={title}
-      description={description}
+<ServiceLayout
+  title={title}
+  description={description}
   canonicalURL={canonicalURL}
 >
-    <!-- Service Hero -->
-    <section class="service-hero" aria-label="Tło przedstawiające prawo karne - obrona w postępowaniach karnych i wykroczeniowych">
-      <div class="container">
-        <div class="service-hero-content">
-          <h1>Prawo Karne i Wykroczeń</h1>
-          <p class="service-hero-description">
-          Zapewniamy profesjonalną pomoc w zakresie prawa karnego,
-          niezależnie od Twojej roli w postępowaniu. Oferujemy pełne
-          zaangażowanie i dyskrecję na każdym jego etapie.
+  <!-- Service Hero -->
+  <section
+    class="service-hero"
+    aria-label="Tło przedstawiające prawo karne - obrona w postępowaniach karnych i wykroczeniowych"
+  >
+    <div class="container">
+      <div class="service-hero-content">
+        <h1>Prawo Karne i Wykroczeń</h1>
+        <p class="service-hero-description">
+          Zapewniamy profesjonalną pomoc w zakresie prawa karnego, niezależnie
+          od Twojej roli w postępowaniu. Oferujemy pełne zaangażowanie i
+          dyskrecję na każdym jego etapie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section">
+    <div class="container">
+      <div class="service-content">
+        <div class="service-main">
+          <h2>Profesjonalna obrona i wsparcie dla pokrzywdzonych</h2>
+          <div class="intro-text">
+            <p>
+              Sprawy z zakresu prawa karnego i prawa wykroczeń stanowią
+              najbardziej stresujący i wymagający obszar prawa, w którym stawką
+              jest wolność, reputacja i przyszłość Klienta. Niezależnie od tego,
+              czy stajesz przed wymiarem sprawiedliwości jako podejrzany,
+              oskarżony, czy jako osoba pokrzywdzona przestępstwem, kluczowe
+              znaczenie ma natychmiastowa pomoc prawna i profesjonalna obrona
+              karna. Nasza Kancelaria zapewnia wsparcie na każdym etapie
+              postępowania.
+            </p>
+          </div>
+
+          <h2>
+            I. Obrona na każdą okoliczność (dla podejrzanych i oskarżonych)
+          </h2>
+          <p class="section-intro">
+            Gwarantujemy kompleksową obronę karną, która rozpoczyna się od
+            pierwszego kontaktu z organami ścigania, a kończy na etapie
+            wykonawczym po wydaniu wyroku.
           </p>
-        </div>
-      </div>
-    </section>
 
-    <!-- Service Details -->
-    <section class="service-details section">
-      <div class="container">
-        <div class="service-content">
-          <div class="service-main">
-            <h2>Dla oskarżonych i podejrzanych</h2>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Obrona na każdym etapie</h3>
-                <p>Zapewniamy obronę zarówno w postępowaniu przygotowawczym prowadzonym przez Policję i Prokuraturę, jak i w całym procesie sądowym, aż do etapu wykonawczego.</p>
-              </div>
-
-              <div class="service-item">
-                <h3>Wsparcie po wyroku</h3>
-                <p>Pomagamy w sprawach dotyczących odroczenia wykonania kary, ubiegania się o warunkowe przedterminowe zwolnienie, dozór elektroniczny oraz innych kwestiach związanych z wykonaniem orzeczonej kary.</p>
-              </div>
-              <div class="service-item">
-                <h3>Środki odwoławcze</h3>
-                <p>Przygotowujemy i składamy apelacje oraz wnioski o wznowienie postępowania.</p>
-              </div>
+          <h3 class="subsection-title">Obrona na każdym etapie postępowania</h3>
+          <p class="section-intro">
+            Zapewniamy obronę karną i pełne doradztwo:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Postępowanie przygotowawcze</h3>
+              <p>
+                Reprezentujemy Klientów już na etapie prowadzonym przez Policję
+                i Prokuraturę. Uczestniczymy w przesłuchaniach, składamy wnioski
+                dowodowe i dbamy o zabezpieczenie Państwa praw już od momentu
+                zatrzymania lub przedstawienia zarzutów.
+              </p>
             </div>
-
-            <h2>Dla osób pokrzywdzonych</h2>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Zgłoszenie przestępstwa</h3>
-                <p>Przygotujemy niezbędne zawiadomienie i będziemy reprezentować Cię w kontaktach z organami ścigania.</p>
-              </div>
-              <div class="service-item">
-                <h3>Reprezentacja w sądzie</h3>
-                <p>Występujemy jako pełnomocnik w sprawach karnych, w tym jako pełnomocnik oskarżyciela posiłkowego lub pełnomocnik oskarżyciela prywatnego.</p>
-              </div>
+            <div class="service-item">
+              <h3>Proces sądowy</h3>
+              <p>
+                Prowadzimy aktywną obronę w całym procesie sądowym,
+                przygotowując linię obrony, biorąc udział w rozprawach i
+                kwestionując materiał dowodowy.
+              </p>
             </div>
-
-            <div class="related-services-grid">
-              <h3>Zobacz także</h3>
-              <div class="related-grid">
-                <a href="/uslugi/prawo-cywilne" class="related-card">
-                  <h4>Prawo Cywilne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-rodzinne" class="related-card">
-                  <h4>Prawo Rodzinne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-pracy" class="related-card">
-                  <h4>Prawo Pracy</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-
           </div>
 
-          <div class="service-sidebar">
-            <div class="contact-card">
+          <h3 class="subsection-title">
+            Wsparcie po wyroku i środki odwoławcze
+          </h3>
+          <p class="section-intro">
+            Nasze wsparcie nie kończy się na wyroku pierwszej instancji.
+            Prowadzimy wszelkie działania mające na celu jego modyfikację lub
+            złagodzenie:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Środki odwoławcze</h3>
+              <p>
+                Przygotowujemy i składamy profesjonalne apelacje (oraz
+                zażalenia) oraz wnioski o wznowienie postępowania w przypadku
+                ujawnienia nowych okoliczności.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Postępowanie wykonawcze</h3>
+              <p>
+                Pomagamy w sprawach dotyczących odroczenia wykonania kary,
+                ubiegania się o warunkowe przedterminowe zwolnienie, o
+                zastosowanie dozoru elektronicznego (SDE) oraz w innych
+                kwestiach związanych z wykonaniem orzeczonej kary.
+              </p>
+            </div>
+          </div>
+
+          <h2>II. Wsparcie dla osób pokrzywdzonych przestępstwem</h2>
+          <p class="section-intro">
+            Jako radcy prawni w sprawach karnych, służymy pomocą nie tylko
+            osobom oskarżonym, ale również tym, które poniosły szkodę w wyniku
+            przestępstwa. Prawo karne stawia przed osobami pokrzywdzonymi szereg
+            wymagań formalnych, w których niezbędne jest profesjonalne wsparcie.
+          </p>
+
+          <h3 class="subsection-title">
+            Zgłoszenie przestępstwa i kontakt z organami
+          </h3>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Przygotowanie zawiadomienia</h3>
+              <p>
+                Sporządzimy niezbędne, formalne zawiadomienie o możliwości
+                popełnienia przestępstwa z odpowiednim uzasadnieniem.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Reprezentacja</h3>
+              <p>
+                Będziemy reprezentować Państwa interesy w kontaktach z organami
+                ścigania (Policją, Prokuraturą), składając wnioski dowodowe i
+                monitorując przebieg śledztwa lub dochodzenia.
+              </p>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Reprezentacja w sądzie</h3>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Obrona</h3>
+              <p>
+                Występujemy jako obrońca w sprawach karnych, chroniąc prawa i
+                reprezentując interesy naszych Klientów w toku całego procesu.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Oskarżyciel posiłkowy/prywatny</h3>
+              <p>
+                Reprezentujemy Klientów jako pełnomocnik oskarżyciela
+                posiłkowego (obok prokuratury) lub jako pełnomocnik oskarżyciela
+                prywatnego (w sprawach ściganych z oskarżenia prywatnego).
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Niezależnie od Państwa roli w postępowaniu, szybki kontakt z radcą
+              prawnym w sprawach karnych jest kluczem do skutecznej ochrony
+              prawnej. Zapraszamy do kontaktu.
+            </p>
+          </div>
+
+          <div class="related-services-grid">
+            <h3>Zobacz także</h3>
+            <div class="related-grid">
+              <a href="/uslugi/prawo-cywilne" class="related-card">
+                <h4>Prawo Cywilne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-rodzinne" class="related-card">
+                <h4>Prawo Rodzinne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-pracy" class="related-card">
+                <h4>Prawo Pracy</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="contact-card">
             <h3>Ochrona w sprawach karnych</h3>
-            <p>Każda sprawa karna wymaga indywidualnego podejścia i gruntownej analizy prawnej.</p>
-              <div class="contact-info">
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">phone</span>
-                  <a href="tel:+48503606738">+48 503 606 738</a>
-                </div>
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">email</span>
-                  <a href="mailto:kontakt@kancelariakalinowska.pl">kontakt@kancelariakalinowska.pl</a>
-                </div>
+            <p>
+              Każda sprawa karna wymaga indywidualnego podejścia i gruntownej
+              analizy prawnej.
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">phone</span>
+                <a href="tel:+48503606738">+48 503 606 738</a>
               </div>
-              <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">email</span>
+                <a href="mailto:kontakt@kancelariakalinowska.pl"
+                  >kontakt@kancelariakalinowska.pl</a
+                >
+              </div>
             </div>
+            <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </ServiceLayout>
 
 <style>
@@ -124,7 +246,7 @@ const serviceSchema = generateServiceSchema({
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    background-image: url("/prawo-karne.webp");
+    background-image: url('/prawo-karne.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -188,6 +310,30 @@ const serviceSchema = generateServiceSchema({
 
   .service-main h2 {
     @apply font-serif text-3xl font-semibold mb-8 text-gray-900;
+  }
+
+  .intro-text {
+    @apply mb-12;
+  }
+
+  .intro-text p {
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  .section-intro {
+    @apply text-lg text-gray-700 leading-relaxed mb-6;
+  }
+
+  .subsection-title {
+    @apply font-serif text-2xl font-semibold mt-8 mb-4 text-gray-800;
+  }
+
+  .highlight-box {
+    @apply bg-primary-50 border-l-4 border-primary-600 p-6 mb-12 rounded-r-xl;
+  }
+
+  .highlight-box p {
+    @apply text-gray-800 leading-relaxed m-0;
   }
 
   .service-list {
@@ -301,11 +447,11 @@ const serviceSchema = generateServiceSchema({
     .related-grid {
       @apply grid-cols-1 gap-3;
     }
-    
+
     .related-card {
       @apply p-3;
     }
-    
+
     .related-card h4 {
       @apply text-sm;
     }
@@ -346,4 +492,6 @@ const serviceSchema = generateServiceSchema({
 </style>
 
 <Fragment set:html={generateStructuredData(breadcrumbs)} />
-<Fragment set:html={generateStructuredData(serviceSchema)} /><Fragment set:html={generateStructuredData(serviceSchema)} />
+<Fragment set:html={generateStructuredData(serviceSchema)} /><Fragment
+  set:html={generateStructuredData(serviceSchema)}
+/>

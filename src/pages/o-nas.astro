@@ -17,15 +17,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <main>
     <section class="section">
       <div class="container">
-        <Breadcrumbs items={[
-          { name: 'O nas', url: getAbsoluteUrl('o-nas') }
-        ]} />
+        <Breadcrumbs
+          items={[{ name: 'O nas', url: getAbsoluteUrl('o-nas') }]}
+        />
 
         <div class="section-header animate-on-scroll">
           <h1 class="section-title">O Nas</h1>
           <p class="section-description">
-            Poznaj naszą kancelarię i sposób, w jaki pracujemy dla Twoich
-            interesów
+            Dla nas empatia jest równie ważna co wiedza prawnicza. Słuchamy,
+            dbamy o Twój komfort i wspieramy Cię - łącząc profesjonalizm z
+            ludzkim podejściem.
           </p>
         </div>
 
@@ -50,36 +51,73 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           <div class="about-text animate-on-scroll animate-right">
             <h2>Kim jestem?</h2>
             <p>
-              Nazywam się Diana Magdalena Kalinowska i jestem Radcą Prawnym wpisanym na listę radców prawnych Okręgowej Izby Radców Prawnych w Białymstoku (nr wpisu: BŁ/1656).
+              Nazywam się Diana Magdalena Kalinowska i jestem Radcą Prawnym
+              wpisanym na listę radców prawnych Okręgowej Izby Radców Prawnych w
+              Białymstoku (nr wpisu: BŁ/1656).
             </p>
             <p>
-              Moja droga zawodowa rozpoczęła się na Uniwersytecie w Białymstoku, gdzie ukończyłam studia prawnicze. Doświadczenie praktyczne zdobywałam już od czasów studenckich, współpracując z kancelariami i sądami. Proces ten kontynuowałam w trakcie aplikacji, współpracując z kancelariami prawnymi w Białymstoku i Warszawie. Dziś, prowadząc własną Kancelarię Radcy Prawnego, wykorzystuję zdobyte doświadczenie do skutecznego działania na sali sądowej, oferując pomoc zarówno osobom prywatnym, jak i przedsiębiorcom.
+              Moja droga zawodowa rozpoczęła się na Uniwersytecie w Białymstoku,
+              gdzie ukończyłam studia prawnicze. Doświadczenie praktyczne
+              zdobywałam już od czasów studenckich, współpracując z kancelariami
+              i sądami. Proces ten kontynuowałam w trakcie aplikacji,
+              współpracując z kancelariami prawnymi w Białymstoku i Warszawie.
+              Dziś, prowadząc własną Kancelarię Radcy Prawnego, wykorzystuję
+              zdobyte doświadczenie do skutecznego działania na sali sądowej,
+              oferując pomoc zarówno osobom prywatnym, jak i przedsiębiorcom.
             </p>
 
             <h2>Praktyka zawodowa</h2>
             <p>
-              Moja praktyka koncentruje się na sprawach cywilnych i rodzinnych: dla Klientów indywidualnych specjalizuję się w sprawach odszkodowawczych, w tym błędach medycznych i unikalnej specjalizacji – błędach weterynaryjnych, a także w delikatnych sprawach rozwodowych, alimentacyjnych oraz sprawach z zakresu windykacji należności. Przedsiębiorcom zapewniam natomiast bieżącą obsługę prawną oraz wsparcie kontraktowe, od analizy po sporządzanie kluczowych umów. Pracuję stacjonarnie w Białymstoku oraz online, co umożliwia wygodny dostęp do świadczonych przeze mnie usług prawnych.
+              Moja praktyka koncentruje się na sprawach cywilnych i rodzinnych:
+              dla Klientów indywidualnych specjalizuję się w sprawach
+              odszkodowawczych, w tym błędach medycznych i unikalnej
+              specjalizacji – błędach weterynaryjnych, a także w delikatnych
+              sprawach rozwodowych, alimentacyjnych oraz sprawach z zakresu
+              windykacji należności. Przedsiębiorcom zapewniam natomiast bieżącą
+              obsługę prawną oraz wsparcie kontraktowe, od analizy po
+              sporządzanie kluczowych umów. Pracuję stacjonarnie w Białymstoku
+              oraz online, co umożliwia wygodny dostęp do świadczonych przeze
+              mnie usług prawnych.
             </p>
 
             <h2>Podejście do klienta</h2>
             <p>
-              Wiem, że większość spraw, które do mnie trafiają - zwłaszcza te dotyczące rozwodów czy odszkodowań – wiąże się z ogromnym stresem, niepewnością i często bólem. Prawo to dla mnie nie tylko procedury, ale przede wszystkim historia drugiego człowieka. Dlatego w mojej Kancelarii komfort Klienta jest absolutnym priorytetem. Dbam o to, aby każda rozmowa przebiegała w atmosferze zrozumienia i bezpieczeństwa. Liczą się dla mnie Państwa uczucia i emocje. Staram się być dla Państwa nie tylko radcą prawnym, skupionym na procedurach, ale również wsparciem emocjonalnym w tych najtrudniejszych chwilach, pomagając zachować spokój w obliczu prawnych zawiłości. W kontaktach z Klientem nie używam niezrozumiałego prawniczego żargonu. Zawsze rozmawiam używając prostego języka, tłumacząc zawiłe aspekty prawne tak, by każdy mógł w pełni zrozumieć swoją sytuację i podejmowane kroki.
+              Wiem, że większość spraw, które do mnie trafiają - zwłaszcza te
+              dotyczące rozwodów czy odszkodowań – wiąże się z ogromnym stresem,
+              niepewnością i często bólem. Prawo to dla mnie nie tylko
+              procedury, ale przede wszystkim historia drugiego człowieka.
+              Dlatego w mojej Kancelarii komfort Klienta jest absolutnym
+              priorytetem. Dbam o to, aby każda rozmowa przebiegała w atmosferze
+              zrozumienia i bezpieczeństwa. Liczą się dla mnie Państwa uczucia i
+              emocje. Staram się być dla Państwa nie tylko radcą prawnym,
+              skupionym na procedurach, ale również wsparciem emocjonalnym w
+              tych najtrudniejszych chwilach, pomagając zachować spokój w
+              obliczu prawnych zawiłości. W kontaktach z Klientem nie używam
+              niezrozumiałego prawniczego żargonu. Zawsze rozmawiam używając
+              prostego języka, tłumacząc zawiłe aspekty prawne tak, by każdy
+              mógł w pełni zrozumieć swoją sytuację i podejmowane kroki.
             </p>
 
             <h2>Transparentna komunikacja</h2>
             <p>
-              Klucz do sukcesu leży w transparentnej komunikacji: jasno omawiam ryzyka, przedstawiam strategię i pilnuję budżetu, aby mogli Państwo czuć pełną kontrolę nad procesem.
+              Klucz do sukcesu leży w transparentnej komunikacji: jasno omawiam
+              ryzyka, przedstawiam strategię i pilnuję budżetu, aby mogli
+              Państwo czuć pełną kontrolę nad procesem.
             </p>
 
             <p>
               <strong>
-                Jeśli szukasz radcy prawnego w Białymstoku, który łączy skuteczność działania z głęboką empatią i zrozumieniem – prowadząc sprawę kompleksowo, od negocjacji po postępowanie sądowe – zapraszam do kontaktu.
+                Jeśli szukasz radcy prawnego w Białymstoku, który łączy
+                skuteczność działania z głęboką empatią i zrozumieniem –
+                prowadząc sprawę kompleksowo, od negocjacji po postępowanie
+                sądowe – zapraszam do kontaktu.
               </strong>
             </p>
 
             <p>
               <strong>
-                Umów konsultację, a wspólnie ustalimy najlepszą ścieżkę do rozwiązania Twojego problemu.
+                Umów konsultację, a wspólnie ustalimy najlepszą ścieżkę do
+                rozwiązania Twojego problemu.
               </strong>
             </p>
 
@@ -158,7 +196,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         requestAnimationFrame(() => {
           const nav = document.getElementById('main-nav');
           if (!nav) return;
-          
+
           const scrollY = window.scrollY;
 
           if (scrollY > 100) {

@@ -1,110 +1,229 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
-import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
+import {
+  generateStructuredData,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from '@/utils/structuredData';
 
-const title = "Windykacja Należności Białystok – Skuteczne Odzyskiwanie | Radca Prawny";
-const description = "Windykacja należności w Białymstoku dla firm i osób prywatnych. Reprezentacja wierzycieli i dłużników. Egzekucja komornicza. Kontakt: +48 503 606 738.";
+const title =
+  'Windykacja Należności Białystok – Skuteczne Odzyskiwanie | Radca Prawny';
+const description =
+  'Windykacja należności w Białymstoku dla firm i osób prywatnych. Reprezentacja wierzycieli i dłużników. Egzekucja komornicza. Kontakt: +48 503 606 738.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const breadcrumbs = generateBreadcrumbSchema([
-  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
-  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
-  { name: "Windykacja należności", url: canonicalURL.toString() }
+  { name: 'Strona główna', url: 'https://kancelariakalinowska.pl/' },
+  { name: 'Usługi', url: 'https://kancelariakalinowska.pl/#uslugi' },
+  { name: 'Windykacja należności', url: canonicalURL.toString() },
 ]);
 
 const serviceSchema = generateServiceSchema({
-  serviceType: "Windykacja należności",
-  name: "Windykacja Należności Białystok",
-  description: "Skuteczne odzyskiwanie należności, postępowania egzekucyjne, negocjacje z dłużnikami. Kompleksowa obsługa windykacji dla firm i osób prywatnych.",
-  url: canonicalURL.toString()
+  serviceType: 'Windykacja należności',
+  name: 'Windykacja Należności Białystok',
+  description:
+    'Skuteczne odzyskiwanie należności, postępowania egzekucyjne, negocjacje z dłużnikami. Kompleksowa obsługa windykacji dla firm i osób prywatnych.',
+  url: canonicalURL.toString(),
 });
 ---
 
-<ServiceLayout 
-      title={title}
-      description={description}
+<ServiceLayout
+  title={title}
+  description={description}
   canonicalURL={canonicalURL}
 >
-    <!-- Service Hero -->
-    <section class="service-hero" aria-label="Tło przedstawiające windykację należności - skuteczne odzyskiwanie należności">
-      <div class="container">
-        <div class="service-hero-content">
-          <h1>Windykacja Należności</h1>
-          <p class="service-hero-description">
+  <!-- Service Hero -->
+  <section
+    class="service-hero"
+    aria-label="Tło przedstawiające windykację należności - skuteczne odzyskiwanie należności"
+  >
+    <div class="container">
+      <div class="service-hero-content">
+        <h1>Windykacja Należności</h1>
+        <p class="service-hero-description">
           Świadczymy usługi prawne dla obu stron w procesie dochodzenia
           roszczeń: zarówno dla wierzycieli, jak i dla dłużników. Zapewniamy
           profesjonalne wsparcie na każdym etapie sprawy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section">
+    <div class="container">
+      <div class="service-content">
+        <div class="service-main">
+          <h2>Skuteczna windykacja należności</h2>
+          <div class="intro-text">
+            <p>
+              Jako przedsiębiorca lub osoba prywatna, z pewnością spotkałeś się
+              z problemem nieuczciwych kontrahentów lub dłużników, którzy
+              zwlekają z zapłatą. Długi te znacząco obciążają Twoją płynność
+              finansową i generują stres. Windykacja należności, czyli
+              dochodzenie roszczeń, to profesjonalny proces prawny mający na
+              celu odzyskanie zaległych środków finansowych. W naszej Kancelarii
+              zapewniamy kompleksowe wsparcie, by proces ten był skuteczny i
+              przeprowadzony zgodnie z prawem.
+            </p>
+          </div>
+
+          <h2>Czym jest windykacja należności i dochodzenie roszczeń?</h2>
+          <p class="section-intro">
+            Windykacja należności to zorganizowane działania prawne i faktyczne,
+            zmierzające do odzyskania długu od dłużnika. Jest to proces, który
+            dzieli się na kilka etapów, a jego prowadzenie przez prawnika
+            windykacyjnego znacząco zwiększa szanse na sukces.
           </p>
-        </div>
-      </div>
-    </section>
+          <p class="section-intro">
+            W Kancelarii Radcy Prawnego prowadzimy dla Państwa pełną ścieżkę
+            dochodzenia roszczeń:
+          </p>
 
-    <!-- Service Details -->
-    <section class="service-details section">
-      <div class="container">
-        <div class="service-content">
-          <div class="service-main">
-            <h2>Zakres usług</h2>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Dla wierzycieli</h3>
-                <p>Pomożemy Ci odzyskać pieniądze, działając w sposób szybki i efektywny.<br>
-                Nasze usługi obejmują:<br>
-                • Windykację polubowną: Wezwania do zapłaty i negocjacje ugodowe<br>
-                • Dochodzenie sądowe: Sporządzanie pozwów, reprezentacja w sądzie i uzyskiwanie tytułów wykonawczych<br>
-                • Egzekucję komorniczą: Nadzór nad postępowaniami egzekucyjnymi i dochodzenie należności z zabezpieczeń</p>
-              </div>
-              <div class="service-item">
-                <h3>Dla dłużników</h3>
-                <p>Jeśli zmagasz się z długami, zapewniamy kompleksowe wsparcie, aby chronić Twoje interesy.<br>
-                Nasze usługi obejmują:<br>
-                • Analizę sprawy: Weryfikacja dokumentacji i ocena zasadności roszczeń<br>
-                • Negocjacje: Prowadzenie negocjacji z wierzycielami i zawieranie ugód<br>
-                • Reprezentację: Zapewniamy reprezentację w postępowaniach sądowych i egzekucyjnych<br>
-                • Restrukturyzację: Doradztwo w zakresie restrukturyzacji Twoich zobowiązań</p>
-              </div>
+          <h2>1. Etap polubowny</h2>
+          <p class="section-intro">
+            Celem tego etapu jest odzyskanie długu bez konieczności angażowania
+            sądu. To kluczowy moment, ponieważ szybka i zdecydowana reakcja
+            często prowadzi do natychmiastowej zapłaty. Nasze działania
+            obejmują:
+          </p>
+          <ul class="benefits-list">
+            <li>
+              Wystosowanie profesjonalnych przedsądowych wezwań do zapłaty
+            </li>
+            <li>
+              Negocjacje warunków spłaty z dłużnikiem oraz zawieranie ugód
+            </li>
+            <li>Monitorowanie terminowości wpłat</li>
+          </ul>
+
+          <h2>2. Etap sądowy</h2>
+          <p class="section-intro">
+            Gdy działania polubowne nie przynoszą rezultatu, konieczne jest
+            dochodzenie roszczeń na drodze sądowej. Jako prawnicy zajmujący się
+            windykacją należności prowadzimy postępowanie kompleksowo, zajmując
+            się:
+          </p>
+          <ul class="benefits-list">
+            <li>
+              Analizą dokumentacji i wyborem optymalnej ścieżki procesowej (np.
+              postępowanie nakazowe, upominawcze)
+            </li>
+            <li>
+              Sporządzeniem i złożeniem pozwu o zapłatę do właściwego sądu
+            </li>
+            <li>
+              Reprezentacją Klienta na każdej rozprawie, aż do uzyskania
+              prawomocnego wyroku lub nakazu zapłaty
+            </li>
+            <li>Uzyskaniem klauzuli wykonalności</li>
+          </ul>
+
+          <h2>3. Etap egzekucyjny</h2>
+          <p class="section-intro">
+            Ostatni i najbardziej decydujący etap. Po uzyskaniu tytułu
+            wykonawczego, konieczne jest złożenie wniosku do komornika.
+          </p>
+          <ul class="benefits-list">
+            <li>
+              Przygotowujemy wniosek egzekucyjny i monitorujemy jego przebieg
+            </li>
+            <li>
+              Wspieramy w poszukiwaniu majątku dłużnika, co jest kluczowe dla
+              skutecznej windykacji
+            </li>
+            <li>
+              Pilnujemy, aby komornik prowadził egzekucję w sposób szybki i
+              efektywny
+            </li>
+          </ul>
+
+          <h2>Dlaczego warto powierzyć windykację należności prawnikowi?</h2>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Skuteczność</h3>
+              <p>
+                Działania prowadzone przez Kancelarię mają wyższą moc perswazji
+                i są bardziej efektywne niż samodzielne próby. Wiemy, jak
+                profesjonalnie wykorzystać dostępne instrumenty prawne.
+              </p>
             </div>
-
-            <div class="related-services-grid">
-              <h3>Zobacz także</h3>
-              <div class="related-grid">
-                <a href="/uslugi/prawo-cywilne" class="related-card">
-                  <h4>Prawo Cywilne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-gospodarcze" class="related-card">
-                  <h4>Prawo Gospodarcze</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-rodzinne" class="related-card">
-                  <h4>Prawo Rodzinne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-              </div>
+            <div class="service-item">
+              <h3>Oszczędność czasu i nerwów</h3>
+              <p>
+                Przejmujemy na siebie cały ciężar formalności, negocjacji i
+                kontaktu z sądem oraz komornikiem.
+              </p>
             </div>
-
+            <div class="service-item">
+              <h3>Biegła znajomość prawa</h3>
+              <p>
+                Prawnik windykacyjny zna terminy przedawnienia, zasady
+                naliczania odsetek oraz procedury zabezpieczenia majątku
+                dłużnika.
+              </p>
+            </div>
           </div>
 
-          <div class="service-sidebar">
-            <div class="contact-card">
+          <div class="highlight-box">
+            <p>
+              Nie pozwól, aby dłużnicy decydowali o Twoich finansach. Powierz
+              skuteczną windykację należności profesjonalistom i odzyskaj
+              środki, które Ci się należą. Dochodzenie roszczeń to nasza
+              specjalność. Zapraszamy do kontaktu.
+            </p>
+          </div>
+
+          <div class="related-services-grid">
+            <h3>Zobacz także</h3>
+            <div class="related-grid">
+              <a href="/uslugi/prawo-cywilne" class="related-card">
+                <h4>Prawo Cywilne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-gospodarcze" class="related-card">
+                <h4>Prawo Gospodarcze</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-rodzinne" class="related-card">
+                <h4>Prawo Rodzinne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="contact-card">
             <h3>Skuteczna windykacja</h3>
-            <p>Dochodzenie należności wymaga indywidualnego podejścia i skutecznej strategii.</p>
-              <div class="contact-info">
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">phone</span>
-                  <a href="tel:+48503606738">+48 503 606 738</a>
-                </div>
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">email</span>
-                  <a href="mailto:kontakt@kancelariakalinowska.pl">kontakt@kancelariakalinowska.pl</a>
-                </div>
+            <p>
+              Dochodzenie należności wymaga indywidualnego podejścia i
+              skutecznej strategii.
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">phone</span>
+                <a href="tel:+48503606738">+48 503 606 738</a>
               </div>
-              <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">email</span>
+                <a href="mailto:kontakt@kancelariakalinowska.pl"
+                  >kontakt@kancelariakalinowska.pl</a
+                >
+              </div>
             </div>
+            <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </ServiceLayout>
 
 <style>
@@ -116,7 +235,7 @@ const serviceSchema = generateServiceSchema({
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    background-image: url("/windykacje.webp");
+    background-image: url('/windykacje.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -182,6 +301,26 @@ const serviceSchema = generateServiceSchema({
     @apply font-serif text-3xl font-semibold mb-8 text-gray-900;
   }
 
+  .intro-text {
+    @apply mb-12;
+  }
+
+  .intro-text p {
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  .section-intro {
+    @apply text-lg text-gray-700 leading-relaxed mb-6;
+  }
+
+  .highlight-box {
+    @apply bg-primary-50 border-l-4 border-primary-600 p-6 mb-12 rounded-r-xl;
+  }
+
+  .highlight-box p {
+    @apply text-gray-800 leading-relaxed m-0;
+  }
+
   .service-list {
     @apply grid gap-8 mb-12;
   }
@@ -199,7 +338,7 @@ const serviceSchema = generateServiceSchema({
   }
 
   .benefits-list {
-    @apply list-none p-0;
+    @apply list-none p-0 mb-16;
   }
 
   .benefits-list li {
@@ -293,11 +432,11 @@ const serviceSchema = generateServiceSchema({
     .related-grid {
       @apply grid-cols-1 gap-3;
     }
-    
+
     .related-card {
       @apply p-3;
     }
-    
+
     .related-card h4 {
       @apply text-sm;
     }

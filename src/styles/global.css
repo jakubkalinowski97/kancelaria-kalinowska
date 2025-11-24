@@ -528,14 +528,14 @@
   }
 
   .about-image {
-    @apply relative rounded-3xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-lg text-gray-500 font-medium lg:col-span-2;
+    @apply relative rounded-3xl overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-lg text-gray-500 font-medium lg:col-span-2;
     position: sticky;
     top: 120px;
     align-self: flex-start;
   }
 
   .about-image img {
-    @apply w-full h-full object-cover object-top pt-[96px] lg:pt-[112px];
+    @apply w-full h-full object-cover object-top;
   }
 
   .about-text {

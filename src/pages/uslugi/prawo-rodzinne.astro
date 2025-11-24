@@ -1,105 +1,230 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
-import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
+import {
+  generateStructuredData,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from '@/utils/structuredData';
 
-const title = "Prawo Rodzinne Białystok – Rozwody, Alimenty | Radca Prawny";
-const description = "Sprawy rodzinne w Białymstoku: rozwody, alimenty, władza rodzicielska, kontakty z dzieckiem. Dyskretne wsparcie prawne. Zadzwoń: +48 503 606 738.";
+const title = 'Prawo Rodzinne Białystok – Rozwody, Alimenty | Radca Prawny';
+const description =
+  'Sprawy rodzinne w Białymstoku: rozwody, alimenty, władza rodzicielska, kontakty z dzieckiem. Dyskretne wsparcie prawne. Zadzwoń: +48 503 606 738.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const breadcrumbs = generateBreadcrumbSchema([
-  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
-  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
-  { name: "Prawo rodzinne", url: canonicalURL.toString() }
+  { name: 'Strona główna', url: 'https://kancelariakalinowska.pl/' },
+  { name: 'Usługi', url: 'https://kancelariakalinowska.pl/#uslugi' },
+  { name: 'Prawo rodzinne', url: canonicalURL.toString() },
 ]);
 
 const serviceSchema = generateServiceSchema({
-  serviceType: "Prawo rodzinne",
-  name: "Prawo Rodzinne Białystok",
-  description: "Rozwody, alimenty, władza rodzicielska, adopcje, sprawy opiekuńcze. Profesjonalna pomoc w trudnych sprawach rodzinnych z zachowaniem dyskrecji i empatii.",
-  url: canonicalURL.toString()
+  serviceType: 'Prawo rodzinne',
+  name: 'Prawo Rodzinne Białystok',
+  description:
+    'Rozwody, alimenty, władza rodzicielska, adopcje, sprawy opiekuńcze. Profesjonalna pomoc w trudnych sprawach rodzinnych z zachowaniem dyskrecji i empatii.',
+  url: canonicalURL.toString(),
 });
 ---
 
-<ServiceLayout 
-      title={title}
-      description={description}
-      canonicalURL={canonicalURL}
+<ServiceLayout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
 >
-    <!-- Service Hero -->
-    <section class="service-hero" aria-label="Tło przedstawiające prawo rodzinne - wsparcie prawne w sprawach rodzinnych i opiekuńczych">
-      <div class="container">
-        <div class="service-hero-content">
-          <h1>Prawo Rodzinne i Opiekuńcze</h1>
-          <p class="service-hero-description">
+  <!-- Service Hero -->
+  <section
+    class="service-hero"
+    aria-label="Tło przedstawiające prawo rodzinne - wsparcie prawne w sprawach rodzinnych i opiekuńczych"
+  >
+    <div class="container">
+      <div class="service-hero-content">
+        <h1>Prawo Rodzinne i Opiekuńcze</h1>
+        <p class="service-hero-description">
           Sprawy rodzinne to jedne z najbardziej osobistych i stresujących.
           Oferujemy profesjonalne i dyskretne wsparcie prawne, aby pomóc Ci
           przejść przez trudne chwile.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section">
+    <div class="container">
+      <div class="service-content">
+        <div class="service-main">
+          <h2>Wsparcie prawne w najważniejszych momentach życia</h2>
+          <div class="intro-text">
+            <p>
+              Sprawy z zakresu prawa rodzinnego to jedne z najbardziej
+              osobistych i delikatnych wyzwań prawnych. W momencie kryzysu
+              małżeńskiego, ustalania losu dzieci czy podziału wspólnego
+              dorobku, niezbędne jest wsparcie doświadczonego radcy prawnego
+              znającego specyfikę postępowania rozwodowego, który połączy
+              biegłość prawną z empatią. Nasza Kancelaria zapewnia kompleksowe i
+              dyskretne prowadzenie spraw rodzinnych, koncentrując się na
+              minimalizowaniu obciążeń emocjonalnych i maksymalnej ochronie
+              Państwa interesów.
+            </p>
+          </div>
+
+          <h2>Rozwód i separacja: proces z profesjonalnym wsparciem</h2>
+          <p class="section-intro">
+            Decyzja o zakończeniu małżeństwa to moment przełomowy. Zapewniamy
+            kompleksową pomoc na każdym etapie postępowania rozwodowego i
+            separacyjnego:
           </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Service Details -->
-    <section class="service-details section">
-      <div class="container">
-        <div class="service-content">
-          <div class="service-main">
-            <h2>W czym możemy Ci pomóc?</h2>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Rozwód i separacja</h3>
-                <p>Zapewniamy kompleksową pomoc na każdym etapie – od doradztwa w kwestii rozwodu z orzeczeniem o winie lub bez, po sporządzenie pozwu i reprezentację w sądzie. Prowadzimy także sprawy o separację i podział majątku wspólnego.</p>
-              </div>
-              <div class="service-item">
-                <h3>Alimenty</h3>
-                <p>Niezależnie od tego, czy potrzebujesz pomocy w ustaleniu, podwyższeniu, czy obniżeniu alimentów, zapewnimy Ci fachowe doradztwo i reprezentację przed sądem.</p>
-              </div>
-              <div class="service-item">
-                <h3>Sprawy dotyczące dzieci</h3>
-                <p>Pomożemy Ci w uregulowaniu kluczowych kwestii, takich jak władza rodzicielska, miejsce zamieszkania dziecka i kontakty z nim. Będziemy Cię reprezentować, aby zapewnić najlepsze rozwiązania dla Twojej rodziny.</p>
-              </div>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Doradztwo strategiczne</h3>
+              <p>
+                Udzielamy fachowego doradztwa w kwestii wyboru optymalnego trybu
+                rozwodu – z orzeczeniem o winie lub bez orzekania o winie –
+                analizując wszystkie konsekwencje prawne i finansowe.
+              </p>
             </div>
-
-            <div class="related-services-grid">
-              <h3>Zobacz także</h3>
-              <div class="related-grid">
-                <a href="/uslugi/prawo-cywilne" class="related-card">
-                  <h4>Prawo Cywilne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-karne" class="related-card">
-                  <h4>Prawo Karne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/windykacja-naleznosci" class="related-card">
-                  <h4>Windykacja</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-              </div>
+            <div class="service-item">
+              <h3>Reprezentacja sądowa</h3>
+              <p>
+                Sporządzamy pozew rozwodowy oraz wszelkie niezbędne pisma
+                procesowe. Gwarantujemy profesjonalną reprezentację w sądzie,
+                dążąc do jak najszybszego i najkorzystniejszego dla Państwa
+                rozstrzygnięcia.
+              </p>
             </div>
-
+            <div class="service-item">
+              <h3>Podział majątku</h3>
+              <p>
+                Prowadzimy również skomplikowane sprawy o podział majątku
+                wspólnego małżonków, w tym wycenę nieruchomości, przedsiębiorstw
+                i inwestycji.
+              </p>
+            </div>
           </div>
 
-          <div class="service-sidebar">
-            <div class="contact-card">
+          <h2>Alimenty: ustalanie i egzekwowanie obowiązków finansowych</h2>
+          <p class="section-intro">
+            Kwestie finansowe związane z alimentami na dzieci lub na
+            współmałżonka są jednymi z najczęstszych sporów w prawie rodzinnym.
+            Nasza pomoc prawna obejmuje:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Ustalenie alimentów</h3>
+              <p>
+                Pomoc w prawnym udokumentowaniu potrzeb dziecka i możliwości
+                zarobkowych zobowiązanego, co jest kluczowe dla uzyskania
+                sprawiedliwej kwoty.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Modyfikacja alimentów</h3>
+              <p>
+                Zapewniamy fachowe doradztwo i reprezentację przed sądem w
+                sprawach dotyczących podwyższenia lub obniżenia alimentów, w
+                związku ze zmianą okoliczności życiowych lub finansowych.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Egzekwowanie</h3>
+              <p>
+                Wsparcie w dochodzeniu zaległych alimentów i egzekucji
+                komorniczej.
+              </p>
+            </div>
+          </div>
+
+          <h2>Sprawy dotyczące dzieci: opieka, władza i kontakty</h2>
+          <p class="section-intro">
+            Dobro dziecka jest nadrzędnym celem w prawie rodzinnym i
+            opiekuńczym. Pomożemy Państwu w uregulowaniu kluczowych i często
+            spornych kwestii, aby zapewnić najlepsze rozwiązania dla Państwa
+            rodziny:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Władza rodzicielska</h3>
+              <p>
+                Uregulowanie władzy rodzicielskiej (ograniczenie, pozbawienie
+                lub pozostawienie pełnej władzy obojgu rodzicom).
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Miejsce zamieszkania dziecka</h3>
+              <p>
+                Prawne ustalenie, przy którym z rodziców będzie znajdowało się
+                główne centrum życiowe dziecka.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Kontakty z dzieckiem</h3>
+              <p>
+                Precyzyjne ustalenie harmonogramu kontaktów z dzieckiem (w tym
+                kontaktów weekendowych, wakacyjnych czy świątecznych),
+                eliminujące przyszłe nieporozumienia.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Niezależnie od złożoności Państwa sprawy rodzinnej, zapewniamy
+              dyskrecję, profesjonalizm i reprezentację dążącą do stabilizacji
+              Państwa życia. Jeśli potrzebują Państwo prawnika specjalizującego
+              się w sprawach o alimenty lub eksperta od władzy rodzicielskiej,
+              zapraszamy do kontaktu.
+            </p>
+          </div>
+
+          <div class="related-services-grid">
+            <h3>Zobacz także</h3>
+            <div class="related-grid">
+              <a href="/uslugi/prawo-cywilne" class="related-card">
+                <h4>Prawo Cywilne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-karne" class="related-card">
+                <h4>Prawo Karne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/windykacja-naleznosci" class="related-card">
+                <h4>Windykacja</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="contact-card">
             <h3>Wsparcie w sprawach rodzinnych</h3>
-            <p>Sprawy rodzinne wymagają szczególnej wrażliwości i zrozumienia.</p>
-              <div class="contact-info">
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">phone</span>
-                  <a href="tel:+48503606738">+48 503 606 738</a>
-                </div>
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">email</span>
-                  <a href="mailto:kontakt@kancelariakalinowska.pl">kontakt@kancelariakalinowska.pl</a>
-                </div>
+            <p>
+              Sprawy rodzinne wymagają szczególnej wrażliwości i zrozumienia.
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">phone</span>
+                <a href="tel:+48503606738">+48 503 606 738</a>
               </div>
-              <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">email</span>
+                <a href="mailto:kontakt@kancelariakalinowska.pl"
+                  >kontakt@kancelariakalinowska.pl</a
+                >
+              </div>
             </div>
+            <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </ServiceLayout>
 
 <style>
@@ -111,7 +236,7 @@ const serviceSchema = generateServiceSchema({
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    background-image: url("/prawo-rodzinne.webp");
+    background-image: url('/prawo-rodzinne.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -175,6 +300,26 @@ const serviceSchema = generateServiceSchema({
 
   .service-main h2 {
     @apply font-serif text-3xl font-semibold mb-8 text-gray-900;
+  }
+
+  .intro-text {
+    @apply mb-12;
+  }
+
+  .intro-text p {
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  .section-intro {
+    @apply text-lg text-gray-700 leading-relaxed mb-6;
+  }
+
+  .highlight-box {
+    @apply bg-primary-50 border-l-4 border-primary-600 p-6 mb-12 rounded-r-xl;
+  }
+
+  .highlight-box p {
+    @apply text-gray-800 leading-relaxed m-0;
   }
 
   .service-list {
@@ -288,11 +433,11 @@ const serviceSchema = generateServiceSchema({
     .related-grid {
       @apply grid-cols-1 gap-3;
     }
-    
+
     .related-card {
       @apply p-3;
     }
-    
+
     .related-card h4 {
       @apply text-sm;
     }

@@ -132,10 +132,7 @@ function formatDate(date: Date): string {
           <!-- CTA -->
           <div class="article-cta">
             <h3>Potrzebujesz pomocy prawnej?</h3>
-            <p>
-              Skontaktuj się z nami, aby omówić Twoją sprawę. Udzielimy
-              bezpłatnej konsultacji wstępnej.
-            </p>
+            <p>Skontaktuj się z nami, aby omówić Twoją sprawę.</p>
             <a href="/#kontakt" class="btn-primary">
               Skontaktuj się
               <svg
@@ -158,7 +155,7 @@ function formatDate(date: Date): string {
     </article>
 
     <!-- Related Services -->
-    <RelatedServices services={getRelatedServices(category)} />
+    <!-- <RelatedServices services={getRelatedServices(category)} /> -->
 
     <!-- Related Posts -->
     {
@@ -385,6 +382,7 @@ function formatDate(date: Date): string {
 
   .prose :global(h2) {
     font-size: 1.875rem;
+    margin-top: 3.5rem;
   }
 
   .prose :global(h3) {
@@ -410,12 +408,37 @@ function formatDate(date: Date): string {
   .prose :global(ul),
   .prose :global(ol) {
     margin-bottom: 1.5rem;
+  }
+
+  .prose :global(ol) {
     padding-left: 2rem;
+    list-style-type: decimal;
+  }
+
+  .prose :global(ul) {
+    list-style: none;
+    padding-left: 0;
   }
 
   .prose :global(li) {
     margin-bottom: 0.5rem;
     line-height: 1.8;
+  }
+
+  .prose :global(ul > li) {
+    padding-left: 1.75rem;
+    position: relative;
+  }
+
+  .prose :global(ul > li::before) {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: 6px;
+    height: 6px;
+    background-color: #c4a574;
+    border-radius: 50%;
   }
 
   .prose :global(blockquote) {
@@ -446,6 +469,63 @@ function formatDate(date: Date): string {
   .prose :global(pre code) {
     background: transparent;
     padding: 0;
+  }
+
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .prose :global(thead) {
+    background: linear-gradient(135deg, #c4a574 0%, #a68a5a 100%);
+    color: white;
+  }
+
+  .prose :global(th) {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 2px solid #a68a5a;
+  }
+
+  .prose :global(td) {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    line-height: 1.6;
+  }
+
+  .prose :global(tbody tr) {
+    background: white;
+    transition: background-color 0.2s;
+  }
+
+  .prose :global(tbody tr:nth-child(even)) {
+    background: #f9fafb;
+  }
+
+  .prose :global(tbody tr:hover) {
+    background: #f3f4f6;
+  }
+
+  .prose :global(tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    .prose :global(table) {
+      font-size: 0.875rem;
+    }
+
+    .prose :global(th),
+    .prose :global(td) {
+      padding: 0.75rem 0.5rem;
+    }
   }
 
   .article-tags {

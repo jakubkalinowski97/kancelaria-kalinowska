@@ -1,110 +1,193 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
-import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
+import {
+  generateStructuredData,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from '@/utils/structuredData';
 
-const title = "Prawo Pracy Białystok – Reprezentacja Pracowników i Pracodawców";
-const description = "Prawo pracy w Białymstoku: umowy o pracę, spory pracownicze, mobbing, wypowiedzenia. Reprezentacja pracowników i pracodawców. Tel: +48 503 606 738.";
+const title = 'Prawo Pracy Białystok – Reprezentacja Pracowników i Pracodawców';
+const description =
+  'Prawo pracy w Białymstoku: umowy o pracę, spory pracownicze, mobbing, wypowiedzenia. Reprezentacja pracowników i pracodawców. Tel: +48 503 606 738.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const breadcrumbs = generateBreadcrumbSchema([
-  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
-  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
-  { name: "Prawo pracy", url: canonicalURL.toString() }
+  { name: 'Strona główna', url: 'https://kancelariakalinowska.pl/' },
+  { name: 'Usługi', url: 'https://kancelariakalinowska.pl/#uslugi' },
+  { name: 'Prawo pracy', url: canonicalURL.toString() },
 ]);
 
 const serviceSchema = generateServiceSchema({
-  serviceType: "Prawo pracy",
-  name: "Prawo Pracy Białystok",
-  description: "Umowy o pracę, rozwiązywanie sporów pracowniczych, mobbing, wypowiedzenia. Reprezentacja zarówno pracowników jak i pracodawców.",
-  url: canonicalURL.toString()
+  serviceType: 'Prawo pracy',
+  name: 'Prawo Pracy Białystok',
+  description:
+    'Umowy o pracę, rozwiązywanie sporów pracowniczych, mobbing, wypowiedzenia. Reprezentacja zarówno pracowników jak i pracodawców.',
+  url: canonicalURL.toString(),
 });
 ---
 
-<ServiceLayout 
-      title={title}
-      description={description}
+<ServiceLayout
+  title={title}
+  description={description}
   canonicalURL={canonicalURL}
 >
-    <!-- Service Hero -->
-    <section class="service-hero" aria-label="Tło przedstawiające prawo pracy - wsparcie prawne dla pracowników i pracodawców">
-      <div class="container">
-        <div class="service-hero-content">
-          <h1>Prawo Pracy</h1>
-          <p class="service-hero-description">
+  <!-- Service Hero -->
+  <section
+    class="service-hero"
+    aria-label="Tło przedstawiające prawo pracy - wsparcie prawne dla pracowników i pracodawców"
+  >
+    <div class="container">
+      <div class="service-hero-content">
+        <h1>Prawo Pracy</h1>
+        <p class="service-hero-description">
           Świadczymy usługi z zakresu prawa pracy, oferując profesjonalne
-          wsparcie zarówno pracownikom, jak i pracodawcom. Niezależnie od
-          tego, po której stronie sporu stoisz, pomożemy Ci zadbać o Twoje
-          prawa i interesy.
-          </p>
-        </div>
+          wsparcie zarówno pracownikom, jak i pracodawcom. Niezależnie od tego,
+          po której stronie sporu stoisz, pomożemy Ci zadbać o Twoje prawa i
+          interesy.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Service Details -->
-    <section class="service-details section">
-      <div class="container">
-        <div class="service-content">
-          <div class="service-main">
-            <h2>Zakres usług</h2>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Dla pracownika</h3>
-                <p>Pomagamy w sytuacjach, gdy:<br>
-                • Masz problemy z umową – brak umowy o pracę, niekorzystne warunki, nieuznawanie Twoich praw<br>
-                • Doświadczasz mobbingu lub dyskryminacji<br>
-                • Nie otrzymujesz pełnego wynagrodzenia<br>
-                • Zostałeś niesłusznie zwolniony<br>
-                • Masz wątpliwości dotyczące warunków pracy lub ubezpieczeń (chorobowego, macierzyńskiego)</p>
-              </div>
-              <div class="service-item">
-                <h3>Dla pracodawcy</h3>
-                <p>Oferujemy kompleksową pomoc w:<br>
-                • Tworzeniu dokumentacji – przygotujemy regulaminy pracy i wynagradzania, umowy o pracę<br>
-                • Reprezentacji w sporach sądowych i negocjacjach ze związkami zawodowymi<br>
-                • Organizacji pracy – doradzamy w kwestiach pracy zdalnej, szkoleń oraz zwolnień grupowych</p>
-              </div>
-            </div>
-
-            <div class="related-services-grid">
-              <h3>Zobacz także</h3>
-              <div class="related-grid">
-                <a href="/uslugi/prawo-cywilne" class="related-card">
-                  <h4>Prawo Cywilne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-gospodarcze" class="related-card">
-                  <h4>Prawo Gospodarcze</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-karne" class="related-card">
-                  <h4>Prawo Karne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-
+  <!-- Service Details -->
+  <section class="service-details section">
+    <div class="container">
+      <div class="service-content">
+        <div class="service-main">
+          <h2>Kompleksowe doradztwo i rozwiązywanie sporów pracowniczych</h2>
+          <div class="intro-text">
+            <p>
+              Prawo pracy jest dziedziną kluczową dla każdej organizacji i
+              każdego pracownika, regulującą wzajemne relacje oparte na zaufaniu
+              i kodeksowych zasadach. W naszej Kancelarii świadczymy kompleksową
+              pomoc zarówno dla pracowników, których prawa zostały naruszone,
+              jak i dla pracodawców dążących do legalnej i efektywnej
+              organizacji pracy. Naszym celem jest zapewnienie Państwu
+              bezpieczeństwa i skutecznej reprezentacji w sporach pracowniczych.
+            </p>
           </div>
 
-          <div class="service-sidebar">
-            <div class="contact-card">
+          <h2>I. Dla pracownika: ochrona praw i dochodzenie roszczeń</h2>
+          <p class="section-intro">
+            Gwarantujemy zdecydowane wsparcie w sytuacjach, gdy Państwa prawa
+            pracownicze są naruszane. Zapewniamy pomoc w każdej z poniższych
+            sytuacji:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Problemy z umową</h3>
+              <p>
+                Pomagamy w przypadkach braku umowy o pracę, analizujemy
+                niekorzystne warunki zatrudnienia oraz wspieramy w dochodzeniu
+                nieuznawanych praw pracowniczych.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Mobbing i dyskryminacja</h3>
+              <p>
+                Prowadzimy sprawy o mobbing i dyskryminację w miejscu pracy,
+                walcząc o odszkodowanie i zadośćuczynienie.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Wynagrodzenie i świadczenia</h3>
+              <p>
+                Dochodzimy pełnego wynagrodzenia, nadgodzin oraz niewypłaconych
+                premii i ekwiwalentów.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Niesłuszne zwolnienie</h3>
+              <p>
+                Reprezentujemy Klientów w sprawach o niesłuszne zwolnienie z
+                pracy (bez wypowiedzenia lub za wypowiedzeniem), dążąc do
+                przywrócenia do pracy lub uzyskania odszkodowania.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Warunki pracy i ubezpieczenia</h3>
+              <p>
+                Udzielamy porad i wsparcia w sprawach dotyczących warunków
+                pracy, a także świadczeń z ubezpieczeń (chorobowego,
+                macierzyńskiego).
+              </p>
+            </div>
+          </div>
+
+          <h2>
+            II. Dla pracodawcy: bezpieczeństwo dokumentacji i organizacja pracy
+          </h2>
+          <p class="section-intro">
+            Oferujemy kompleksową obsługę prawną w zakresie prawa pracy, która
+            minimalizuje ryzyko sporów i kar ze strony Państwowej Inspekcji
+            Pracy.
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Tworzenie dokumentacji</h3>
+              <p>
+                Przygotowujemy niezbędną dokumentację pracowniczą – od projektów
+                umów o pracę, przez regulaminy pracy, regulaminy wynagradzania,
+                aż po klauzule poufności i zakazu konkurencji.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Reprezentacja i negocjacje</h3>
+              <p>
+                Reprezentujemy pracodawców w sporach sądowych z pracownikami
+                oraz w negocjacjach ze związkami zawodowymi, dbając o prawną
+                poprawność i ochronę interesów firmy.
+              </p>
+            </div>
+          </div>
+
+          <div class="related-services-grid">
+            <h3>Zobacz także</h3>
+            <div class="related-grid">
+              <a href="/uslugi/prawo-cywilne" class="related-card">
+                <h4>Prawo Cywilne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-gospodarcze" class="related-card">
+                <h4>Prawo Gospodarcze</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-karne" class="related-card">
+                <h4>Prawo Karne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="contact-card">
             <h3>Ochrona praw pracowniczych</h3>
             <p>Sprawy pracownicze wymagają znajomości specyfiki prawa pracy.</p>
-              <div class="contact-info">
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">phone</span>
-                  <a href="tel:+48503606738">+48 503 606 738</a>
-                </div>
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">email</span>
-                  <a href="mailto:kontakt@kancelariakalinowska.pl">kontakt@kancelariakalinowska.pl</a>
-                </div>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">phone</span>
+                <a href="tel:+48503606738">+48 503 606 738</a>
               </div>
-              <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">email</span>
+                <a href="mailto:kontakt@kancelariakalinowska.pl"
+                  >kontakt@kancelariakalinowska.pl</a
+                >
+              </div>
             </div>
+            <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </ServiceLayout>
 
 <style>
@@ -116,7 +199,7 @@ const serviceSchema = generateServiceSchema({
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    background-image: url("/prawo-pracy.webp");
+    background-image: url('/prawo-pracy.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -180,6 +263,18 @@ const serviceSchema = generateServiceSchema({
 
   .service-main h2 {
     @apply font-serif text-3xl font-semibold mb-8 text-gray-900;
+  }
+
+  .intro-text {
+    @apply mb-12;
+  }
+
+  .intro-text p {
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  .section-intro {
+    @apply text-lg text-gray-700 leading-relaxed mb-6;
   }
 
   .service-list {
@@ -293,11 +388,11 @@ const serviceSchema = generateServiceSchema({
     .related-grid {
       @apply grid-cols-1 gap-3;
     }
-    
+
     .related-card {
       @apply p-3;
     }
-    
+
     .related-card h4 {
       @apply text-sm;
     }
