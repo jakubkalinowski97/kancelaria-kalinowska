@@ -5,8 +5,6 @@ import tailwind from '@astrojs/tailwind';
 import robotsTxt from 'astro-robots-txt';
 import mdx from '@astrojs/mdx';
 
-import cloudflare from '@astrojs/cloudflare';
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kancelariakalinowska.pl',
@@ -28,5 +26,6 @@ export default defineConfig({
     assets: 'assets'
   },
 
-  adapter: cloudflare()
+  // Adapter Cloudflare nie jest potrzebny dla statycznego buildu
+  // adapter: cloudflare()
 });

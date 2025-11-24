@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "tinacms dev -c \"astro dev --host\"",
-    "build": "astro build",
-    "build:tina": "tinacms build && astro build",
+    "build": "astro build && npm run postbuild",
+    "postbuild": "echo '_worker.js' > dist/.assetsignore",
+    "build:tina": "tinacms build && astro build && npm run postbuild",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
