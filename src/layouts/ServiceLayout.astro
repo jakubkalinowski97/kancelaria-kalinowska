@@ -15,12 +15,12 @@ const {
   title,
   description,
   canonicalURL = new URL(Astro.url.pathname, Astro.site),
-  image = "/hero1.webp",
+  image = '/og-image.png',
   noindex = false,
 } = Astro.props;
 ---
 
-<Layout 
+<Layout
   title={title}
   description={description}
   canonicalURL={canonicalURL}
@@ -32,23 +32,23 @@ const {
     <slot />
   </main>
   <Footer />
-  
+
   <script>
     // Navigation scroll effect with throttling for smooth performance
     let ticking = false;
-    
+
     function handleNavScroll() {
       if (!ticking) {
         requestAnimationFrame(() => {
           const nav = document.getElementById('main-nav');
           const scrollY = window.scrollY;
-          
+
           if (scrollY > 100) {
             nav.classList.add('scrolled');
           } else {
             nav.classList.remove('scrolled');
           }
-          
+
           ticking = false;
         });
         ticking = true;
