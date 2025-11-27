@@ -1,179 +1,282 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
-import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
+import {
+  generateStructuredData,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from '@/utils/structuredData';
 
-const title = "Prawo Cywilne Białystok – Spory, Umowy, Odszkodowania | Radca Prawny";
-const description = "Reprezentacja w sporach cywilnych w Białymstoku. Umowy, odszkodowania, prawo nieruchomości, prawo spadkowe. Doświadczony radca prawny – zadzwoń: +48 503 606 738.";
+const title =
+  'Prawo Cywilne Białystok – Spory, Umowy, Odszkodowania | Radca Prawny';
+const description =
+  'Reprezentacja w sporach cywilnych w Białymstoku. Umowy, odszkodowania, prawo nieruchomości, prawo spadkowe. Doświadczony radca prawny – zadzwoń: +48 503 606 738.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const breadcrumbs = generateBreadcrumbSchema([
-  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
-  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
-  { name: "Prawo cywilne", url: canonicalURL.toString() }
+  { name: 'Strona główna', url: 'https://kancelariakalinowska.pl/' },
+  { name: 'Usługi', url: 'https://kancelariakalinowska.pl/#uslugi' },
+  { name: 'Prawo cywilne', url: canonicalURL.toString() },
 ]);
 
 const serviceSchema = generateServiceSchema({
-  serviceType: "Prawo cywilne",
-  name: "Prawo Cywilne Białystok",
-  description: "Kompleksowa obsługa prawna w zakresie prawa cywilnego: spory sądowe, umowy, odszkodowania, prawo nieruchomości, sprawy spadkowe.",
-  url: canonicalURL.toString()
+  serviceType: 'Prawo cywilne',
+  name: 'Prawo Cywilne Białystok',
+  description:
+    'Kompleksowa obsługa prawna w zakresie prawa cywilnego: spory sądowe, umowy, odszkodowania, prawo nieruchomości, sprawy spadkowe.',
+  url: canonicalURL.toString(),
 });
 ---
 
-<ServiceLayout 
-      title={title}
-      description={description}
+<ServiceLayout
+  title={title}
+  description={description}
   canonicalURL={canonicalURL}
 >
-    <!-- Service Hero -->
-    <section class="service-hero" aria-label="Tło przedstawiające prawo cywilne - reprezentacja prawna w sprawach cywilnych">
-      <div class="container">
-        <div class="service-hero-content">
-          <h1>Prawo Cywilne</h1>
-          <p class="service-hero-description">
-            Oferujemy kompleksowe wsparcie w sprawach z zakresu prawa
-            cywilnego. Pomagamy na każdym etapie - od profesjonalnej porady,
-            przez negocjacje, aż po reprezentację w sądzie.
+  <!-- Service Hero -->
+  <section
+    class="service-hero"
+    aria-label="Tło przedstawiające prawo cywilne - reprezentacja prawna w sprawach cywilnych"
+  >
+    <div class="container">
+      <div class="service-hero-content">
+        <h1>Prawo Cywilne</h1>
+        <p class="service-hero-description">
+          Oferujemy kompleksowe wsparcie w sprawach z zakresu prawa cywilnego.
+          Pomagamy na każdym etapie - od profesjonalnej porady, przez
+          negocjacje, aż po reprezentację w sądzie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section">
+    <div class="container">
+      <div class="service-content">
+        <div class="service-main">
+          <h2>Kompleksowa ochrona praw majątkowych i osobistych</h2>
+          <div class="intro-text">
+            <p>
+              Prawo cywilne to fundament bezpieczeństwa prawnego, regulujący
+              najistotniejsze aspekty Twojego życia osobistego i działalności
+              gospodarczej. Obejmuje ono relacje między osobami prywatnymi i
+              przedsiębiorcami, a jego znajomość jest niezbędna do skutecznego
+              zarządzania majątkiem, sporami umownymi oraz ochroną praw
+              osobistych. Nasza Kancelaria specjalizuje się w sprawach
+              cywilnych, zapewniając profesjonalne i kompleksowe wsparcie w tej
+              szerokiej dziedzinie, gwarantując skuteczne dochodzenie roszczeń i
+              ochronę Państwa interesów.
+            </p>
+          </div>
+
+          <h2>Umowy i zobowiązania: bezpieczeństwo twojej transakcji</h2>
+          <p class="section-intro">
+            Kluczowym elementem prawa cywilnego są umowy i wynikające z nich
+            zobowiązania. Zapewniamy pełną obsługę kontraktową, która
+            minimalizuje ryzyko prawne:
           </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Service Details -->
-    <section class="service-details section">
-      <div class="container">
-        <div class="service-content">
-          <div class="service-main">
-            <h2>Kompleksowa ochrona praw majątkowych i osobistych</h2>
-            <div class="intro-text">
-              <p>Prawo cywilne to fundament bezpieczeństwa prawnego, regulujący najistotniejsze aspekty Twojego życia osobistego i działalności gospodarczej. Obejmuje ono relacje między osobami prywatnymi i przedsiębiorcami, a jego znajomość jest niezbędna do skutecznego zarządzania majątkiem, sporami umownymi oraz ochroną praw osobistych. Nasza Kancelaria specjalizuje się w sprawach cywilnych, zapewniając profesjonalne i kompleksowe wsparcie w tej szerokiej dziedzinie, gwarantując skuteczne dochodzenie roszczeń i ochronę Państwa interesów.</p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Analiza, sporządzanie i negocjacje umów</h3>
+              <p>
+                Dokładna weryfikacja projektów umów przed ich podpisaniem
+                (sprzedaży, najmu, zlecenia, o dzieło).
+              </p>
             </div>
-
-            <h2>Umowy i zobowiązania: bezpieczeństwo twojej transakcji</h2>
-            <p class="section-intro">Kluczowym elementem prawa cywilnego są umowy i wynikające z nich zobowiązania. Zapewniamy pełną obsługę kontraktową, która minimalizuje ryzyko prawne:</p>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Analiza, sporządzanie i negocjacje umów</h3>
-                <p>Dokładna weryfikacja projektów umów przed ich podpisaniem (sprzedaży, najmu, zlecenia, o dzieło).</p>
-              </div>
-              <div class="service-item">
-                <h3>Wypowiedzenie i odstąpienie od umowy</h3>
-                <p>Prawidłowe formalne zakończenie stosunku umownego i dochodzenie roszczeń z tym związanych.</p>
-              </div>
-            </div>
-
-            <h2>Sprawy majątkowe: uporządkowanie i ochrona własności</h2>
-            <p class="section-intro">Efektywne zarządzanie majątkiem wymaga precyzyjnych działań prawnych. Nasza Kancelaria w zakresie prawa cywilnego zajmuje się sprawami majątkowymi i rzeczowymi, które mają kluczowe znaczenie dla stabilności Państwa majątku:</p>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Zniesienie współwłasności</h3>
-                <p>Rozwiązanie sporów dotyczących podziału wspólnego majątku (np. nieruchomości, ruchomości).</p>
-              </div>
-              <div class="service-item">
-                <h3>Ustanowienie służebności</h3>
-                <p>Uregulowanie praw korzystania z cudzej nieruchomości (np. droga konieczna, służebność przesyłu).</p>
-              </div>
-              <div class="service-item">
-                <h3>Zasiedzenie</h3>
-                <p>Prowadzenie postępowań mających na celu nabycie prawa własności nieruchomości wskutek długotrwałego posiadania.</p>
-              </div>
-              <div class="service-item">
-                <h3>Wyjawienie majątku</h3>
-                <p>Występowanie z wnioskami mającymi na celu ujawnienie ukrytego majątku dłużnika w toku dochodzenia roszczeń.</p>
-              </div>
-            </div>
-
-            <h2>Ochrona prawa własności i posiadania</h2>
-            <p class="section-intro">Twoje prawo do spokojnego korzystania z majątku jest nienaruszalne. Aktywnie reprezentujemy naszych Klientów w sprawach:</p>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>O wydanie rzeczy (roszczenia windykacyjne)</h3>
-                <p>Dochodzenie zwrotu bezprawnie zajętej nieruchomości lub ruchomości.</p>
-              </div>
-              <div class="service-item">
-                <h3>O zaniechanie naruszeń (roszczenia negatoryjne)</h3>
-                <p>Powstrzymanie osób trzecich od ingerowania w Twoje prawo własności (np. spory sąsiedzkie, immisje).</p>
-              </div>
-              <div class="service-item">
-                <h3>Odszkodowania za bezumowne korzystanie</h3>
-                <p>Żądanie zapłaty za czas, w którym inna osoba bezprawnie użytkowała Państwa mienie.</p>
-              </div>
-              <div class="service-item">
-                <h3>O naruszenie posiadania</h3>
-                <p>Szybka ochrona prawna w przypadku bezprawnego zakłócenia faktycznego władania rzeczą.</p>
-              </div>
-            </div>
-
-            <h2>Prawo spadkowe: bezpieczne przejście majątku</h2>
-            <p class="section-intro">Śmierć bliskiej osoby wiąże się z koniecznością uregulowania spraw spadkowych. Prowadzimy Klientów przez wszystkie etapy prawa spadkowego, zapewniając spokój i bezpieczeństwo prawne:</p>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Dział spadku</h3>
-                <p>Skuteczny podział odziedziczonego majątku pomiędzy spadkobierców.</p>
-              </div>
-              <div class="service-item">
-                <h3>Odrzucenie spadku</h3>
-                <p>Ochrona przed długami spadkowymi, w tym postępowanie w imieniu małoletnich.</p>
-              </div>
-              <div class="service-item">
-                <h3>Zachowek i wydziedziczenie</h3>
-                <p>Dochodzenie roszczeń o zachowek, a także pomoc w procedurach wydziedziczenia i zrzeczenia się spadku.</p>
-              </div>
-            </div>
-
-            <h2>Odszkodowania i zadośćuczynienia: pełna rekompensata za szkody</h2>
-            <p class="section-intro">Naszą specjalnością jest kompleksowe dochodzenie roszczeń odszkodowawczych. Reprezentujemy Klientów w sprawach mających na celu uzyskanie pełnej rekompensaty za poniesione szkody i krzywdy (zadośćuczynienia):</p>
-            <ul class="benefits-list">
-              <li>Wypadki drogowe i komunikacyjne</li>
-              <li>Błędy medyczne (błędy w sztuce lekarskiej)</li>
-              <li>Szkody majątkowe wynikające z czynów niedozwolonych lub niewykonania umowy</li>
-              <li>Naruszenie dóbr osobistych (np. zniesławienie, naruszenie wizerunku, prywatności)</li>
-            </ul>
-
-            <div class="highlight-box">
-              <p>Skuteczna ochrona prawna w zakresie prawa cywilnego to inwestycja w stabilność Twojej przyszłości. Jeżeli szukają Państwo radcy prawnego, który specjalizuje się w prawie cywilnym, i który poprowadzi Państwa sprawę od A do Z, zapraszamy do kontaktu.</p>
-            </div>
-
-            <div class="related-services-grid">
-              <h3>Zobacz także</h3>
-              <div class="related-grid">
-                <a href="/uslugi/windykacja-naleznosci" class="related-card">
-                  <h4>Windykacja</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-gospodarcze" class="related-card">
-                  <h4>Prawo Gospodarcze</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-rodzinne" class="related-card">
-                  <h4>Prawo Rodzinne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="service-sidebar">
-            <div class="contact-card">
-              <h3>Ochrona praw cywilnych</h3>
-              <p>Każdy spór wymaga indywidualnego podejścia i gruntownej analizy prawnej.</p>
-              <div class="contact-info">
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">phone</span>
-                  <a href="tel:+48503606738">+48 503 606 738</a>
-                </div>
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">email</span>
-                  <a href="mailto:kontakt@kancelariakalinowska.pl">kontakt@kancelariakalinowska.pl</a>
-                </div>
-              </div>
-              <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
+            <div class="service-item">
+              <h3>Wypowiedzenie i odstąpienie od umowy</h3>
+              <p>
+                Prawidłowe formalne zakończenie stosunku umownego i dochodzenie
+                roszczeń z tym związanych.
+              </p>
             </div>
           </div>
+
+          <h2>Sprawy majątkowe: uporządkowanie i ochrona własności</h2>
+          <p class="section-intro">
+            Efektywne zarządzanie majątkiem wymaga precyzyjnych działań
+            prawnych. Nasza Kancelaria w zakresie prawa cywilnego zajmuje się
+            sprawami majątkowymi i rzeczowymi, które mają kluczowe znaczenie dla
+            stabilności Państwa majątku:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Zniesienie współwłasności</h3>
+              <p>
+                Rozwiązanie sporów dotyczących podziału wspólnego majątku (np.
+                nieruchomości, ruchomości).
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Ustanowienie służebności</h3>
+              <p>
+                Uregulowanie praw korzystania z cudzej nieruchomości (np. droga
+                konieczna, służebność przesyłu).
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Zasiedzenie</h3>
+              <p>
+                Prowadzenie postępowań mających na celu nabycie prawa własności
+                nieruchomości wskutek długotrwałego posiadania.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Wyjawienie majątku</h3>
+              <p>
+                Występowanie z wnioskami mającymi na celu ujawnienie ukrytego
+                majątku dłużnika w toku dochodzenia roszczeń.
+              </p>
+            </div>
+          </div>
+
+          <h2>Ochrona prawa własności i posiadania</h2>
+          <p class="section-intro">
+            Twoje prawo do spokojnego korzystania z majątku jest nienaruszalne.
+            Aktywnie reprezentujemy naszych Klientów w sprawach:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>O wydanie rzeczy (roszczenia windykacyjne)</h3>
+              <p>
+                Dochodzenie zwrotu bezprawnie zajętej nieruchomości lub
+                ruchomości.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>O zaniechanie naruszeń (roszczenia negatoryjne)</h3>
+              <p>
+                Powstrzymanie osób trzecich od ingerowania w Twoje prawo
+                własności (np. spory sąsiedzkie, immisje).
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Odszkodowania za bezumowne korzystanie</h3>
+              <p>
+                Żądanie zapłaty za czas, w którym inna osoba bezprawnie
+                użytkowała Państwa mienie.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>O naruszenie posiadania</h3>
+              <p>
+                Szybka ochrona prawna w przypadku bezprawnego zakłócenia
+                faktycznego władania rzeczą.
+              </p>
+            </div>
+          </div>
+
+          <h2>Prawo spadkowe: bezpieczne przejście majątku</h2>
+          <p class="section-intro">
+            Śmierć bliskiej osoby wiąże się z koniecznością uregulowania spraw
+            spadkowych. Prowadzimy Klientów przez wszystkie etapy prawa
+            spadkowego, zapewniając spokój i bezpieczeństwo prawne:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Dział spadku</h3>
+              <p>
+                Skuteczny podział odziedziczonego majątku pomiędzy
+                spadkobierców.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Odrzucenie spadku</h3>
+              <p>
+                Ochrona przed długami spadkowymi, w tym postępowanie w imieniu
+                małoletnich.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Zachowek i wydziedziczenie</h3>
+              <p>
+                Dochodzenie roszczeń o zachowek, a także pomoc w procedurach
+                wydziedziczenia i zrzeczenia się spadku.
+              </p>
+            </div>
+          </div>
+
+          <h2>
+            Odszkodowania i zadośćuczynienia: pełna rekompensata za szkody
+          </h2>
+          <p class="section-intro">
+            Naszą specjalnością jest kompleksowe dochodzenie roszczeń
+            odszkodowawczych. Reprezentujemy Klientów w sprawach mających na
+            celu uzyskanie pełnej rekompensaty za poniesione szkody i krzywdy
+            (zadośćuczynienia):
+          </p>
+          <ul class="benefits-list">
+            <li>Wypadki drogowe i komunikacyjne</li>
+            <li>Błędy medyczne (błędy w sztuce lekarskiej)</li>
+            <li>
+              Szkody majątkowe wynikające z czynów niedozwolonych lub
+              niewykonania umowy
+            </li>
+            <li>
+              Naruszenie dóbr osobistych (np. zniesławienie, naruszenie
+              wizerunku, prywatności)
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              Ochrona prawna w zakresie prawa cywilnego to inwestycja w
+              stabilność Twojej przyszłości. Jeżeli szukają Państwo radcy
+              prawnego, który specjalizuje się w prawie cywilnym, i który
+              poprowadzi Państwa sprawę od A do Z, zapraszamy do kontaktu.
+            </p>
+          </div>
+
+          <div class="related-services-grid">
+            <h3>Zobacz także</h3>
+            <div class="related-grid">
+              <a href="/uslugi/windykacja-naleznosci" class="related-card">
+                <h4>Windykacja</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-gospodarcze" class="related-card">
+                <h4>Prawo Gospodarcze</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-rodzinne" class="related-card">
+                <h4>Prawo Rodzinne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="contact-card">
+            <h3>Ochrona praw cywilnych</h3>
+            <p>
+              Każdy spór wymaga indywidualnego podejścia i gruntownej analizy
+              prawnej.
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">phone</span>
+                <a href="tel:+48503606738">+48 503 606 738</a>
+              </div>
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">email</span>
+                <a href="mailto:kontakt@kancelariakalinowska.pl"
+                  >kontakt@kancelariakalinowska.pl</a
+                >
+              </div>
+            </div>
+            <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </ServiceLayout>
 
 <style>
@@ -185,7 +288,7 @@ const serviceSchema = generateServiceSchema({
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    background-image: url("/prawo-cywilne.webp");
+    background-image: url('/prawo-cywilne.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -382,11 +485,11 @@ const serviceSchema = generateServiceSchema({
     .related-grid {
       @apply grid-cols-1 gap-3;
     }
-    
+
     .related-card {
       @apply p-3;
     }
-    
+
     .related-card h4 {
       @apply text-sm;
     }

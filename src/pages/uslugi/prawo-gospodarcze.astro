@@ -1,127 +1,183 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
-import { generateStructuredData, generateBreadcrumbSchema, generateServiceSchema } from '@/utils/structuredData';
+import {
+  generateStructuredData,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from '@/utils/structuredData';
 
-const title = "Prawo Gospodarcze Białystok – Obsługa Firm i Spółek | Radca Prawny";
-const description = "Obsługa prawna firm w Białymstoku: umowy handlowe, prawo spółek, restrukturyzacja. Wsparcie dla przedsiębiorców. Tel: +48 503 606 738.";
+const title =
+  'Prawo Gospodarcze Białystok – Obsługa Firm i Spółek | Radca Prawny';
+const description =
+  'Obsługa prawna firm w Białymstoku: umowy handlowe, prawo spółek, restrukturyzacja. Wsparcie dla przedsiębiorców. Tel: +48 503 606 738.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const breadcrumbs = generateBreadcrumbSchema([
-  { name: "Strona główna", url: "https://kancelariakalinowska.pl/" },
-  { name: "Usługi", url: "https://kancelariakalinowska.pl/#uslugi" },
-  { name: "Prawo gospodarcze", url: canonicalURL.toString() }
+  { name: 'Strona główna', url: 'https://kancelariakalinowska.pl/' },
+  { name: 'Usługi', url: 'https://kancelariakalinowska.pl/#uslugi' },
+  { name: 'Prawo gospodarcze', url: canonicalURL.toString() },
 ]);
 
 const serviceSchema = generateServiceSchema({
-  serviceType: "Prawo gospodarcze",
-  name: "Prawo Gospodarcze Białystok",
-  description: "Obsługa prawna firm, umowy handlowe, prawo spółek i restrukturyzacja. Wsparcie dla przedsiębiorców na każdym etapie rozwoju biznesu.",
-  url: canonicalURL.toString()
+  serviceType: 'Prawo gospodarcze',
+  name: 'Prawo Gospodarcze Białystok',
+  description:
+    'Obsługa prawna firm, umowy handlowe, prawo spółek i restrukturyzacja. Wsparcie dla przedsiębiorców na każdym etapie rozwoju biznesu.',
+  url: canonicalURL.toString(),
 });
 ---
 
-<ServiceLayout 
-      title={title}
-      description={description}
+<ServiceLayout
+  title={title}
+  description={description}
   canonicalURL={canonicalURL}
 >
-    <!-- Service Hero -->
-    <section class="service-hero" aria-label="Tło przedstawiające prawo gospodarcze - obsługa prawna firm i przedsiębiorców">
-      <div class="container">
-        <div class="service-hero-content">
-          <h1>Prawo Gospodarcze</h1>
-          <p class="service-hero-description">
+  <!-- Service Hero -->
+  <section
+    class="service-hero"
+    aria-label="Tło przedstawiające prawo gospodarcze - obsługa prawna firm i przedsiębiorców"
+  >
+    <div class="container">
+      <div class="service-hero-content">
+        <h1>Prawo Gospodarcze</h1>
+        <p class="service-hero-description">
           Obsługa prawna dla firm i przedsiębiorców. Oferujemy kompleksową
           obsługę prawną dla jednoosobowych działalności gospodarczych oraz
           spółek prawa handlowego.
-          </p>
-        </div>
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Service Details -->
-    <section class="service-details section">
-      <div class="container">
-        <div class="service-content">
-          <div class="service-main">
-            <h2>Bezpieczeństwo i skuteczność prawna twojego biznesu</h2>
-            <div class="intro-text">
-              <p>W dynamicznym środowisku biznesowym prawo gospodarcze jest kluczem do stabilnego rozwoju i minimalizowania ryzyka. Prowadzenie działalności gospodarczej wymaga stałego nadzoru prawnego – od negocjacji kontraktów, przez bieżącą obsługę korporacyjną, po reprezentację w sporach sądowych. Nasza Kancelaria oferuje kompleksową obsługę prawną firm, stając się zaufanym partnerem w budowaniu przewagi konkurencyjnej Państwa przedsiębiorstwa.</p>
-            </div>
-
-            <h2>Doradztwo i wsparcie kontraktowe</h2>
-            <p class="section-intro">Nasza rola polega na aktywnym wspieraniu Państwa w podejmowaniu strategicznych decyzji, zanim dojdzie do sporu. Działamy tak, aby zabezpieczyć Państwa interesy na wczesnym etapie:</p>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Doradztwo bieżące</h3>
-                <p>Uczestniczymy w spotkaniach biznesowych, opiniujemy wewnętrzne i zewnętrzne dokumenty oraz przygotowujemy precyzyjne projekty umów, pism oraz regulaminów, dostosowanych do specyfiki Państwa branży.</p>
-              </div>
-              <div class="service-item">
-                <h3>Negocjacje kontraktów</h3>
-                <p>Reprezentujemy Państwa interesy w trudnych negocjacjach handlowych, dbając o korzystne warunki współpracy i eliminując niekorzystne klauzule.</p>
-              </div>
-              <div class="service-item">
-                <h3>Opinie prawne</h3>
-                <p>Dostarczamy rzetelne i zrozumiałe opinie prawne, które stanowią solidną podstawę do podejmowania świadomych decyzji biznesowych.</p>
-              </div>
-            </div>
-
-            <h2>Reprezentacja w sporach i kontakt z instytucjami</h2>
-            <p class="section-intro">Gdy konflikty są nieuniknione, zapewniamy skuteczną i zdecydowaną reprezentację, chroniąc Państwa kapitał i reputację:</p>
-            <div class="service-list">
-              <div class="service-item">
-                <h3>Postępowania sądowe</h3>
-                <p>Reprezentujemy przedsiębiorców przed sądami wszystkich instancji w sprawach cywilnych i gospodarczych, skutecznie dochodząc roszczeń lub broniąc się przed bezpodstawnymi żądaniami.</p>
-              </div>
-              <div class="service-item">
-                <h3>Kontakt z urzędami</h3>
-                <p>Zapewniamy pełną reprezentację przed organami administracji publicznej, urzędami skarbowymi, inspekcjami oraz innymi instytucjami, dbając o formalną poprawność i terminowość wszelkich procedur.</p>
-              </div>
-            </div>
-
-            <h2>Stała obsługa prawna: elastyczność i ciągłość wsparcia</h2>
-            <p class="section-intro">Dla przedsiębiorców potrzebujących regularnego wsparcia, oferujemy usługę stałej obsługi prawnej.</p>
-
-            <div class="related-services-grid">
-              <h3>Zobacz także</h3>
-              <div class="related-grid">
-                <a href="/uslugi/prawo-cywilne" class="related-card">
-                  <h4>Prawo Cywilne</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/windykacja-naleznosci" class="related-card">
-                  <h4>Windykacja</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="/uslugi/prawo-pracy" class="related-card">
-                  <h4>Prawo Pracy</h4>
-                  <span class="material-icons" aria-hidden="true">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-
+  <!-- Service Details -->
+  <section class="service-details section">
+    <div class="container">
+      <div class="service-content">
+        <div class="service-main">
+          <h2>Bezpieczeństwo prawna twojego biznesu</h2>
+          <div class="intro-text">
+            <p>
+              W dynamicznym środowisku biznesowym prawo gospodarcze jest kluczem
+              do stabilnego rozwoju i minimalizowania ryzyka. Prowadzenie
+              działalności gospodarczej wymaga stałego nadzoru prawnego – od
+              negocjacji kontraktów, przez bieżącą obsługę korporacyjną, po
+              reprezentację w sporach sądowych. Nasza Kancelaria oferuje
+              kompleksową obsługę prawną firm, stając się zaufanym partnerem w
+              budowaniu przewagi konkurencyjnej Państwa przedsiębiorstwa.
+            </p>
           </div>
 
-          <div class="service-sidebar">
-            <div class="contact-card">
+          <h2>Doradztwo i wsparcie kontraktowe</h2>
+          <p class="section-intro">
+            Nasza rola polega na aktywnym wspieraniu Państwa w podejmowaniu
+            strategicznych decyzji, zanim dojdzie do sporu. Działamy tak, aby
+            zabezpieczyć Państwa interesy na wczesnym etapie:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Doradztwo bieżące</h3>
+              <p>
+                Uczestniczymy w spotkaniach biznesowych, opiniujemy wewnętrzne i
+                zewnętrzne dokumenty oraz przygotowujemy precyzyjne projekty
+                umów, pism oraz regulaminów, dostosowanych do specyfiki Państwa
+                branży.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Negocjacje kontraktów</h3>
+              <p>
+                Reprezentujemy Państwa interesy w trudnych negocjacjach
+                handlowych, dbając o korzystne warunki współpracy i eliminując
+                niekorzystne klauzule.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Opinie prawne</h3>
+              <p>
+                Dostarczamy rzetelne i zrozumiałe opinie prawne, które stanowią
+                solidną podstawę do podejmowania świadomych decyzji biznesowych.
+              </p>
+            </div>
+          </div>
+
+          <h2>Reprezentacja w sporach i kontakt z instytucjami</h2>
+          <p class="section-intro">
+            Gdy konflikty są nieuniknione, zapewniamy skuteczną i zdecydowaną
+            reprezentację, chroniąc Państwa kapitał i reputację:
+          </p>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>Postępowania sądowe</h3>
+              <p>
+                Reprezentujemy przedsiębiorców przed sądami wszystkich instancji
+                w sprawach cywilnych i gospodarczych, skutecznie dochodząc
+                roszczeń lub broniąc się przed bezpodstawnymi żądaniami.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Kontakt z urzędami</h3>
+              <p>
+                Zapewniamy pełną reprezentację przed organami administracji
+                publicznej, urzędami skarbowymi, inspekcjami oraz innymi
+                instytucjami, dbając o formalną poprawność i terminowość
+                wszelkich procedur.
+              </p>
+            </div>
+          </div>
+
+          <h2>Stała obsługa prawna: elastyczność i ciągłość wsparcia</h2>
+          <p class="section-intro">
+            Dla przedsiębiorców potrzebujących regularnego wsparcia, oferujemy
+            usługę stałej obsługi prawnej.
+          </p>
+
+          <div class="related-services-grid">
+            <h3>Zobacz także</h3>
+            <div class="related-grid">
+              <a href="/uslugi/prawo-cywilne" class="related-card">
+                <h4>Prawo Cywilne</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/windykacja-naleznosci" class="related-card">
+                <h4>Windykacja</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+              <a href="/uslugi/prawo-pracy" class="related-card">
+                <h4>Prawo Pracy</h4>
+                <span class="material-icons" aria-hidden="true"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="contact-card">
             <h3>Wsparcie biznesowe</h3>
             <p>Każdy biznes wymaga profesjonalnego wsparcia prawnego.</p>
-              <div class="contact-info">
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">phone</span>
-                  <a href="tel:+48503606738">+48 503 606 738</a>
-                </div>
-                <div class="contact-item">
-                  <span class="material-icons" aria-hidden="true">email</span>
-                  <a href="mailto:kontakt@kancelariakalinowska.pl">kontakt@kancelariakalinowska.pl</a>
-                </div>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">phone</span>
+                <a href="tel:+48503606738">+48 503 606 738</a>
               </div>
-              <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
+              <div class="contact-item">
+                <span class="material-icons" aria-hidden="true">email</span>
+                <a href="mailto:kontakt@kancelariakalinowska.pl"
+                  >kontakt@kancelariakalinowska.pl</a
+                >
+              </div>
             </div>
+            <a href="tel:+48503606738" class="cta-button cta-call">Zadzwoń</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </ServiceLayout>
 
 <style>
@@ -133,7 +189,7 @@ const serviceSchema = generateServiceSchema({
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    background-image: url("/prawo-gospodarcze.webp");
+    background-image: url('/prawo-gospodarcze.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -323,11 +379,11 @@ const serviceSchema = generateServiceSchema({
     .related-grid {
       @apply grid-cols-1 gap-3;
     }
-    
+
     .related-card {
       @apply p-3;
     }
-    
+
     .related-card h4 {
       @apply text-sm;
     }
