@@ -25,7 +25,7 @@ export const categoryToServices: Record<string, Service[]> = {
     {
       title: 'Windykacja należności',
       url: '/uslugi/windykacja-naleznosci',
-      description: 'Skuteczne odzyskiwanie długów i prowadzenie postępowań egzekucyjnych.'
+      description: 'Odzyskiwanie długów i prowadzenie postępowań egzekucyjnych.'
     },
     {
       title: 'Prawo cywilne',
