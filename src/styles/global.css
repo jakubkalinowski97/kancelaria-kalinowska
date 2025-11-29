@@ -642,6 +642,40 @@
     @apply text-primary-700;
   }
 
+  .contact-facebook-link {
+    @apply inline-flex items-center gap-2;
+  }
+
+  .contact-facebook-icon {
+    @apply flex-shrink-0;
+    color: #C4A574;
+  }
+
+  /* Contact Map */
+  .contact-map {
+    @apply mt-20;
+  }
+
+  .map-title {
+    @apply font-serif text-3xl font-semibold mb-8 text-gray-900 text-center;
+  }
+
+  .map-container {
+    @apply rounded-2xl overflow-hidden shadow-lg;
+    border: 2px solid #E5DCC3;
+  }
+
+  .google-map {
+    @apply w-full;
+    min-height: 450px;
+  }
+
+  @media (max-width: 768px) {
+    .google-map {
+      min-height: 350px;
+    }
+  }
+
   .contact-form {
     @apply lg:col-span-3 pl-10 border-l-2 border-primary-200 text-left;
   }
@@ -917,6 +951,14 @@
 
   .footer-contact-item a:hover {
     @apply text-primary-200;
+  }
+
+  .footer-facebook-link {
+    @apply inline-flex items-center gap-2;
+  }
+
+  .footer-facebook-icon {
+    @apply flex-shrink-0 text-gray-300;
   }
 
   .footer-bottom {
