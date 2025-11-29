@@ -127,6 +127,15 @@ const {
     <slot name="head" />
     <ViewTransitions />
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-culture="PL" data-cbid="ad007af9-ac33-4037-b862-dd7064eb7fde"  type="text/javascript"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1G9FLRS7Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-G1G9FLRS7Z');
+    </script>
   </head>
   <body>
     <slot />
