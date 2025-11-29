@@ -2,7 +2,7 @@
 const IS_DEV = import.meta.env.DEV;
 
 // Cloudflare Turnstile - testowy klucz dla localhost
-const TURNSTILE_SITE_KEY = IS_DEV 
+const TURNSTILE_SITE_KEY = IS_DEV
   ? '1x00000000000000000000AA' // Testowy klucz (zawsze sukces)
   : '0x4AAAAAAB6A2yJqViomFv4t'; // Produkcyjny klucz
 
@@ -11,19 +11,18 @@ const API_ENDPOINT = IS_DEV
   : 'https://kancelariakalinowska.pl/api/contact';
 ---
 
-<section 
-  id="kontakt" 
+<section
+  id="kontakt"
   class="section contact"
   data-api-endpoint={API_ENDPOINT}
   data-turnstile-key={TURNSTILE_SITE_KEY}
 >
   <div class="container">
-    <div class="section-header animate-on-scroll">
+    <div class="section-main-header animate-on-scroll">
       <h2 class="section-title">Skontaktuj się z nami</h2>
       <p class="section-description">
-        Świadczymy usługi na terenie Białegostoku, a także zdalnie. 
-        <br> Skontaktuj się z nami, aby
-        omówić swoją sprawę i poznać możliwe rozwiązania.
+        Świadczymy usługi na terenie Białegostoku, a także zdalnie.
+        <br /> Skontaktuj się z nami, aby omówić swoją sprawę i poznać możliwe rozwiązania.
       </p>
     </div>
     <div class="contact-content">
@@ -60,29 +59,36 @@ const API_ENDPOINT = IS_DEV
         <p class="contact-form-subtitle">
           Opisz swoją sprawę, a skontaktujemy się z Tobą w ciągu 24 godzin.
         </p>
-        
+
         <form id="contact-form">
-          <input type="text" name="honeypot" id="honeypot" style="display:none" tabindex="-1" autocomplete="off" />
-          
+          <input
+            type="text"
+            name="honeypot"
+            id="honeypot"
+            style="display:none"
+            tabindex="-1"
+            autocomplete="off"
+          />
+
           <div class="form-row">
             <div class="form-group">
               <label for="name">Imię i nazwisko *</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                required 
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
                 minlength="2"
                 maxlength="100"
               />
             </div>
             <div class="form-group">
               <label for="email">Email *</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                required 
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
                 maxlength="254"
               />
             </div>
@@ -90,20 +96,15 @@ const API_ENDPOINT = IS_DEV
           <div class="form-row">
             <div class="form-group">
               <label for="phone">Telefon</label>
-              <input 
-                type="tel" 
-                id="phone" 
-                name="phone" 
-                maxlength="20"
-              />
+              <input type="tel" id="phone" name="phone" maxlength="20" />
             </div>
             <div class="form-group">
               <label for="subject">Temat sprawy *</label>
-              <input 
-                type="text" 
-                id="subject" 
-                name="subject" 
-                required 
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
                 minlength="3"
                 maxlength="200"
               />
@@ -120,7 +121,7 @@ const API_ENDPOINT = IS_DEV
               maxlength="5000"
               rows="6"></textarea>
           </div>
-          
+
           <!-- Cloudflare Turnstile -->
           <div class="form-group">
             <div
@@ -129,16 +130,20 @@ const API_ENDPOINT = IS_DEV
               data-sitekey={TURNSTILE_SITE_KEY}
               data-theme="light"
               data-size="compact"
-            ></div>
+            >
+            </div>
           </div>
-          
+
           <div class="form-group">
             <p class="form-privacy-note">
-              * Pola wymagane. Przesyłając formularz zgadzasz się na przetwarzanie danych osobowych 
-              w celu udzielenia odpowiedzi na zapytanie zgodnie z naszą <a href="/polityka-prywatnosci">polityką prywatności</a>.
+              * Pola wymagane. Przesyłając formularz zgadzasz się na
+              przetwarzanie danych osobowych w celu udzielenia odpowiedzi na
+              zapytanie zgodnie z naszą <a href="/polityka-prywatnosci"
+                >polityką prywatności</a
+              >.
             </p>
           </div>
-          
+
           <button type="submit" class="form-submit" id="submit-btn">
             <span class="btn-text">Wyślij wiadomość</span>
             <span class="btn-spinner" style="display: none;">Wysyłanie...</span>
@@ -157,7 +162,7 @@ const API_ENDPOINT = IS_DEV
    * Contact form handler
    * Handles form submission, Turnstile verification, and user feedback
    */
-  
+
   interface FormElements {
     form: HTMLFormElement;
     submitBtn: HTMLButtonElement;
@@ -197,8 +202,10 @@ const API_ENDPOINT = IS_DEV
   // Get form elements
   function getFormElements(): FormElements | null {
     const form = document.getElementById('contact-form') as HTMLFormElement;
-    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-    
+    const submitBtn = document.getElementById(
+      'submit-btn'
+    ) as HTMLButtonElement;
+
     if (!form || !submitBtn) {
       console.error('Contact form elements not found');
       return null;
@@ -229,7 +236,7 @@ const API_ENDPOINT = IS_DEV
 
     const toastId = `toast-${toastIdCounter++}`;
     const icon = type === 'success' ? '✓' : '✕';
-    
+
     const toast = document.createElement('div');
     toast.id = toastId;
     toast.className = `toast toast-${type}`;
@@ -268,7 +275,7 @@ const API_ENDPOINT = IS_DEV
     if (!toast) return;
 
     toast.classList.add('toast-hiding');
-    
+
     // Remove from DOM after animation
     setTimeout(() => {
       toast.remove();
@@ -276,10 +283,7 @@ const API_ENDPOINT = IS_DEV
   }
 
   // Toggle button loading state
-  function setButtonLoading(
-    elements: FormElements,
-    isLoading: boolean
-  ): void {
+  function setButtonLoading(elements: FormElements, isLoading: boolean): void {
     elements.submitBtn.disabled = isLoading;
     elements.btnText.style.display = isLoading ? 'none' : 'inline';
     elements.btnSpinner.style.display = isLoading ? 'inline' : 'none';
@@ -288,9 +292,9 @@ const API_ENDPOINT = IS_DEV
   // Collect form data
   function collectFormData(form: HTMLFormElement): ContactFormData {
     const formData = new FormData(form);
-    const turnstileResponse = document.querySelector<HTMLInputElement>(
-      '[name="cf-turnstile-response"]'
-    )?.value || '';
+    const turnstileResponse =
+      document.querySelector<HTMLInputElement>('[name="cf-turnstile-response"]')
+        ?.value || '';
 
     return {
       name: (formData.get('name') as string) || '',
@@ -394,7 +398,7 @@ const API_ENDPOINT = IS_DEV
     loadTurnstile();
 
     // Attach form submit handler
-    elements.form.addEventListener('submit', (event) =>
+    elements.form.addEventListener('submit', event =>
       handleFormSubmit(event, elements, apiEndpoint)
     );
   }

@@ -421,6 +421,10 @@
     @apply text-center max-w-2xl mx-auto mb-20;
   }
 
+  .section-main-header {
+    @apply text-center max-w-2xl mx-auto mb-20;
+  }
+
   .section-badge {
     @apply inline-block bg-primary-50 text-primary-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-primary-100;
   }
@@ -1075,9 +1079,13 @@
     @apply py-20;
   }
 
-        .section-header {
-          @apply mb-16;
-        }
+  .section-header {
+    @apply mb-16 pt-8;
+  }
+
+  .section-main-header {
+    @apply mb-16;
+  }
 
   .services-grid {
     @apply grid-cols-2 gap-6;
