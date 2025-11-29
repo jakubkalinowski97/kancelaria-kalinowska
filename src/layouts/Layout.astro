@@ -126,15 +126,74 @@ const {
 
     <slot name="head" />
     <ViewTransitions />
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      gtag('consent', 'default', {
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted'
+      });
+    </script>
+    
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-culture="PL" data-cbid="ad007af9-ac33-4037-b862-dd7064eb7fde"  type="text/javascript"></script>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1G9FLRS7Z"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-G1G9FLRS7Z');
+      
+      window.addEventListener('CookiebotOnAccept', function (e) {
+        if (Cookiebot.consent.marketing) {
+          gtag('consent', 'update', {
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+        if (Cookiebot.consent.preferences) {
+          gtag('consent', 'update', {
+            'functionality_storage': 'granted',
+            'personalization_storage': 'granted'
+          });
+        }
+      }, false);
+      
+      window.addEventListener('CookiebotOnDecline', function (e) {
+        gtag('consent', 'update', {
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied',
+          'personalization_storage': 'denied'
+        });
+      }, false);
+      
+      window.addEventListener('CookiebotOnLoad', function (e) {
+        if (Cookiebot.consent.marketing) {
+          gtag('consent', 'update', {
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+          });
+        }
+        if (Cookiebot.consent.preferences) {
+          gtag('consent', 'update', {
+            'functionality_storage': 'granted',
+            'personalization_storage': 'granted'
+          });
+        }
+      }, false);
     </script>
   </head>
   <body>
