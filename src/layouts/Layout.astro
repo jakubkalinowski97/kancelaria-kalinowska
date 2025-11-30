@@ -8,6 +8,7 @@ export interface Props {
   description: string;
   canonicalURL?: URL;
   image?: string;
+  ogType?: 'website' | 'article';
   noindex?: boolean;
 }
 
@@ -16,6 +17,7 @@ const {
   description,
   canonicalURL = new URL(Astro.url.pathname, Astro.site),
   image = new URL('/og-image.png', Astro.site).toString(),
+  ogType = 'website',
   noindex = false,
 } = Astro.props;
 ---
@@ -42,7 +44,7 @@ const {
       openGraph={{
         basic: {
           title: title,
-          type: 'website',
+          type: ogType,
           image: image,
           url: canonicalURL.toString(),
         },
