@@ -82,7 +82,7 @@ export default defineConfig({
               "Prawo Rodzinne",
               "Prawo Gospodarcze",
               "Prawo Pracy",
-              "Ochrona Praw Zwierząt",
+              "Prawna Ochrona Zwierząt",
               "Porady Prawne",
             ],
           },
