@@ -7,9 +7,9 @@ import {
 } from '@/utils/structuredData';
 
 const title =
-  'Błędy Weterynaryjne Białystok – Ochrona Prawna Zwierząt | Radca Prawny';
+  'Błędy Weterynaryjne - cała Polska – Ochrona Prawna Zwierząt | Radca Prawny';
 const description =
-  'Reprezentacja właścicieli zwierząt w sprawach błędów weterynaryjnych w Białymstoku. Zaniechanie, błędne leczenie, szkody. Tel: +48 503 606 738.';
+  'Reprezentacja właścicieli zwierząt w sprawach błędów weterynaryjnych w całej Polsce. Zaniechanie, błędne leczenie, szkody. Tel: +48 503 606 738.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const breadcrumbs = generateBreadcrumbSchema([
@@ -20,7 +20,7 @@ const breadcrumbs = generateBreadcrumbSchema([
 
 const serviceSchema = generateServiceSchema({
   serviceType: 'Błędy weterynaryjne',
-  name: 'Błędy Weterynaryjne Białystok',
+  name: 'Błędy Weterynaryjne - cała Polska',
   description:
     'Ochrona prawna dla Twojego zwierzęcia. Reprezentujemy właścicieli zwierząt w sprawach błędów weterynaryjnych dotyczących zaniechania leczenia, niewłaściwego lub nieuzasadnionego leczenienia.',
   url: canonicalURL.toString(),
