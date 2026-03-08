@@ -105,7 +105,7 @@ export function generatePersonSchema() {
       'Prawo gospodarcze',
       'Prawo pracy',
       'Windykacja należności',
-      'Ochrona praw zwierząt'
+      'Prawna ochrona zwięrząt'
     ]
   };
 }

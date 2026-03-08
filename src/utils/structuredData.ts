@@ -32,7 +32,7 @@ export const legalServiceSchema = {
     "Prawo gospodarcze",
     "Prawo pracy",
     "Windykacja należności",
-    "Ochrona praw zwierząt",
+    "Prawna ochrona zwięrząt",
     "Błędy weterynaryjne"
   ],
   "founder": {
